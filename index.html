@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="de">
 <head>
@@ -23,6 +24,7 @@ button,a{font:inherit}
 .content{padding:18px 16px 112px}
 .page{animation:fade .22s ease}
 @keyframes fade{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
+
 .hero{position:relative;overflow:hidden;border:1px solid #2b4358;border-radius:26px;background:radial-gradient(circle at 50% 0%,#203b55 0,#102337 42%,#08131f 80%);padding:28px 20px 12px;text-align:center;box-shadow:var(--shadow)}
 .hero .eyebrow{position:relative;z-index:2;color:var(--green2);font-size:12px;letter-spacing:3px;font-weight:800;margin-bottom:14px}
 .seal{position:relative;z-index:2;width:132px;height:132px;border:3px solid var(--gold);border-radius:50%;margin:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--gold2);box-shadow:0 0 0 8px rgba(216,177,91,.07),inset 0 0 28px rgba(216,177,91,.07)}
@@ -36,6 +38,7 @@ button,a{font:inherit}
 .skyline svg{position:absolute;left:0;bottom:0;width:100%;height:100%}
 .skyline path{fill:none;stroke:var(--gold);stroke-width:2.2;opacity:.92}
 .skyline .fill{fill:rgba(216,177,91,.08);stroke:none}
+
 .section-title{margin:25px 0 12px;color:var(--orange);font-size:23px;letter-spacing:.2px}
 .lead{color:#edf2f6;line-height:1.65;margin:0 0 13px}
 .notice{border-left:4px solid var(--orange);background:#10263a;border-radius:0 15px 15px 0;padding:14px 15px;color:#fff;line-height:1.55}
@@ -107,7 +110,12 @@ button,a{font:inherit}
 .drawer-panel button{width:100%;text-align:left;background:#102337;border:1px solid var(--line);color:#fff;border-radius:13px;padding:14px;margin:5px 0;cursor:pointer}
 .close{float:right;border:0;background:transparent;color:#fff;font-size:25px;cursor:pointer}
 .small-note{font-size:12px;color:#7e8d9d;line-height:1.45}
-@media(max-width:480px){.grid{grid-template-columns:1fr 1fr}.hero h1{font-size:25px}.hero .munich{font-size:30px}.content{padding-left:13px;padding-right:13px}}
+@media(max-width:480px){
+.grid{grid-template-columns:1fr 1fr}
+.hero h1{font-size:25px}
+.hero .munich{font-size:30px}
+.content{padding-left:13px;padding-right:13px}
+}
 </style>
 </head>
 
@@ -130,70 +138,69 @@ button,a{font:inherit}
 <button data-page="infos">ⓘ<span>Infos</span></button>
 <button data-page="mehr">☰<span>Mehr</span></button>
 </nav>
+
 </div>
 
 <div class="drawer" id="drawer">
 <div class="drawer-panel">
 <button class="close" id="closeDrawer">×</button>
-<h2>Mehr</h2>
+<h2>FRITSCHLE · Mehr</h2>
 <button data-page="programm">▣ &nbsp; Programm</button>
-<button data-page="karte">⌖ &nbsp; Karte & Routen</button>
+<button data-page="karte">⌖ &nbsp; Karten & Routen</button>
 <button data-page="infos">ⓘ &nbsp; Hotel & ÖPNV</button>
-<button data-page="nachtleben">♫ &nbsp; Nachtleben</button>
+<button data-page="nachtleben">♫ &nbsp; Nachtleben – Vorschläge</button>
 <button data-page="wetter">☀ &nbsp; Wetter & Countdown</button>
-<p class="small-note">Fritschle · Jubiläumsausflug München 2026</p>
+<p class="small-note">Die Nachtleben-Einträge sind ausschließlich Vorschläge. Öffnungszeiten bitte vor dem Besuch prüfen.</p>
 </div>
 </div>
 
 <script>
+
 const maps=q=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
-const route=(a,b)=>'https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent(a)+'&destination='+encodeURIComponent(b)+'&travelmode=walking';
+
+const route=(from,to,mode='walking')=>'https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent(from)+'&destination='+encodeURIComponent(to)+'&travelmode='+mode;
 
 const data={
 days:{
-do:{
-title:'Donnerstag · 15. Oktober',
-events:[
-['14:00','Abfahrt in Uttenweiler','Busfahrt nach München'],
+do:{title:'Donnerstag, 15. Oktober 2026',events:[
+['14:00','Abfahrt mit dem Bus','Treffpunkt: Betriebshof Uttenweiler'],
 ['17:00','Ankunft in München','Check-in im Holiday Inn München City Centre'],
-['18:30','Treffpunkt im Hotelfoyer','Gemeinsamer Start zum Abendprogramm'],
-['19:00','Donisl','Weinstraße 1 · gemeinsamer Abend bis 22:00 Uhr']
+['18:30','Treffpunkt im Foyer des Hotels','Gemeinsamer Fußmarsch zum Donisl'],
+['19:00','Donisl · Weinstraße 1','Geselliger Abend bis 22:00 Uhr'],
+['danach','Nachtleben in München','Nur als Vorschlag – siehe Nachtleben.']
 ]},
-fr:{
-title:'Freitag · 16. Oktober',
-events:[
-['07:00','Frühstück',''],
-['08:30','Treffpunkt im Hotel','Bitte pünktlich sein'],
-['09:00','Fußweg zum GOP Varieté',''],
-['10:00','GOP Varieté-Theater',''],
-['12:30','Mittagspause','Nach der Mittagspause bitte gebuchte Variante wählen'],
-['12:45','Abfahrt zur Allianz Arena','Nur für Variante B'],
-['14:00','Besichtigung','BMW Welt / BMW Museum oder Allianz Arena'],
-['19:00','GOP Varieté',''],
-['anschließend','Nachtleben','Nur Vorschläge – siehe Nachtleben']
+
+fr:{title:'Freitag, 16. Oktober 2026',events:[
+['ab 07:00','Frühstück im Hotel',''],
+['08:30','Treffpunkt im Hotel','Wichtig: Der Treffpunkt wurde von 09:00 Uhr auf 08:30 Uhr vorverlegt.'],
+['09:00','Fußmarsch zum GOP Varieté','Gemeinsamer Weg zum GOP Varieté-Theater'],
+['10:00','GOP Varieté-Theater','Gebuchtes Programm'],
+['12:30','Mittagspause','Individuell'],
+['12:45','Abfahrt zur Allianz Arena','Nur für die gebuchte Variante B'],
+['nach der Mittagspause','Gebuchte Variante wählen','Variante A: BMW Welt & Museum · Variante B: Allianz Arena'],
+['19:00','GOP Varieté-Theater München','Maximilianstraße 47']
 ]},
-sa:{
-title:'Samstag · 17. Oktober',
-events:[
-['07:00','Frühstück',''],
-['anschließend','Check-out',''],
-['09:00','Fußweg Richtung Marienplatz',''],
+
+sa:{title:'Samstag, 17. Oktober 2026',events:[
+['ab 07:00','Frühstück im Hotel',''],
+['danach','Check-out','Gepäck im Hotel bereitstellen'],
+['09:00','Zu Fuß Richtung Marienplatz','Gemeinsamer Weg in die Innenstadt'],
 ['09:30','Stadtführung','Marienplatz & Viktualienmarkt'],
-['13:00','Mittagessen im Hofbräuhaus',''],
-['15:00','Gepäckabholung im Hotel','Fußweg zurück zum Holiday Inn München City Centre'],
-['15:00','Abfahrt nach Uttenweiler','']
+['13:00','Mittagessen im Hofbräuhaus','Platzl 9'],
+['15:00','Gepäck am Hotel abholen','Zu Fuß zurück zum Holiday Inn München City Centre'],
+['15:30','Abfahrt zur Heimreise','Rückfahrt nach Uttenweiler']
 ]}
 },
 
 places:[
-['Holiday Inn München City Centre','Hochstraße 3 · 81669 München','Holiday Inn München City Centre'],
-['GOP Varieté-Theater München','Maximilianstraße 47 · 80539 München','GOP Varieté-Theater München'],
-['Donisl','Weinstraße 1 · 80333 München','Donisl München'],
-['BMW Welt','Am Olympiapark 1 · 80809 München','BMW Welt München'],
-['Allianz Arena','Franz-Beckenbauer-Platz 5 · 80939 München','Allianz Arena München'],
+['Holiday Inn München City Centre','Hochstraße 3, 81669 München','Holiday Inn München City Centre'],
+['Donisl','Weinstraße 1, 80333 München','Donisl München'],
+['GOP Varieté-Theater München','Maximilianstraße 47, 80538 München','GOP Varieté-Theater München'],
+['BMW Welt & Museum','Am Olympiapark 1, 80809 München','BMW Welt München'],
+['Allianz Arena','Franz-Beckenbauer-Platz 5, 80939 München','Allianz Arena München'],
 ['Marienplatz','80331 München','Marienplatz München'],
-['Viktualienmarkt','80331 München','Viktualienmarkt München'],
-['Hofbräuhaus','Platzl 9 · 80331 München','Hofbräuhaus München']
+['Viktualienmarkt','Viktualienmarkt, 80331 München','Viktualienmarkt München'],
+['Hofbräuhaus','Platzl 9, 80331 München','Hofbräuhaus München']
 ],
 
 nights:[
@@ -220,7 +227,7 @@ return `<div class="skyline">
 <svg viewBox="0 0 760 90" preserveAspectRatio="none" aria-hidden="true">
 <path class="fill" d="M0 88V72h18V63h15v25h18V53h14v35h16V68h18v20h14V43h10v45h20V58h14v30h20V70h15v18h22V48h12v40h16V34h12v54h19V61h12v27h20V52h14v36h18V66h16v22h18V44h13v44h22V59h12v29h20V69h15v19h19V50h12v38h20V58h17v30h20V72h14v16h25V55h13v33h18V64h14v24h17V46h11v42h20V60h14v28h22V69h13v19h18V52h14v36h19V61h15v27h18V44h11v44h21V67h14v21h24V54h12v34h18V63h14v25h17V48h12v40h19V58h13v30h20V70h14v18h21V55h12v33h18V64h14v24h18V50h14v38h22V88Z"/>
 </svg>
-</div>`;
+</div>`
 }
 
 function home(){
@@ -236,51 +243,104 @@ ${skyline()}
 </div>
 
 <h2 class="section-title">Herzlich willkommen!</h2>
-<p class="lead">Liebe Kolleginnen und Kollegen,<br>zum 80-jährigen Firmenjubiläum verbringen wir gemeinsam drei schöne Tage in München.</p>
+
+<p class="lead">
+Liebe Kolleginnen und Kollegen,<br>
+zum 80-jährigen Firmenjubiläum verbringen wir gemeinsam drei schöne Tage in München.
+</p>
 
 <div class="notice">
 Freut euch auf interessante Programmpunkte, gesellige Abende und viele gemeinsame Erlebnisse. Wir wünschen euch schon heute eine tolle Zeit und ganz viel Spaß!
 </div>
 
 <div class="grid">
-<button class="tile" data-page="programm"><span class="ico">▣</span><b>Programm</b><small>Donnerstag · Freitag · Samstag</small></button>
-<button class="tile" data-page="karte"><span class="ico">⌖</span><b>Karte & Routen</b><small>Alle wichtigen Orte direkt in Google Maps</small></button>
-<button class="tile" data-page="infos"><span class="ico">ⓘ</span><b>Infos</b><small>Hotel, ÖPNV und wichtige Adressen</small></button>
-<button class="tile" data-page="nachtleben"><span class="ico">♫</span><b>Nachtleben</b><small>Nur Vorschläge für Donnerstag & Freitag</small></button>
-<button class="tile" data-page="wetter"><span class="ico">☀</span><b>Wetter & Countdown</b><small>München und die verbleibende Zeit</small></button>
-<button class="tile" data-page="mehr"><span class="ico">☰</span><b>Mehr</b><small>Alle Bereiche auf einen Blick</small></button>
+
+<button class="tile" data-page="programm">
+<span class="ico">▣</span>
+<b>Programm</b>
+<small>Donnerstag · Freitag · Samstag</small>
+</button>
+
+<button class="tile" data-page="karte">
+<span class="ico">⌖</span>
+<b>Karte & Routen</b>
+<small>Alle wichtigen Orte direkt in Google Maps</small>
+</button>
+
+<button class="tile" data-page="infos">
+<span class="ico">ⓘ</span>
+<b>Infos</b>
+<small>Hotel, ÖPNV und wichtige Adressen</small>
+</button>
+
+<button class="tile" data-page="nachtleben">
+<span class="ico">♫</span>
+<b>Nachtleben</b>
+<small>Nur Vorschläge für Donnerstag & Freitag</small>
+</button>
+
+<button class="tile" data-page="wetter">
+<span class="ico">☀</span>
+<b>Wetter & Countdown</b>
+<small>München und die verbleibende Zeit</small>
+</button>
+
+<button class="tile" data-page="mehr">
+<span class="ico">☰</span>
+<b>Mehr</b>
+<small>Alle Bereiche auf einen Blick</small>
+</button>
+
 </div>
 
 <div class="footer">Fritschle · Jubiläumsausflug München 2026</div>
-</section>`;
+</section>`
 }
 
 function programm(){
+
 let d=data.days[day];
 
 return `<section class="page">
+
 <h1 class="section-title">Programm</h1>
 
 <div class="tabs">
-<button class="tab ${day==='do'?'active':''}" data-day="do">DO<br><small>15.10.</small></button>
-<button class="tab ${day==='fr'?'active':''}" data-day="fr">FR<br><small>16.10.</small></button>
-<button class="tab ${day==='sa'?'active':''}" data-day="sa">SA<br><small>17.10.</small></button>
+
+<button class="tab ${day==='do'?'active':''}" data-day="do">
+DO<br><small>15.10.</small>
+</button>
+
+<button class="tab ${day==='fr'?'active':''}" data-day="fr">
+FR<br><small>16.10.</small>
+</button>
+
+<button class="tab ${day==='sa'?'active':''}" data-day="sa">
+SA<br><small>17.10.</small>
+</button>
+
 </div>
 
 <div class="day-card">
+
 <div class="kicker">PROGRAMM</div>
 <h2>${d.title}</h2>
+
 <div class="timeline">
+
 ${d.events.map(e=>`
 <div class="event">
 <time>${e[0]}</time>
 <strong>${e[1]}</strong>
 ${e[2]?`<p>${e[2]}</p>`:''}
-</div>`).join('')}
+</div>
+`).join('')}
+
 </div>
 </div>
 
 ${day==='fr'?`
+
 <div class="change">
 <b>ÄNDERUNG</b>
 <div class="new"><del>09:00 Uhr</del> → 08:30 Uhr</div>
@@ -301,54 +361,84 @@ ${day==='fr'?`
 <h3>Allianz Arena</h3>
 <p>Franz-Beckenbauer-Platz 5 · Abfahrt 12:45 Uhr · Besichtigung um 14:00 Uhr.</p>
 <a class="btn orange" target="_blank" href="${maps('Allianz Arena München')}">Route öffnen</a>
-</div>`:''}
+</div>
+
+`:''}
 
 ${day==='do'?`
+
 <div class="route-card">
 <h3>Donisl</h3>
 <p>Weinstraße 1 · 80333 München</p>
 <a class="btn" target="_blank" href="${maps('Donisl München')}">Donisl in Google Maps</a>
-</div>`:''}
+</div>
+
+`:''}
 
 ${day==='sa'?`
+
 <div class="route-card">
 <h3>Samstag – Wege</h3>
+
 <p>Hotel → Marienplatz</p>
 <a class="btn" target="_blank" href="${route('Holiday Inn München City Centre','Marienplatz München')}">Fußweg öffnen</a>
+
 <br>
+
 <p>Hofbräuhaus → Hotel</p>
 <a class="btn orange" target="_blank" href="${route('Hofbräuhaus München','Holiday Inn München City Centre')}">Rückweg öffnen</a>
-</div>`:''}
 
-</section>`;
+</div>
+
+`:''}
+
+</section>`
 }
 
 function karte(){
+
 return `<section class="page">
+
 <h1 class="section-title">Karte & Routen</h1>
-<p class="lead">Ein Tipp genügt: Der jeweilige Ort öffnet direkt in Google Maps.</p>
+
+<p class="lead">
+Ein Tipp genügt: Der jeweilige Ort öffnet direkt in Google Maps.
+</p>
 
 ${data.places.map(p=>`
+
 <div class="place">
+
 <div>
 <b>${p[0]}</b>
 <small>${p[1]}</small>
 </div>
-<a class="btn" target="_blank" href="${maps(p[2])}">Route</a>
-</div>`).join('')}
 
-<a class="btn orange block" target="_blank" href="${maps('Munich Germany')}">⌖ Alle Orte in Google Maps öffnen</a>
-</section>`;
+<a class="btn" target="_blank" href="${maps(p[2])}">Route</a>
+
+</div>
+
+`).join('')}
+
+<a class="btn orange block" target="_blank" href="${maps('Munich Germany')}">
+⌖ Alle Orte in Google Maps öffnen
+</a>
+
+</section>`
 }
 
 function infos(){
+
 return `<section class="page">
+
 <h1 class="section-title">Infos</h1>
 
 <div class="card">
 <h3>Holiday Inn München City Centre</h3>
 <p>Hochstraße 3 · 81669 München<br>Tel. 089 4803-0</p>
-<a class="btn" target="_blank" href="${maps('Holiday Inn München City Centre')}">Route zum Hotel</a>
+<a class="btn" target="_blank" href="${maps('Holiday Inn München City Centre')}">
+Route zum Hotel
+</a>
 </div>
 
 <div class="card">
@@ -364,119 +454,241 @@ return `<section class="page">
 <p>Donisl · Weinstraße 1</p>
 <p>GOP Varieté-Theater · Maximilianstraße 47</p>
 <p>Hofbräuhaus · Platzl 9</p>
-<a class="btn orange" target="_blank" href="${maps('Hofbräuhaus München')}">Hofbräuhaus in Maps</a>
+
+<a class="btn orange" target="_blank" href="${maps('Hofbräuhaus München')}">
+Hofbräuhaus in Maps
+</a>
+
 </div>
-</section>`;
+
+</section>`
 }
 
 function nachtleben(){
+
 return `<section class="page">
+
 <h1 class="section-title">Nachtleben München</h1>
-<p class="notice">Hier findet ihr ausschließlich Vorschläge. Die Angaben dienen als Orientierung – Öffnungszeiten bitte vor dem Besuch aktuell prüfen.</p>
+
+<p class="notice">
+Hier findet ihr ausschließlich Vorschläge. Die Angaben dienen als Orientierung – Öffnungszeiten bitte vor dem Besuch aktuell prüfen.
+</p>
 
 ${data.nights.map(n=>`
+
 <div class="night">
+
 <h3>${n[0]}</h3>
-<div class="meta">${n[1]} · ${n[3]}</div>
+
+<div class="meta">
+${n[1]} · ${n[3]}
+</div>
+
 <p>${n[2]}</p>
-<a class="btn" target="_blank" href="${maps(n[0]+' München')}">In Google Maps öffnen</a>
-</div>`).join('')}
-</section>`;
+
+<a class="btn" target="_blank" href="${maps(n[0]+' München')}">
+In Google Maps öffnen
+</a>
+
+</div>
+
+`).join('')}
+
+</section>`
 }
 
 function wetter(){
+
 return `<section class="page">
+
 <h1 class="section-title">Wetter & Countdown</h1>
 
 <div class="card">
+
 <h3>Wetter in München</h3>
-<p class="muted">Eine verlässliche konkrete Oktober-Prognose ist erst näher am Reisetermin möglich.</p>
+
+<p class="muted">
+Eine verlässliche konkrete Oktober-Prognose ist erst näher am Reisetermin möglich.
+</p>
 
 <div class="weather-grid">
-<div class="weather-box"><b>DO</b><span>15.10.</span></div>
-<div class="weather-box"><b>FR</b><span>16.10.</span></div>
-<div class="weather-box"><b>SA</b><span>17.10.</span></div>
+
+<div class="weather-box">
+<b>DO</b>
+<span>15.10.</span>
+</div>
+
+<div class="weather-box">
+<b>FR</b>
+<span>16.10.</span>
+</div>
+
+<div class="weather-box">
+<b>SA</b>
+<span>17.10.</span>
+</div>
+
 </div>
 </div>
 
 <div class="card">
+
 <h3>Noch bis zum Ausflug</h3>
+
 <div class="countdown" id="countdown">
-<div class="n"><strong>–</strong><small>Tage</small></div>
-<div class="n"><strong>–</strong><small>Std.</small></div>
-<div class="n"><strong>–</strong><small>Min.</small></div>
-<div class="n"><strong>–</strong><small>Sek.</small></div>
+
+<div class="n">
+<strong>–</strong>
+<small>Tage</small>
+</div>
+
+<div class="n">
+<strong>–</strong>
+<small>Std.</small>
+</div>
+
+<div class="n">
+<strong>–</strong>
+<small>Min.</small>
+</div>
+
+<div class="n">
+<strong>–</strong>
+<small>Sek.</small>
+</div>
+
 </div>
 </div>
-</section>`;
+
+</section>`
 }
 
 function mehr(){
+
 return `<section class="page">
+
 <h1 class="section-title">Mehr</h1>
 
 <div class="list">
-<button data-page="programm"><b>Programm</b><span>Alle drei Tage</span></button>
-<button data-page="karte"><b>Karte & Routen</b><span>Google Maps für die wichtigsten Orte</span></button>
-<button data-page="infos"><b>Hotel & ÖPNV</b><span>Adressen und Verbindungen</span></button>
-<button data-page="nachtleben"><b>Nachtleben</b><span>Nur Vorschläge – Donnerstag & Freitag</span></button>
-<button data-page="wetter"><b>Wetter & Countdown</b><span>München und Ausflugstermin</span></button>
+
+<button data-page="programm">
+<b>Programm</b>
+<span>Alle drei Tage</span>
+</button>
+
+<button data-page="karte">
+<b>Karte & Routen</b>
+<span>Google Maps für die wichtigsten Orte</span>
+</button>
+
+<button data-page="infos">
+<b>Hotel & ÖPNV</b>
+<span>Adressen und Verbindungen</span>
+</button>
+
+<button data-page="nachtleben">
+<b>Nachtleben</b>
+<span>Nur Vorschläge – Donnerstag & Freitag</span>
+</button>
+
+<button data-page="wetter">
+<b>Wetter & Countdown</b>
+<span>München und Ausflugstermin</span>
+</button>
+
 </div>
 
 <div class="card">
 <h3>Wichtiger Hinweis</h3>
-<p>Das Programm in dieser App ist auf dem zuletzt abgestimmten Stand. Besonders wichtig: Freitag Treffpunkt <b>08:30 Uhr</b>.</p>
+<p>
+Das Programm in dieser App ist auf dem zuletzt abgestimmten Stand. Besonders wichtig: Freitag Treffpunkt <b>08:30 Uhr</b>.
+</p>
 </div>
-</section>`;
+
+</section>`
 }
 
-const pages={home,programm,karte,infos,nachtleben,wetter,mehr};
+const pages={
+home,
+programm,
+karte,
+infos,
+nachtleben,
+wetter,
+mehr
+};
 
 function render(){
+
 app.innerHTML=pages[page]?pages[page]():pages.home();
 
-document.querySelectorAll('.bottom [data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
+document.querySelectorAll('.bottom [data-page]')
+.forEach(b=>b.classList.toggle('active',b.dataset.page===page));
 
-document.querySelectorAll('[data-page]').forEach(b=>{
-b.onclick=()=>{
+document.querySelectorAll('[data-page]')
+.forEach(b=>b.onclick=()=>{
 closeDrawer();
-nav(b.dataset.page);
-};
+nav(b.dataset.page)
 });
 
-document.querySelectorAll('[data-day]').forEach(b=>{
-b.onclick=()=>{
+document.querySelectorAll('[data-day]')
+.forEach(b=>b.onclick=()=>{
 day=b.dataset.day;
-render();
-};
+render()
 });
 
 if(page==='wetter')startCountdown();
+
 }
 
 function startCountdown(){
+
 const el=document.getElementById('countdown');
+
 if(!el)return;
 
 const target=new Date('2026-10-15T14:00:00+02:00').getTime();
 
 const tick=()=>{
+
 const d=Math.max(0,target-Date.now());
+
 const days=Math.floor(d/86400000);
 const hrs=Math.floor(d%86400000/3600000);
 const min=Math.floor(d%3600000/60000);
 const sec=Math.floor(d%60000/1000);
 
-el.innerHTML=
-`<div class="n"><strong>${days}</strong><small>Tage</small></div>
-<div class="n"><strong>${String(hrs).padStart(2,'0')}</strong><small>Std.</small></div>
-<div class="n"><strong>${String(min).padStart(2,'0')}</strong><small>Min.</small></div>
-<div class="n"><strong>${String(sec).padStart(2,'0')}</strong><small>Sek.</small></div>`;
+el.innerHTML=`
+
+<div class="n">
+<strong>${days}</strong>
+<small>Tage</small>
+</div>
+
+<div class="n">
+<strong>${String(hrs).padStart(2,'0')}</strong>
+<small>Std.</small>
+</div>
+
+<div class="n">
+<strong>${String(min).padStart(2,'0')}</strong>
+<small>Min.</small>
+</div>
+
+<div class="n">
+<strong>${String(sec).padStart(2,'0')}</strong>
+<small>Sek.</small>
+</div>
+
+`;
+
 };
 
 tick();
+
 clearInterval(window.__timer);
 window.__timer=setInterval(tick,1000);
+
 }
 
 const drawer=document.getElementById('drawer');
@@ -484,6 +696,7 @@ const drawer=document.getElementById('drawer');
 const closeDrawer=()=>drawer.classList.remove('open');
 
 document.getElementById('menuBtn').onclick=()=>drawer.classList.add('open');
+
 document.getElementById('closeDrawer').onclick=closeDrawer;
 
 drawer.onclick=e=>{
@@ -495,6 +708,9 @@ page=location.hash.slice(1)||'home';
 if(!pages[page])page='home';
 
 render();
+
 </script>
+
 </body>
 </html>
+```
