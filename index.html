@@ -1,1481 +1,1277 @@
+```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-<title>Fritschle – Jubiläumsausflug München</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#050505">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Jubiläumsausflug München · Fritschle · 15.–17. Oktober 2026</title>
 
 <style>
-
-/* =========================================================
-   GRUNDVARIABLEN
-   ========================================================= */
-
-:root {
-  --black: #050505;
-  --black-soft: #0b0b0b;
-  --black-card: #111111;
-
-  --green: #2f6b4f;
-  --green-dark: #1f4d38;
-  --green-light: #eaf2ed;
-
-  --orange: #e68a32;
-  --orange-light: #fff1df;
-
-  --gold: #c9a45c;
-  --gold-light: #e7c66a;
-
-  --white: #ffffff;
-  --white-soft: #e9e9e9;
-
-  --cream: #f8f6f1;
-
-  --text: #26332d;
-  --muted: #718078;
-
-  --border: #e1e6e2;
-
-  --dark-border: rgba(255,255,255,0.10);
-
-  --shadow: 0 12px 35px rgba(30,55,43,0.10);
-  --premium-shadow: 0 20px 60px rgba(0,0,0,0.45);
-
-  --radius: 20px;
+:root{
+  --black:#050505;
+  --black-soft:#0b0b0b;
+  --black-card:#111111;
+  --black-card-2:#161616;
+  --gold:#d7b45a;
+  --gold-light:#f0d889;
+  --gold-dark:#a8893f;
+  --white:#ffffff;
+  --white-soft:rgba(255,255,255,.82);
+  --muted:rgba(255,255,255,.62);
+  --green:#6fae3d;
+  --orange:#e67e22;
+  --border:rgba(215,180,90,.22);
+  --shadow:0 20px 60px rgba(0,0,0,.35);
+  --radius:18px;
 }
 
-
-/* =========================================================
-   RESET
-   ========================================================= */
-
-* {
-  box-sizing: border-box;
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
 }
 
-html {
-  scroll-behavior: smooth;
+html{
+  scroll-behavior:smooth;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Helvetica,
-    Arial,
-    sans-serif;
-
-  background: var(--cream);
-  color: var(--text);
+body{
+  margin:0;
+  padding:0;
+  background:var(--black);
+  color:var(--white);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  overflow-x:hidden;
 }
 
 button,
-a {
-  -webkit-tap-highlight-color: transparent;
+a{
+  font-family:inherit;
 }
 
-button:active {
-  transform: scale(0.97);
+button{
+  cursor:pointer;
 }
 
-img {
-  max-width: 100%;
+a{
+  color:inherit;
+  text-decoration:none;
 }
-
 
 /* =========================================================
-   HAUPT-NAVIGATION
+   STARTSEITE
    ========================================================= */
 
-.main-nav {
-  position: fixed;
-  z-index: 1000;
+#start{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 50% 10%,rgba(215,180,90,.16),transparent 32%),
+    radial-gradient(circle at 50% 70%,rgba(215,180,90,.05),transparent 42%),
+    linear-gradient(180deg,#050505 0%,#090909 60%,#050505 100%);
+  position:relative;
+  overflow:hidden;
+}
 
-  left: 0;
-  right: 0;
-  bottom: 0;
+.start-inner{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  text-align:center;
+  padding:58px 22px 0;
+  z-index:2;
+}
 
-  display: flex;
-  justify-content: space-around;
-  align-items: stretch;
-
-  padding:
-    8px
-    8px
-    calc(8px + env(safe-area-inset-bottom));
-
-  background: rgba(5,5,5,0.96);
-  border-top: 1px solid rgba(255,255,255,0.10);
-
+.anniversary-badge{
+  width:76px;
+  height:76px;
+  border:1px solid rgba(215,180,90,.65);
+  border-radius:50%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:28px;
+  background:
+    radial-gradient(circle,rgba(215,180,90,.14),rgba(215,180,90,.03));
   box-shadow:
-    0 -10px 35px rgba(0,0,0,0.28);
-
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+    0 0 0 7px rgba(215,180,90,.025),
+    0 0 35px rgba(215,180,90,.10);
 }
 
-.main-nav button {
-  position: relative;
-
-  flex: 1;
-
-  border: 0;
-  background: transparent;
-
-  color: rgba(255,255,255,0.55);
-
-  padding: 8px 4px 7px;
-
-  font-size: 11px;
-  font-weight: 600;
-
-  cursor: pointer;
+.anniversary-badge strong{
+  color:var(--gold-light);
+  font-size:26px;
+  line-height:1;
+  font-weight:800;
+  letter-spacing:-1px;
 }
 
-.main-nav button.active {
-  color: var(--orange);
-  font-weight: 700;
+.anniversary-badge span{
+  margin-top:4px;
+  color:var(--gold);
+  font-size:9px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-weight:700;
 }
 
-.main-nav button::after {
-  content: "";
-
-  position: absolute;
-
-  left: 50%;
-  bottom: 2px;
-
-  width: 0;
-  height: 2px;
-
-  transform: translateX(-50%);
-
-  background: var(--orange);
-  border-radius: 10px;
-
-  opacity: 0;
-
-  transition:
-    width .25s ease,
-    opacity .25s ease;
+.hero-logo-wrap{
+  min-height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:26px;
 }
 
-.main-nav button.active::after {
-  width: 22px;
-  opacity: 1;
+.hero-logo{
+  display:block;
+  width:auto;
+  max-width:min(310px,78vw);
+  max-height:115px;
+  object-fit:contain;
 }
 
-.nav-icon {
-  display: block;
-
-  margin-bottom: 3px;
-
-  font-size: 17px;
-  line-height: 1;
+.hero-divider{
+  width:58px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:0 auto 28px;
 }
 
+.start-heading{
+  margin:0;
+  color:var(--white);
+  font-size:clamp(31px,8vw,58px);
+  line-height:1.08;
+  letter-spacing:-1.6px;
+  font-weight:800;
+}
+
+.welcome-title{
+  margin:22px 0 0;
+  color:var(--gold-light);
+  font-size:clamp(18px,4.5vw,24px);
+  font-weight:700;
+}
+
+.welcome-text{
+  max-width:700px;
+  margin:13px auto 0;
+  color:var(--white-soft);
+  font-size:clamp(15px,3.9vw,18px);
+  line-height:1.7;
+}
+
+.trip-title{
+  margin:30px auto 0;
+  color:var(--gold-light);
+  font-size:clamp(20px,5vw,29px);
+  line-height:1.25;
+  font-weight:800;
+  letter-spacing:.2px;
+}
+
+.trip-date{
+  margin-top:9px;
+  color:var(--muted);
+  font-size:14px;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+}
+
+.start-button{
+  margin-top:31px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:51px;
+  padding:0 29px;
+  border:1px solid rgba(215,180,90,.7);
+  border-radius:999px;
+  background:linear-gradient(135deg,rgba(215,180,90,.18),rgba(215,180,90,.06));
+  color:var(--gold-light);
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:.5px;
+  box-shadow:0 10px 35px rgba(0,0,0,.3);
+  transition:.2s ease;
+}
+
+.start-button:hover{
+  background:rgba(215,180,90,.22);
+  transform:translateY(-1px);
+}
+
+.start-button:active{
+  transform:scale(.97);
+}
+
+.hero-scroll{
+  margin-top:29px;
+  color:rgba(255,255,255,.42);
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.hero-scroll-arrow{
+  margin-top:8px;
+  color:var(--gold);
+  font-size:18px;
+  animation:floatArrow 1.8s ease-in-out infinite;
+}
+
+@keyframes floatArrow{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(5px)}
+}
+
+/* Skyline */
+
+.munich-skyline{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:230px;
+  z-index:1;
+  pointer-events:none;
+  opacity:.96;
+}
+
+.skyline-svg{
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+.skyline-fill{
+  fill:url(#goldGradient);
+  opacity:.28;
+}
+
+.skyline-glow{
+  fill:none;
+  stroke:var(--gold);
+  stroke-width:1.2;
+  opacity:.8;
+}
+
+.skyline-light{
+  fill:var(--gold-light);
+  opacity:.72;
+}
+
+.hero-bottom{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:18px;
+  z-index:3;
+  text-align:center;
+  pointer-events:none;
+}
+
+.hero-bottom-text{
+  color:rgba(240,216,137,.78);
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.hero-bottom-line{
+  width:80px;
+  height:1px;
+  margin:8px auto 0;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
 
 /* =========================================================
-   SEITENBEREICHE
+   NAVIGATION
    ========================================================= */
 
-.page-section {
-  display: none;
-
-  min-height: calc(100vh - 70px);
-
-  animation: sectionFade .35s ease;
+.main-nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  display:flex;
+  justify-content:center;
+  gap:0;
+  padding:0 8px;
+  background:rgba(5,5,5,.96);
+  border-bottom:1px solid rgba(215,180,90,.18);
+  backdrop-filter:blur(15px);
+  -webkit-backdrop-filter:blur(15px);
 }
 
-.page-section.active-section {
-  display: block;
+.nav-btn{
+  position:relative;
+  flex:1;
+  max-width:150px;
+  min-height:58px;
+  border:0;
+  background:transparent;
+  color:rgba(255,255,255,.58);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.2px;
+  transition:.2s ease;
 }
 
-@keyframes sectionFade {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
+.nav-btn::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:0;
+  width:0;
+  height:2px;
+  background:var(--gold);
+  transform:translateX(-50%);
+  transition:.2s ease;
+  opacity:0;
+}
+
+.nav-btn.active{
+  color:var(--gold-light);
+}
+
+.nav-btn.active::after{
+  width:26px;
+  opacity:1;
+}
+
+.nav-btn:active{
+  transform:scale(.97);
+}
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+
+.app-section{
+  display:none;
+  min-height:60vh;
+  background:#0a0a0a;
+  animation:sectionFade .35s ease;
+}
+
+.app-section.active{
+  display:block;
+}
+
+@keyframes sectionFade{
+  from{
+    opacity:0;
+    transform:translateY(8px);
   }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  to{
+    opacity:1;
+    transform:translateY(0);
   }
 }
 
+.section-wrap{
+  width:min(100%,920px);
+  margin:0 auto;
+  padding:42px 20px 70px;
+}
+
+.section-header{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.section-kicker{
+  display:block;
+  color:var(--gold);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  margin-bottom:9px;
+}
+
+.section-header h2{
+  margin:0;
+  color:var(--white);
+  font-size:clamp(29px,7vw,42px);
+  line-height:1.1;
+  letter-spacing:-.8px;
+}
+
+.section-header p{
+  margin:12px auto 0;
+  max-width:620px;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.6;
+}
 
 /* =========================================================
-   PREMIUM STARTSEITE
+   PROGRAMM
    ========================================================= */
 
-#start {
-  position: relative;
+.day-tabs{
+  display:flex;
+  gap:8px;
+  margin:0 auto 28px;
+  max-width:650px;
+}
 
-  min-height: 100svh;
-  min-height: 100vh;
+.day-tab{
+  flex:1;
+  min-height:64px;
+  padding:8px 5px;
+  border:1px solid rgba(215,180,90,.2);
+  border-radius:14px;
+  background:#111;
+  color:rgba(255,255,255,.58);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  transition:.2s ease;
+}
 
-  overflow: hidden;
+.day-tab.active{
+  background:linear-gradient(135deg,rgba(215,180,90,.20),rgba(215,180,90,.07));
+  color:var(--gold-light);
+  border-color:rgba(215,180,90,.6);
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
 
-  color: white;
+.day-name{
+  font-size:13px;
+  font-weight:800;
+}
 
+.day-date{
+  margin-top:4px;
+  font-size:11px;
+  opacity:.72;
+}
+
+.day-content{
+  display:none;
+  animation:sectionFade .3s ease;
+}
+
+.day-content.active{
+  display:block;
+}
+
+.timeline{
+  position:relative;
+  max-width:780px;
+  margin:0 auto;
+  padding:0 0 5px 82px;
+}
+
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:49px;
+  top:8px;
+  bottom:8px;
+  width:1px;
+  background:linear-gradient(
+    180deg,
+    transparent,
+    rgba(215,180,90,.5) 5%,
+    rgba(215,180,90,.22) 95%,
+    transparent
+  );
+}
+
+.timeline-item{
+  position:relative;
+  margin-bottom:17px;
+}
+
+.timeline-time{
+  position:absolute;
+  left:-82px;
+  top:19px;
+  width:62px;
+  text-align:right;
+  color:var(--gold);
+  font-size:12px;
+  font-weight:800;
+  line-height:1.3;
+}
+
+.timeline-dot{
+  position:absolute;
+  left:-39px;
+  top:20px;
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:var(--black);
+  border:2px solid var(--gold);
+  box-shadow:0 0 0 4px rgba(215,180,90,.08);
+  z-index:2;
+}
+
+.timeline-card{
+  position:relative;
+  padding:19px 19px 18px;
+  background:linear-gradient(145deg,#121212,#0e0e0e);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:17px;
+  box-shadow:0 12px 35px rgba(0,0,0,.23);
+}
+
+.timeline-card.highlight{
+  border-color:rgba(215,180,90,.42);
   background:
-    radial-gradient(
-      ellipse at 50% 18%,
-      rgba(215,180,90,0.14) 0%,
-      rgba(215,180,90,0.05) 23%,
-      transparent 52%
-    ),
-    linear-gradient(
-      180deg,
-      #020202 0%,
-      #070707 55%,
-      #020202 100%
-    );
+    radial-gradient(circle at 90% 0%,rgba(215,180,90,.09),transparent 40%),
+    linear-gradient(145deg,#15130e,#0e0e0e);
 }
 
-#start::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background:
-    radial-gradient(
-      circle at 50% 30%,
-      rgba(255,255,255,0.035),
-      transparent 42%
-    );
-
-  pointer-events: none;
+.timeline-label{
+  color:var(--gold);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:1.8px;
+  text-transform:uppercase;
+  margin-bottom:7px;
 }
 
-.start-content {
-  position: relative;
-  z-index: 5;
-
-  width: 100%;
-  max-width: 850px;
-
-  min-height: 100svh;
-  min-height: 100vh;
-
-  margin: 0 auto;
-
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-
-  padding:
-    45px
-    24px
-    175px;
+.timeline-card h3{
+  margin:0;
+  color:var(--white);
+  font-size:18px;
+  line-height:1.3;
 }
 
-
-/* =========================================================
-   80-JAHRE BADGE
-   ========================================================= */
-
-.anniversary-badge {
-  position: relative;
-
-  width: 92px;
-  height: 92px;
-
-  margin-bottom: 26px;
-
-  border: 1px solid rgba(215,180,90,0.55);
-
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  box-shadow:
-    0 0 35px rgba(215,180,90,0.10);
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(215,180,90,0.10),
-      rgba(215,180,90,0.02) 65%,
-      transparent
-    );
+.timeline-card p{
+  margin:8px 0 0;
+  color:rgba(255,255,255,.64);
+  font-size:14px;
+  line-height:1.55;
 }
 
-.anniversary-badge::before,
-.anniversary-badge::after {
-  content: "";
-
-  position: absolute;
-
-  width: 7px;
-  height: 7px;
-
-  border-radius: 50%;
-
-  background: var(--gold-light);
-
-  box-shadow: 0 0 12px rgba(231,198,106,0.6);
+.location-box{
+  margin-top:13px;
+  padding:12px 13px;
+  border-radius:12px;
+  background:rgba(215,180,90,.055);
+  border:1px solid rgba(215,180,90,.13);
 }
 
-.anniversary-badge::before {
-  top: 7px;
-  left: 50%;
-
-  transform: translateX(-50%);
+.location-title{
+  color:var(--gold-light);
+  font-size:12px;
+  font-weight:800;
 }
 
-.anniversary-badge::after {
-  bottom: 7px;
-  left: 50%;
-
-  transform: translateX(-50%);
+.location-address{
+  margin-top:4px;
+  color:rgba(255,255,255,.58);
+  font-size:12px;
+  line-height:1.5;
 }
 
-.badge-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Varianten */
+
+.variant-box{
+  margin-top:17px;
+  padding:17px;
+  border:1px solid rgba(215,180,90,.18);
+  border-radius:15px;
+  background:rgba(255,255,255,.025);
 }
 
-.badge-number {
-  color: var(--gold-light);
-
-  font-size: 36px;
-  font-weight: 300;
-
-  line-height: .9;
-
-  letter-spacing: -2px;
+.variant-title{
+  color:var(--gold-light);
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:11px;
 }
 
-.badge-line {
-  width: 28px;
-  height: 1px;
-
-  margin: 7px 0 5px;
-
-  background: var(--gold);
+.variant-buttons{
+  display:flex;
+  gap:8px;
 }
 
-.badge-years {
-  color: rgba(255,255,255,0.68);
-
-  font-size: 8px;
-  font-weight: 700;
-
-  letter-spacing: 3px;
-  text-transform: uppercase;
+.variant-button{
+  flex:1;
+  min-height:45px;
+  border:1px solid rgba(215,180,90,.22);
+  border-radius:11px;
+  background:#0d0d0d;
+  color:rgba(255,255,255,.66);
+  font-size:12px;
+  font-weight:800;
+  transition:.2s ease;
 }
 
-
-/* =========================================================
-   LOGO
-   ========================================================= */
-
-.start-logo {
-  position: relative;
-  z-index: 10;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 100%;
-
-  margin-bottom: 27px;
+.variant-button.active{
+  color:#111;
+  background:var(--gold);
+  border-color:var(--gold);
 }
 
-.start-logo img {
-  display: block;
-
-  width: auto;
-  max-width: 260px;
-  max-height: 105px;
-
-  object-fit: contain;
-
-  filter: none;
+.variant-selected{
+  display:none;
+  margin-top:11px;
+  color:var(--gold-light);
+  font-size:12px;
+  font-weight:700;
 }
 
-.logo-fallback {
-  color: white;
-
-  font-size: 34px;
-  font-weight: 700;
-
-  letter-spacing: 1px;
+.variant-selected.visible{
+  display:block;
 }
-
-
-/* =========================================================
-   TRENNER
-   ========================================================= */
-
-.start-divider {
-  width: 48px;
-  height: 2px;
-
-  margin-bottom: 27px;
-
-  background: var(--orange);
-
-  border-radius: 10px;
-
-  box-shadow:
-    0 0 16px rgba(230,138,50,0.30);
-}
-
-
-/* =========================================================
-   STARTSEITENTEXT
-   ========================================================= */
-
-.start-title {
-  margin: 0;
-
-  color: white;
-
-  font-size: clamp(31px, 7vw, 48px);
-  line-height: 1.05;
-
-  font-weight: 300;
-
-  letter-spacing: -1.2px;
-}
-
-.start-greeting {
-  margin: 23px 0 0;
-
-  color: rgba(255,255,255,0.92);
-
-  font-size: 17px;
-  line-height: 1.65;
-
-  font-weight: 500;
-}
-
-.start-text {
-  max-width: 650px;
-
-  margin: 12px auto 0;
-
-  color: rgba(255,255,255,0.67);
-
-  font-size: 14px;
-  line-height: 1.7;
-}
-
-
-/* =========================================================
-   AUSFLUGSTITEL / DATUM
-   ========================================================= */
-
-.trip-title {
-  margin-top: 25px;
-
-  color: var(--gold-light);
-
-  font-size: 13px;
-  font-weight: 700;
-
-  letter-spacing: 2.2px;
-  text-transform: uppercase;
-}
-
-.trip-date {
-  margin-top: 8px;
-
-  color: rgba(255,255,255,0.72);
-
-  font-size: 12px;
-  letter-spacing: 2px;
-}
-
-
-/* =========================================================
-   START BUTTON
-   ========================================================= */
-
-.start-button {
-  margin-top: 27px;
-
-  padding: 13px 27px;
-
-  border: 1px solid rgba(230,138,50,0.75);
-  border-radius: 999px;
-
-  background: rgba(230,138,50,0.07);
-
-  color: white;
-
-  font-size: 12px;
-  font-weight: 700;
-
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-
-  cursor: pointer;
-
-  transition:
-    background .25s ease,
-    transform .25s ease,
-    box-shadow .25s ease;
-}
-
-.start-button:hover {
-  background: rgba(230,138,50,0.15);
-
-  box-shadow:
-    0 10px 30px rgba(230,138,50,0.12);
-
-  transform: translateY(-2px);
-}
-
-
-/* =========================================================
-   SKYLINE
-   ========================================================= */
-
-.munich-skyline {
-  position: absolute;
-  z-index: 2;
-
-  left: 0;
-  right: 0;
-  bottom: 53px;
-
-  width: 100%;
-  height: 150px;
-
-  overflow: hidden;
-
-  pointer-events: none;
-}
-
-.munich-skyline svg {
-  position: absolute;
-
-  left: 50%;
-  bottom: 0;
-
-  width: 100%;
-  min-width: 700px;
-
-  height: 150px;
-
-  transform: translateX(-50%);
-}
-
-.skyline-fill {
-  fill: url(#goldGradient);
-}
-
-.skyline-glow {
-  fill: none;
-
-  stroke: rgba(220,174,77,0.38);
-
-  stroke-width: 1.5;
-}
-
-.skyline-light {
-  position: absolute;
-
-  left: 50%;
-  bottom: 0;
-
-  width: 80%;
-  height: 1px;
-
-  transform: translateX(-50%);
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(220,174,77,0.8),
-      transparent
-    );
-
-  box-shadow:
-    0 0 18px rgba(220,174,77,0.35);
-}
-
-
-/* =========================================================
-   SKYLINE UNTERER TEXT
-   ========================================================= */
-
-.start-bottom {
-  position: absolute;
-  z-index: 4;
-
-  left: 0;
-  right: 0;
-  bottom: 20px;
-
-  text-align: center;
-}
-
-.start-bottom-text {
-  color: rgba(255,255,255,0.48);
-
-  font-size: 8px;
-
-  letter-spacing: 2.4px;
-  text-transform: uppercase;
-}
-
-
-/* =========================================================
-   SEKTIONS-HEADER
-   ========================================================= */
-
-.section-wrap {
-  max-width: 900px;
-
-  margin: 0 auto;
-
-  padding:
-    35px
-    20px
-    110px;
-}
-
-.section-header {
-  margin-bottom: 25px;
-}
-
-.section-kicker {
-  display: block;
-
-  margin-bottom: 7px;
-
-  color: var(--orange);
-
-  font-size: 9px;
-  font-weight: 800;
-
-  letter-spacing: 2.4px;
-  text-transform: uppercase;
-}
-
-.section-header h2 {
-  margin: 0;
-
-  color: var(--green-dark);
-
-  font-size: 31px;
-  line-height: 1.15;
-}
-
-.section-header p {
-  margin: 9px 0 0;
-
-  color: var(--muted);
-
-  font-size: 13px;
-  line-height: 1.55;
-}
-
-
-/* =========================================================
-   PROGRAMM TAGES-TABS
-   ========================================================= */
-
-.day-tabs {
-  display: grid;
-
-  grid-template-columns: repeat(3,1fr);
-
-  gap: 8px;
-
-  margin-bottom: 27px;
-}
-
-.day-tab {
-  padding: 12px 7px;
-
-  border: 1px solid var(--border);
-  border-radius: 15px;
-
-  background: white;
-
-  color: var(--muted);
-
-  cursor: pointer;
-
-  transition: all .2s ease;
-}
-
-.day-tab.active {
-  background: var(--green);
-  border-color: var(--green);
-
-  color: white;
-
-  box-shadow:
-    0 8px 20px rgba(47,107,79,0.20);
-}
-
-.day-name {
-  display: block;
-
-  font-size: 12px;
-  font-weight: 800;
-}
-
-.day-date {
-  display: block;
-
-  margin-top: 3px;
-
-  font-size: 10px;
-  opacity: .75;
-}
-
-
-/* =========================================================
-   TAGESINHALT
-   ========================================================= */
-
-.day-content {
-  display: none;
-
-  animation: sectionFade .3s ease;
-}
-
-.day-content.active {
-  display: block;
-}
-
-
-/* =========================================================
-   TIMELINE
-   ========================================================= */
-
-.timeline {
-  position: relative;
-
-  margin-left: 72px;
-}
-
-.timeline::before {
-  content: "";
-
-  position: absolute;
-
-  left: -46px;
-  top: 23px;
-  bottom: 23px;
-
-  width: 2px;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(230,138,50,0.65),
-      rgba(47,107,79,0.20)
-    );
-}
-
-.timeline-item {
-  position: relative;
-
-  margin-bottom: 20px;
-}
-
-.timeline-time {
-  position: absolute;
-
-  left: -70px;
-  top: 19px;
-
-  width: 52px;
-
-  text-align: right;
-
-  color: var(--green);
-
-  font-size: 12px;
-  font-weight: 800;
-
-  line-height: 1.3;
-}
-
-.timeline-dot {
-  position: absolute;
-
-  left: -52px;
-  top: 20px;
-
-  width: 12px;
-  height: 12px;
-
-  background: white;
-
-  border: 3px solid var(--orange);
-
-  border-radius: 50%;
-
-  z-index: 2;
-}
-
-.timeline-card {
-  padding: 20px;
-
-  background: white;
-
-  border: 1px solid var(--border);
-
-  border-radius: var(--radius);
-
-  box-shadow:
-    0 5px 18px rgba(30,55,43,.06);
-}
-
-.timeline-label {
-  margin-bottom: 5px;
-
-  color: var(--orange);
-
-  font-size: 9px;
-  font-weight: 800;
-
-  letter-spacing: 1.7px;
-  text-transform: uppercase;
-}
-
-.timeline-card h3 {
-  margin: 0;
-
-  color: var(--green-dark);
-
-  font-size: 17px;
-}
-
-.timeline-card p {
-  margin: 7px 0 0;
-
-  color: var(--muted);
-
-  font-size: 13px;
-  line-height: 1.55;
-}
-
-.highlight-card {
-  border: 2px solid var(--orange);
-
-  background:
-    linear-gradient(
-      135deg,
-      #fffaf4,
-      #ffffff
-    );
-}
-
-.location-box {
-  margin-top: 13px;
-
-  padding: 12px 13px;
-
-  border-radius: 12px;
-
-  background: var(--green-light);
-
-  color: var(--green-dark);
-
-  font-size: 12px;
-  line-height: 1.5;
-}
-
-
-/* =========================================================
-   VARIANTEN BMW / ALLIANZ
-   ========================================================= */
-
-.variant-buttons {
-  display: grid;
-
-  grid-template-columns: repeat(2,1fr);
-
-  gap: 9px;
-
-  margin-top: 14px;
-}
-
-.variant-btn {
-  padding: 13px 10px;
-
-  border: 1px solid var(--border);
-  border-radius: 13px;
-
-  background: white;
-
-  color: var(--green-dark);
-
-  font-size: 12px;
-  font-weight: 700;
-
-  cursor: pointer;
-
-  transition: all .2s ease;
-}
-
-.variant-btn.active {
-  background: var(--green);
-
-  border-color: var(--green);
-
-  color: white;
-
-  box-shadow:
-    0 7px 18px rgba(47,107,79,.18);
-}
-
-#variant-selected {
-  display: none;
-
-  margin-top: 12px;
-
-  padding: 10px 12px;
-
-  border-radius: 11px;
-
-  background: var(--orange-light);
-
-  color: #995a1c;
-
-  font-size: 11px;
-  font-weight: 700;
-}
-
-#variant-selected.visible {
-  display: block;
-}
-
 
 /* =========================================================
    ROUTEN
    ========================================================= */
 
-.route-panel {
-  margin-top: 22px;
-
-  padding: 18px;
-
-  border-radius: 17px;
-
-  background: #fff;
-
-  border: 1px solid var(--border);
-
-  box-shadow:
-    0 5px 18px rgba(30,55,43,.05);
+.route-panel{
+  margin-top:24px;
+  padding:18px;
+  background:#0e0e0e;
+  border:1px solid rgba(215,180,90,.17);
+  border-radius:17px;
 }
 
-.route-panel-header {
-  margin-bottom: 14px;
-
-  color: var(--green-dark);
-
-  font-size: 13px;
-  font-weight: 800;
+.route-panel-header{
+  margin-bottom:15px;
 }
 
-.route-group {
-  margin-top: 14px;
+.route-panel-header strong{
+  color:var(--gold-light);
+  font-size:14px;
 }
 
-.route-group:first-child {
-  margin-top: 0;
+.route-panel-header p{
+  margin:4px 0 0;
+  color:rgba(255,255,255,.48);
+  font-size:11px;
+  line-height:1.5;
 }
 
-.route-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 10px;
-
-  padding: 11px 0;
-
-  border-top: 1px solid #edf0ee;
+.route-group{
+  display:grid;
+  gap:8px;
+  margin-top:13px;
 }
 
-.route-item:first-child {
-  border-top: 0;
+.route-group-title{
+  color:rgba(255,255,255,.42);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:1.7px;
+  text-transform:uppercase;
 }
 
-.route-title {
-  flex: 1;
-
-  color: var(--text);
-
-  font-size: 11px;
-  line-height: 1.35;
+.map-route-button{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  min-height:45px;
+  padding:0 13px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:11px;
+  background:#151515;
+  color:rgba(255,255,255,.76);
+  font-size:12px;
+  font-weight:700;
+  transition:.2s ease;
 }
 
-.map-route-button {
-  flex-shrink: 0;
-
-  display: inline-flex;
-  align-items: center;
-
-  padding: 8px 10px;
-
-  border-radius: 9px;
-
-  background: var(--green);
-
-  color: white;
-
-  text-decoration: none;
-
-  font-size: 10px;
-  font-weight: 700;
-
-  transition: transform .2s ease;
+.map-route-button:hover{
+  border-color:rgba(215,180,90,.4);
+  color:var(--gold-light);
 }
 
-.map-route-button:hover {
-  transform: translateY(-1px);
+.map-route-button span:last-child{
+  color:var(--gold);
+  font-size:16px;
 }
-
 
 /* =========================================================
    NACHTLEBEN
    ========================================================= */
 
-.suggestion-note {
-  display: flex;
-
-  gap: 12px;
-
-  margin-bottom: 20px;
-
-  padding: 15px;
-
-  border-radius: 15px;
-
-  background: var(--orange-light);
-
-  border: 1px solid rgba(230,138,50,.22);
+.suggestion-note{
+  max-width:780px;
+  margin:0 auto 25px;
+  padding:15px 16px;
+  display:flex;
+  gap:12px;
+  border:1px solid rgba(215,180,90,.18);
+  border-radius:15px;
+  background:rgba(215,180,90,.045);
 }
 
-.note-icon {
-  flex-shrink: 0;
-
-  color: var(--orange);
-
-  font-size: 17px;
+.note-icon{
+  color:var(--gold);
+  font-size:18px;
+  line-height:1;
 }
 
-.suggestion-note strong {
-  color: #92581d;
-
-  font-size: 12px;
+.suggestion-note strong{
+  color:var(--gold-light);
+  font-size:13px;
 }
 
-.suggestion-note p {
-  margin: 4px 0 0;
-
-  color: #80694e;
-
-  font-size: 11px;
-
-  line-height: 1.45;
+.suggestion-note p{
+  margin:4px 0 0;
+  color:rgba(255,255,255,.56);
+  font-size:12px;
+  line-height:1.5;
 }
 
-.nightlife-card {
-  display: flex;
-
-  gap: 15px;
-
-  margin-bottom: 15px;
-
-  padding: 17px;
-
-  background: white;
-
-  border: 1px solid var(--border);
-
-  border-radius: 17px;
-
-  box-shadow:
-    0 5px 18px rgba(30,55,43,.05);
+#nightlife-list{
+  max-width:780px;
+  margin:0 auto;
 }
 
-.nightlife-number {
-  flex-shrink: 0;
-
-  width: 31px;
-  height: 31px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background: var(--green);
-
-  color: white;
-
-  font-size: 11px;
-  font-weight: 800;
+.nightlife-card{
+  position:relative;
+  display:flex;
+  gap:15px;
+  margin-bottom:13px;
+  padding:18px;
+  background:linear-gradient(145deg,#121212,#0e0e0e);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:17px;
+  box-shadow:0 12px 30px rgba(0,0,0,.22);
 }
 
-.nightlife-content {
-  flex: 1;
+.nightlife-number{
+  flex:0 0 34px;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  border:1px solid rgba(215,180,90,.35);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--gold);
+  font-size:12px;
+  font-weight:800;
 }
 
-.nightlife-content h3 {
-  margin: 0;
-
-  color: var(--green-dark);
-
-  font-size: 16px;
+.nightlife-content{
+  flex:1;
+  min-width:0;
 }
 
-.nightlife-category {
-  margin-top: 3px;
-
-  color: var(--orange);
-
-  font-size: 9px;
-  font-weight: 800;
-
-  letter-spacing: 1.3px;
-  text-transform: uppercase;
+.nightlife-content h3{
+  margin:0;
+  color:var(--white);
+  font-size:17px;
 }
 
-.nightlife-description {
-  margin-top: 8px;
-
-  color: var(--muted);
-
-  font-size: 12px;
-
-  line-height: 1.5;
+.nightlife-category{
+  margin-top:4px;
+  color:var(--gold);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
 }
 
-.nightlife-details {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 7px;
-
-  margin-top: 12px;
+.nightlife-description{
+  margin:9px 0 0;
+  color:rgba(255,255,255,.6);
+  font-size:13px;
+  line-height:1.55;
 }
 
-.nightlife-detail {
-  padding: 8px;
-
-  border-radius: 9px;
-
-  background: #f5f7f5;
-
-  color: var(--muted);
-
-  font-size: 9px;
-
-  line-height: 1.4;
+.nightlife-details{
+  display:grid;
+  gap:5px;
+  margin-top:13px;
+  padding-top:12px;
+  border-top:1px solid rgba(255,255,255,.06);
 }
 
-.map-button {
-  display: inline-flex;
-
-  margin-top: 12px;
-
-  padding: 9px 12px;
-
-  border-radius: 9px;
-
-  background: var(--green);
-
-  color: white;
-
-  text-decoration: none;
-
-  font-size: 10px;
-  font-weight: 700;
+.nightlife-detail{
+  color:rgba(255,255,255,.5);
+  font-size:11px;
+  line-height:1.45;
 }
 
+.nightlife-detail strong{
+  color:rgba(255,255,255,.72);
+}
+
+.map-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:40px;
+  margin-top:13px;
+  padding:0 15px;
+  border:1px solid rgba(215,180,90,.3);
+  border-radius:10px;
+  background:rgba(215,180,90,.07);
+  color:var(--gold-light);
+  font-size:11px;
+  font-weight:800;
+}
 
 /* =========================================================
    INFOS
    ========================================================= */
 
-.info-card {
-  margin-bottom: 14px;
-
-  padding: 19px;
-
-  background: white;
-
-  border: 1px solid var(--border);
-
-  border-radius: 17px;
-
-  box-shadow:
-    0 5px 18px rgba(30,55,43,.05);
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:13px;
+  max-width:780px;
+  margin:0 auto;
 }
 
-.info-card h3 {
-  margin: 0;
-
-  color: var(--green-dark);
-
-  font-size: 15px;
+.info-card{
+  padding:19px;
+  background:linear-gradient(145deg,#121212,#0e0e0e);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:17px;
 }
 
-.info-card p {
-  margin: 7px 0 0;
-
-  color: var(--muted);
-
-  font-size: 12px;
-
-  line-height: 1.55;
+.info-icon{
+  color:var(--gold);
+  font-size:20px;
 }
 
+.info-card h3{
+  margin:10px 0 0;
+  color:var(--white);
+  font-size:15px;
+}
+
+.info-card p{
+  margin:7px 0 0;
+  color:rgba(255,255,255,.56);
+  font-size:12px;
+  line-height:1.55;
+}
+
+.info-full{
+  grid-column:1/-1;
+}
 
 /* =========================================================
    FOOTER
    ========================================================= */
 
-.app-footer {
-  margin-top: 20px;
-
-  padding:
-    35px
-    20px
-    115px;
-
-  text-align: center;
-
-  color: rgba(255,255,255,.65);
-
-  background: var(--green-dark);
+.app-footer{
+  padding:38px 20px 45px;
+  text-align:center;
+  background:#050505;
+  border-top:1px solid rgba(215,180,90,.12);
 }
 
-.app-footer-logo {
-  display: block;
-
-  max-width: 130px;
-
-  width: 40%;
-
-  height: auto;
-
-  margin: 0 auto 18px;
+.app-footer-logo{
+  display:block;
+  max-width:180px;
+  max-height:65px;
+  margin:0 auto 16px;
+  object-fit:contain;
 }
 
-.app-footer-title {
-  font-size: 13px;
-  font-weight: 700;
-
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+.app-footer-title{
+  color:var(--gold-light);
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:1px;
 }
 
-.app-footer-subtitle {
-  margin-top: 7px;
-
-  font-size: 11px;
-
-  opacity: .65;
+.app-footer-subtitle{
+  margin-top:6px;
+  color:rgba(255,255,255,.38);
+  font-size:10px;
+  letter-spacing:.7px;
 }
-
 
 /* =========================================================
-   MOBILE
+   RESPONSIVE
    ========================================================= */
 
-@media (max-width: 600px) {
+@media(max-width:650px){
 
-  .start-content {
-    padding:
-      35px
-      20px
-      170px;
+  .start-inner{
+    padding-top:40px;
   }
 
-  .anniversary-badge {
-    width: 78px;
-    height: 78px;
-
-    margin-bottom: 21px;
+  .anniversary-badge{
+    width:68px;
+    height:68px;
+    margin-bottom:22px;
   }
 
-  .badge-number {
-    font-size: 31px;
+  .hero-logo-wrap{
+    margin-bottom:21px;
   }
 
-  .start-logo {
-    margin-bottom: 22px;
+  .hero-logo{
+    max-width:250px;
+    max-height:95px;
   }
 
-  .start-logo img {
-    max-width: 225px;
-    max-height: 92px;
+  .hero-divider{
+    margin-bottom:22px;
   }
 
-  .start-title {
-    font-size: 34px;
+  .welcome-text{
+    font-size:14px;
+    line-height:1.6;
   }
 
-  .start-greeting {
-    margin-top: 19px;
-
-    font-size: 15px;
+  .trip-title{
+    margin-top:25px;
+    font-size:19px;
   }
 
-  .start-text {
-    font-size: 12px;
+  .trip-date{
+    font-size:11px;
   }
 
-  .trip-title {
-    font-size: 10px;
-
-    letter-spacing: 1.8px;
+  .start-button{
+    margin-top:25px;
+    min-height:47px;
+    padding:0 24px;
   }
 
-  .trip-date {
-    font-size: 10px;
-
-    letter-spacing: 1.5px;
+  .hero-scroll{
+    margin-top:21px;
   }
 
-  .munich-skyline {
-    height: 125px;
-
-    bottom: 53px;
+  .munich-skyline{
+    height:185px;
   }
 
-  .munich-skyline svg {
-    min-width: 620px;
-
-    height: 125px;
+  .hero-bottom{
+    bottom:12px;
   }
 
-  .section-wrap {
-    padding:
-      30px
-      17px
-      105px;
+  .hero-bottom-text{
+    font-size:8px;
+    letter-spacing:1.5px;
   }
 
-  .section-header h2 {
-    font-size: 28px;
+  .nav-btn{
+    min-height:54px;
+    font-size:10px;
   }
 
-  .timeline {
-    margin-left: 62px;
+  .section-wrap{
+    padding:32px 14px 55px;
   }
 
-  .timeline-time {
-    left: -62px;
-
-    width: 46px;
-
-    font-size: 11px;
+  .day-tabs{
+    gap:6px;
   }
 
-  .timeline-dot {
-    left: -44px;
+  .day-tab{
+    min-height:58px;
   }
 
-  .timeline::before {
-    left: -38px;
+  .day-name{
+    font-size:12px;
   }
 
-  .timeline-card {
-    padding: 16px;
+  .timeline{
+    padding-left:67px;
   }
 
-  .nightlife-card {
-    padding: 15px;
+  .timeline::before{
+    left:38px;
   }
 
-  .nightlife-details {
-    grid-template-columns: 1fr;
+  .timeline-time{
+    left:-67px;
+    width:52px;
+    font-size:11px;
   }
 
-  .route-item {
-    align-items: flex-start;
+  .timeline-dot{
+    left:-34px;
   }
 
-  .route-title {
-    font-size: 10px;
+  .timeline-card{
+    padding:16px;
   }
 
-  .main-nav button {
-    font-size: 10px;
+  .timeline-card h3{
+    font-size:16px;
+  }
+
+  .timeline-card p{
+    font-size:13px;
+  }
+
+  .variant-buttons{
+    flex-direction:column;
+  }
+
+  .info-grid{
+    grid-template-columns:1fr;
+  }
+
+  .info-full{
+    grid-column:auto;
+  }
+
+  .nightlife-card{
+    padding:15px;
+  }
+
+  .nightlife-number{
+    flex-basis:31px;
+    width:31px;
+    height:31px;
   }
 }
 
+@media(max-width:380px){
 
-@media (max-width: 380px) {
-
-  .start-title {
-    font-size: 30px;
+  .nav-btn{
+    font-size:9px;
   }
 
-  .start-logo img {
-    max-width: 205px;
+  .timeline{
+    padding-left:61px;
   }
 
-  .start-greeting {
-    font-size: 14px;
+  .timeline::before{
+    left:34px;
   }
 
-  .trip-title {
-    font-size: 9px;
+  .timeline-time{
+    left:-61px;
+    width:48px;
+    font-size:10px;
   }
 
+  .timeline-dot{
+    left:-30px;
+  }
 }
-
-
-/* =========================================================
-   TOUCH-GERÄTE
-   ========================================================= */
-
-@media (hover: none) {
-
-  .start-button:hover,
-  .map-route-button:hover,
-  .map-button:hover {
-    transform: none;
-  }
-
-}
-
 </style>
 </head>
 
-
 <body>
+
+<!-- =========================================================
+     EINZIGE STARTSEITE
+     ========================================================= -->
+
+<section id="start" class="app-section active">
+
+  <div class="start-inner">
+
+    <div class="anniversary-badge">
+      <strong>80</strong>
+      <span>Jahre</span>
+    </div>
+
+    <div class="hero-logo-wrap">
+      <img
+        src="logo-weiss.png"
+        alt="Fritschle"
+        class="hero-logo"
+        onerror="this.style.display='none';"
+      >
+    </div>
+
+    <div class="hero-divider"></div>
+
+    <h1 class="start-heading">
+      Schön, dass Ihr dabei seid!
+    </h1>
+
+    <p class="welcome-title">
+      Liebe Kolleginnen und Kollegen,
+    </p>
+
+    <p class="welcome-text">
+      zum 80-jährigen Firmenjubiläum verbringen wir gemeinsam drei schöne Tage in München.
+    </p>
+
+    <p class="welcome-text">
+      Freut Euch auf interessante Programmpunkte, gesellige Abende und viele gemeinsame Erlebnisse.
+    </p>
+
+    <p class="welcome-text">
+      Wir wünschen Euch schon heute eine schöne gemeinsame Zeit und viel Spaß bei unserem Jubiläumsausflug!
+    </p>
+
+    <div class="trip-title">
+      Jubiläumsausflug München
+    </div>
+
+    <div class="trip-date">
+      15. – 17. Oktober 2026
+    </div>
+
+    <button class="start-button" onclick="showSection('programm')">
+      Zum Programm&nbsp; →
+    </button>
+
+    <div class="hero-scroll">
+      Entdeckt die Reise
+    </div>
+
+    <div class="hero-scroll-arrow">
+      ↓
+    </div>
+
+  </div>
+
+  <!-- Goldene München-Skyline -->
+  <div class="munich-skyline" aria-hidden="true">
+
+    <svg
+      class="skyline-svg"
+      viewBox="0 0 1200 260"
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+
+      <defs>
+        <linearGradient id="goldGradient" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#f0d889"/>
+          <stop offset="55%" stop-color="#d7b45a"/>
+          <stop offset="100%" stop-color="#8f7639"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Grundlinie -->
+      <path
+        class="skyline-glow"
+        d="M0 232 H1200"
+      />
+
+      <!-- Linke Häuser -->
+      <path
+        class="skyline-fill"
+        d="
+        M0 232
+        V192 H42 V178 H78 V205 H112 V164
+        H145 V190 H181 V151 H220 V232 Z
+        "
+      />
+
+      <!-- Frauenkirche links -->
+      <path
+        class="skyline-fill"
+        d="
+        M235 232
+        V170
+        L253 143
+        V91
+        H276
+        V143
+        L294 170
+        V232 Z
+        "
+      />
+
+      <!-- Frauenkirche rechts -->
+      <path
+        class="skyline-fill"
+        d="
+        M301 232
+        V170
+        L319 143
+        V88
+        H342
+        V143
+        L360 170
+        V232 Z
+        "
+      />
+
+      <!-- Mittlere Gebäude -->
+      <path
+        class="skyline-fill"
+        d="
+        M370 232
+        V179 H402 V158 H438 V188
+        H472 V146 H510 V172 H545 V131
+        H582 V178 H618 V154 H651 V190
+        H687 V168 H720 V232 Z
+        "
+      />
+
+      <!-- Fernsehturm -->
+      <path
+        class="skyline-glow"
+        d="M760 232 L792 105 L824 232"
+      />
+
+      <ellipse
+        class="skyline-fill"
+        cx="792"
+        cy="94"
+        rx="17"
+        ry="8"
+      />
+
+      <path
+        class="skyline-glow"
+        d="M792 85 V43"
+      />
+
+      <circle
+        class="skyline-light"
+        cx="792"
+        cy="40"
+        r="3"
+      />
+
+      <!-- Rechte Häuser -->
+      <path
+        class="skyline-fill"
+        d="
+        M835 232
+        V178 H870 V151 H904 V187
+        H941 V162 H978 V141 H1014 V181
+        H1050 V157 H1086 V190 H1122 V173
+        H1160 V198 H1200 V232 Z
+        "
+      />
+
+      <!-- Fensterlichter -->
+      <g class="skyline-light">
+        <rect x="390" y="191" width="4" height="8"/>
+        <rect x="416" y="171" width="4" height="8"/>
+        <rect x="445" y="202" width="4" height="8"/>
+        <rect x="486" y="160" width="4" height="8"/>
+        <rect x="557" y="145" width="4" height="8"/>
+        <rect x="628" y="170" width="4" height="8"/>
+        <rect x="884" y="169" width="4" height="8"/>
+        <rect x="955" y="180" width="4" height="8"/>
+        <rect x="995" y="159" width="4" height="8"/>
+        <rect x="1065" y="176" width="4" height="8"/>
+        <rect x="1135" y="188" width="4" height="8"/>
+      </g>
+
+    </svg>
+  </div>
+
+  <div class="hero-bottom">
+    <div class="hero-bottom-text">
+      80 Jahre Fritschle · Gemeinsam in München
+    </div>
+    <div class="hero-bottom-line"></div>
+  </div>
+
+</section>
 
 
 <!-- =========================================================
@@ -1489,8 +1285,7 @@ img {
     data-section="start"
     onclick="showSection('start')"
   >
-    <span class="nav-icon">⌂</span>
-    <span>Start</span>
+    ⌂&nbsp; Start
   </button>
 
   <button
@@ -1498,8 +1293,7 @@ img {
     data-section="programm"
     onclick="showSection('programm')"
   >
-    <span class="nav-icon">▣</span>
-    <span>Programm</span>
+    ▣&nbsp; Programm
   </button>
 
   <button
@@ -1507,8 +1301,7 @@ img {
     data-section="nachtleben"
     onclick="showSection('nachtleben')"
   >
-    <span class="nav-icon">◷</span>
-    <span>Nachtleben</span>
+    ◷&nbsp; Nachtleben
   </button>
 
   <button
@@ -1516,8 +1309,7 @@ img {
     data-section="infos"
     onclick="showSection('infos')"
   >
-    <span class="nav-icon">i</span>
-    <span>Infos</span>
+    i&nbsp; Infos
   </button>
 
 </nav>
@@ -1527,339 +1319,23 @@ img {
 
 
 <!-- =========================================================
-     STARTSEITE
-     ========================================================= -->
-
-<section id="start" class="page-section active-section">
-
-  <div class="start-content">
-
-    <div class="anniversary-badge">
-
-      <div class="badge-inner">
-
-        <div class="badge-number">80</div>
-
-        <div class="badge-line"></div>
-
-        <div class="badge-years">
-          Jahre
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="start-logo">
-
-      <img
-        src="logo-weiss.png"
-        alt="Fritschle"
-        onerror="logoFallback(this)"
-      >
-
-    </div>
-
-
-    <div class="start-divider"></div>
-
-
-    <h1 class="start-title">
-      Schön, dass Ihr dabei seid!
-    </h1>
-
-
-    <p class="start-greeting">
-      Liebe Kolleginnen und Kollegen,
-    </p>
-
-
-    <p class="start-text">
-      zum 80-jährigen Firmenjubiläum verbringen wir gemeinsam
-      drei schöne Tage in München.
-    </p>
-
-
-    <p class="start-text">
-      Freut Euch auf interessante Programmpunkte, gesellige Abende
-      und viele gemeinsame Erlebnisse.
-    </p>
-
-
-    <p class="start-text">
-      Wir wünschen Euch schon heute eine schöne und erlebnisreiche Zeit!
-    </p>
-
-
-    <div class="trip-title">
-      Jubiläumsausflug München
-    </div>
-
-    <div class="trip-date">
-      15. – 17. Oktober 2026
-    </div>
-
-
-    <button
-      class="start-button"
-      onclick="showSection('programm')"
-    >
-      Zum Programm
-    </button>
-
-  </div>
-
-
-  <!-- GOLDENE SKYLINE -->
-
-  <div class="munich-skyline">
-
-    <svg
-      viewBox="0 0 1200 180"
-      preserveAspectRatio="xMidYMax meet"
-      aria-hidden="true"
-    >
-
-      <defs>
-
-        <linearGradient
-          id="goldGradient"
-          x1="0"
-          y1="0"
-          x2="0"
-          y2="1"
-        >
-
-          <stop
-            offset="0%"
-            stop-color="#e7c66a"
-            stop-opacity="0.95"
-          />
-
-          <stop
-            offset="100%"
-            stop-color="#b78a32"
-            stop-opacity="0.55"
-          />
-
-        </linearGradient>
-
-      </defs>
-
-
-      <!-- Grundlinie -->
-
-      <path
-        class="skyline-glow"
-        d="M0 166 H1200"
-      />
-
-
-      <!-- Linke Häuser -->
-
-      <path
-        class="skyline-fill"
-        d="
-          M0 166
-          V125
-          H42
-          V109
-          H72
-          V132
-          H105
-          V92
-          H137
-          V116
-          H170
-          V137
-          H205
-          V105
-          H238
-          V126
-          H275
-          V82
-          H310
-          V118
-          H345
-          V96
-          H380
-          V166
-          Z
-        "
-      />
-
-
-      <!-- Frauenkirche -->
-
-      <path
-        class="skyline-fill"
-        d="
-          M395 166
-          V107
-          H420
-          V82
-          H430
-          V55
-          H438
-          V82
-          H448
-          V105
-          H470
-          V166
-          Z
-        "
-      />
-
-      <path
-        class="skyline-fill"
-        d="
-          M475 166
-          V105
-          H500
-          V79
-          H510
-          V49
-          H518
-          V79
-          H528
-          V105
-          H550
-          V166
-          Z
-        "
-      />
-
-
-      <!-- Mittlere Stadthäuser -->
-
-      <path
-        class="skyline-fill"
-        d="
-          M560 166
-          V121
-          H590
-          V101
-          H620
-          V132
-          H650
-          V88
-          H685
-          V112
-          H720
-          V73
-          H755
-          V125
-          H790
-          V105
-          H825
-          V166
-          Z
-        "
-      />
-
-
-      <!-- Fernsehturm -->
-
-      <path
-        class="skyline-fill"
-        d="
-          M852 166
-          L870 166
-          L876 96
-          L892 96
-          L900 40
-          L908 96
-          L924 96
-          L930 166
-          Z
-        "
-      />
-
-      <circle
-        cx="904"
-        cy="34"
-        r="7"
-        class="skyline-fill"
-      />
-
-
-      <!-- Rechte Häuser -->
-
-      <path
-        class="skyline-fill"
-        d="
-          M940 166
-          V112
-          H975
-          V128
-          H1005
-          V91
-          H1040
-          V116
-          H1075
-          V76
-          H1110
-          V123
-          H1145
-          V104
-          H1180
-          V126
-          H1200
-          V166
-          Z
-        "
-      />
-
-    </svg>
-
-
-    <div class="skyline-light"></div>
-
-  </div>
-
-
-  <div class="start-bottom">
-
-    <div class="start-bottom-text">
-      80 Jahre Fritschle · Gemeinsam in München
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================================================
      PROGRAMM
      ========================================================= -->
 
-<section
-  id="programm"
-  class="page-section"
->
+<section id="programm" class="app-section">
 
   <div class="section-wrap">
 
     <div class="section-header">
-
-      <span class="section-kicker">
-        Unser Ausflug
-      </span>
-
-      <h2>
-        Programm
-      </h2>
-
+      <span class="section-kicker">15. – 17. OKTOBER 2026</span>
+      <h2>Programm</h2>
       <p>
-        Alle wichtigen Zeiten und Programmpunkte auf einen Blick.
+        Drei Tage München – hier findet Ihr alle wichtigen Programmpunkte auf einen Blick.
       </p>
-
     </div>
 
 
-    <!-- TAGES-TABS -->
+    <!-- TAGE -->
 
     <div class="day-tabs">
 
@@ -1868,89 +1344,57 @@ img {
         data-day="donnerstag"
         onclick="showDay('donnerstag')"
       >
-
-        <span class="day-name">
-          Donnerstag
-        </span>
-
-        <span class="day-date">
-          15.10.
-        </span>
-
+        <span class="day-name">Donnerstag</span>
+        <span class="day-date">15.10.</span>
       </button>
-
 
       <button
         class="day-tab"
         data-day="freitag"
         onclick="showDay('freitag')"
       >
-
-        <span class="day-name">
-          Freitag
-        </span>
-
-        <span class="day-date">
-          16.10.
-        </span>
-
+        <span class="day-name">Freitag</span>
+        <span class="day-date">16.10.</span>
       </button>
-
 
       <button
         class="day-tab"
         data-day="samstag"
         onclick="showDay('samstag')"
       >
-
-        <span class="day-name">
-          Samstag
-        </span>
-
-        <span class="day-date">
-          17.10.
-        </span>
-
+        <span class="day-name">Samstag</span>
+        <span class="day-date">17.10.</span>
       </button>
 
     </div>
-
 
 
     <!-- =====================================================
          DONNERSTAG
          ===================================================== -->
 
-    <div
-      id="donnerstag"
-      class="day-content active"
-    >
+    <div id="donnerstag" class="day-content active">
 
       <div class="timeline">
 
-
         <div class="timeline-item">
 
-          <div class="timeline-time">
-            14:00
-          </div>
-
+          <div class="timeline-time">14:00</div>
           <div class="timeline-dot"></div>
 
-          <div class="timeline-card">
-
-            <div class="timeline-label">
-              Abfahrt
-            </div>
-
-            <h3>
-              Start in Uttenweiler
-            </h3>
-
+          <div class="timeline-card highlight">
+            <div class="timeline-label">Abfahrt</div>
+            <h3>Abfahrt nach München</h3>
             <p>
-              Gemeinsame Abfahrt mit dem Bus vom Firmenhof in Uttenweiler.
+              Gemeinsame Abfahrt mit dem Bus in Uttenweiler.
             </p>
 
+            <div class="location-box">
+              <div class="location-title">Treffpunkt</div>
+              <div class="location-address">
+                Firmenhof Fritschle · Uttenweiler
+              </div>
+            </div>
           </div>
 
         </div>
@@ -1958,26 +1402,15 @@ img {
 
         <div class="timeline-item">
 
-          <div class="timeline-time">
-            17:00
-          </div>
-
+          <div class="timeline-time">17:00</div>
           <div class="timeline-dot"></div>
 
           <div class="timeline-card">
-
-            <div class="timeline-label">
-              Ankunft
-            </div>
-
-            <h3>
-              München
-            </h3>
-
+            <div class="timeline-label">Ankunft</div>
+            <h3>Ankunft in München</h3>
             <p>
-              Ankunft in München und Fahrt zum Hotel.
+              Ankunft in München und anschließend Fahrt zum Hotel.
             </p>
-
           </div>
 
         </div>
@@ -1985,30 +1418,24 @@ img {
 
         <div class="timeline-item">
 
-          <div class="timeline-time">
-            –
-          </div>
-
+          <div class="timeline-time">ca. 17:30</div>
           <div class="timeline-dot"></div>
 
           <div class="timeline-card">
-
-            <div class="timeline-label">
-              Hotel
-            </div>
-
-            <h3>
-              Check-in
-            </h3>
-
+            <div class="timeline-label">Hotel</div>
+            <h3>Check-in</h3>
             <p>
               Zimmer beziehen und Zeit zum Frischmachen.
             </p>
 
             <div class="location-box">
-              Holiday Inn München City Centre
+              <div class="location-title">
+                Holiday Inn München City Centre
+              </div>
+              <div class="location-address">
+                Hochstraße 3 · 81669 München
+              </div>
             </div>
-
           </div>
 
         </div>
@@ -2016,27 +1443,15 @@ img {
 
         <div class="timeline-item">
 
-          <div class="timeline-time">
-            18:30
-          </div>
-
+          <div class="timeline-time">18:30</div>
           <div class="timeline-dot"></div>
 
           <div class="timeline-card">
-
-            <div class="timeline-label">
-              Treffpunkt
-            </div>
-
-            <h3>
-              Foyer im Hotel
-            </h3>
-
+            <div class="timeline-label">Treffpunkt</div>
+            <h3>Treffpunkt im Hotelfoyer</h3>
             <p>
-              Treffen im Foyer des Hotels.
-              Anschließend gemeinsamer Spaziergang Richtung Innenstadt.
+              Gemeinsamer Treffpunkt im Foyer des Hotels. Anschließend gemeinsamer Spaziergang in die Innenstadt.
             </p>
-
           </div>
 
         </div>
@@ -2044,80 +1459,108 @@ img {
 
         <div class="timeline-item">
 
-          <div class="timeline-time">
-            19:00
-          </div>
-
+          <div class="timeline-time">19:00</div>
           <div class="timeline-dot"></div>
 
-          <div class="timeline-card highlight-card">
-
-            <div class="timeline-label">
-              Gemeinsamer Abend
-            </div>
-
-            <h3>
-              Donisl
-            </h3>
-
+          <div class="timeline-card highlight">
+            <div class="timeline-label">Gemeinsamer Abend</div>
+            <h3>Donisl</h3>
             <p>
-              Gemeinsamer Abend im Donisl mitten in der Münchner Innenstadt.
+              Gemeinsamer Abend in geselliger Runde.
             </p>
 
             <div class="location-box">
-              Weinstraße 1 · München
+              <div class="location-title">Donisl</div>
+              <div class="location-address">
+                Weinstraße 1 · 80333 München
+              </div>
             </div>
-
-            <p>
-              Geselliger Abend bis ca. 22:00 Uhr.
-            </p>
-
           </div>
 
         </div>
 
+
+        <div class="timeline-item">
+
+          <div class="timeline-time">bis 22:00</div>
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-card">
+            <div class="timeline-label">Abend</div>
+            <h3>Geselliger Abend</h3>
+            <p>
+              Gemeinsamer Abend im Donisl. Danach steht die freie Zeit zur Verfügung – einige Vorschläge findet Ihr unter „Nachtleben“.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Donnerstag-Routen -->
+
+      <div class="route-panel">
+
+        <div class="route-panel-header">
+          <strong>Routen am Donnerstag</strong>
+          <p>
+            Die Karten öffnen direkt die passende Fußweg-Route in Google Maps.
+          </p>
+        </div>
+
+        <div class="route-group">
+
+          <div class="route-group-title">
+            Nach dem gemeinsamen Abend
+          </div>
+
+          <a
+            class="map-route-button"
+            href="https://www.google.com/maps/dir/?api=1&origin=Donisl,+Weinstrasse+1,+80333+Munich&destination=Holiday+Inn+Munich+City+Centre,+Hochstrasse+3,+81669+Munich&travelmode=walking"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>Donisl → Hotel</span>
+            <span>↗</span>
+          </a>
+
+          <a
+            class="map-route-button"
+            href="https://www.google.com/maps/dir/?api=1&origin=Donisl,+Weinstrasse+1,+80333+Munich&destination=GOP+Variete-Theater+Munchen,+Maximilianstrasse+47,+80538+Munich&travelmode=walking"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>Donisl → GOP Varieté</span>
+            <span>↗</span>
+          </a>
+
+        </div>
 
       </div>
 
     </div>
-
 
 
     <!-- =====================================================
          FREITAG
          ===================================================== -->
 
-    <div
-      id="freitag"
-      class="day-content"
-    >
+    <div id="freitag" class="day-content">
 
       <div class="timeline">
 
-
         <div class="timeline-item">
 
-          <div class="timeline-time">
-            08:30
-          </div>
-
+          <div class="timeline-time">ab 7:00</div>
           <div class="timeline-dot"></div>
 
-          <div class="timeline-card highlight-card">
-
-            <div class="timeline-label">
-              Treffpunkt
-            </div>
-
-            <h3>
-              Gemeinsamer Start
-            </h3>
-
+          <div class="timeline-card">
+            <div class="timeline-label">Frühstück</div>
+            <h3>Frühstück im Hotel</h3>
             <p>
-              Treffpunkt für das Tagesprogramm.
-              Bitte pünktlich bereit sein.
+              Gemeinsames Frühstück im Holiday Inn München City Centre.
             </p>
-
           </div>
 
         </div>
@@ -2125,25 +1568,99 @@ img {
 
         <div class="timeline-item">
 
-          <div class="timeline-time">
-            09:00
+          <div class="timeline-time">8:30</div>
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-card highlight">
+            <div class="timeline-label">Treffpunkt</div>
+            <h3>Treffpunkt</h3>
+            <p>
+              Bitte pünktlich zum gemeinsamen Treffpunkt bereit sein.
+            </p>
           </div>
 
+        </div>
+
+
+        <div class="timeline-item">
+
+          <div class="timeline-time">9:00</div>
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-card">
+            <div class="timeline-label">Vormittag</div>
+            <h3>Gemeinsames Programm</h3>
+            <p>
+              Gemeinsamer Programmpunkt am Vormittag.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+          <div class="timeline-time">12:45</div>
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-card highlight">
+            <div class="timeline-label">Weiterfahrt</div>
+            <h3>Abfahrt zur Allianz Arena</h3>
+            <p>
+              Abfahrt zur Allianz Arena um 12:45 Uhr.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+          <div class="timeline-time">Nachmittag</div>
           <div class="timeline-dot"></div>
 
           <div class="timeline-card">
 
-            <div class="timeline-label">
-              Vormittag
-            </div>
+            <div class="timeline-label">Gebuchte Variante</div>
 
-            <h3>
-              Gemeinsames Programm
-            </h3>
+            <h3>Bitte gebuchte Variante wählen</h3>
 
             <p>
-              Start in den gemeinsamen Freitag in München.
+              Nach der Mittagspause. Bitte gebuchte Variante wählen.
             </p>
+
+            <div class="variant-box">
+
+              <div class="variant-title">
+                Welche Variante ist gebucht?
+              </div>
+
+              <div class="variant-buttons">
+
+                <button
+                  class="variant-button"
+                  data-variant="BMW"
+                  onclick="selectVariant('BMW')"
+                >
+                  BMW Welt
+                </button>
+
+                <button
+                  class="variant-button"
+                  data-variant="Allianz"
+                  onclick="selectVariant('Allianz')"
+                >
+                  Allianz Arena
+                </button>
+
+              </div>
+
+              <div
+                id="variant-selected"
+                class="variant-selected"
+              ></div>
+
+            </div>
 
           </div>
 
@@ -2152,126 +1669,144 @@ img {
 
         <div class="timeline-item">
 
-          <div class="timeline-time">
-            12:45
-          </div>
-
-          <div class="timeline-dot"></div>
-
-          <div class="timeline-card highlight-card">
-
-            <div class="timeline-label">
-              Abfahrt
-            </div>
-
-            <h3>
-              Weiterfahrt
-            </h3>
-
-            <p>
-              Abfahrt zur Allianz Arena.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-          <div class="timeline-time">
-            –
-          </div>
-
+          <div class="timeline-time">Abend</div>
           <div class="timeline-dot"></div>
 
           <div class="timeline-card">
-
-            <div class="timeline-label">
-              Nach der Mittagspause
-            </div>
-
-            <h3>
-              Bitte gebuchte Variante wählen
-            </h3>
-
+            <div class="timeline-label">Freie Zeit</div>
+            <h3>Abend in München</h3>
             <p>
-              Wählt hier Eure gebuchte Variante.
+              Nach dem Tagesprogramm steht die freie Zeit zur Verfügung. Vorschläge findet Ihr unter „Nachtleben“.
             </p>
-
-
-            <div class="variant-buttons">
-
-              <button
-                class="variant-btn"
-                data-variant="BMW"
-                onclick="selectVariant('BMW')"
-              >
-                BMW Welt
-              </button>
-
-              <button
-                class="variant-btn"
-                data-variant="Allianz"
-                onclick="selectVariant('Allianz')"
-              >
-                Allianz Arena
-              </button>
-
-            </div>
-
-
-            <div id="variant-selected"></div>
-
           </div>
 
         </div>
-
 
       </div>
 
 
-      <div id="friday-routes"></div>
+      <!-- Freitag-Routen -->
+
+      <div class="route-panel">
+
+        <div class="route-panel-header">
+          <strong>Routen am Freitag</strong>
+          <p>
+            Fußwege bzw. Verbindungen direkt in Google Maps öffnen.
+          </p>
+        </div>
+
+
+        <div class="route-group">
+
+          <div class="route-group-title">
+            GOP Varieté
+          </div>
+
+          <a
+            class="map-route-button"
+            href="https://www.google.com/maps/dir/?api=1&origin=Holiday+Inn+Munich+City+Centre,+Hochstrasse+3,+81669+Munich&destination=GOP+Variete-Theater+Munchen,+Maximilianstrasse+47,+80538+Munich&travelmode=walking"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>Hotel → GOP Varieté</span>
+            <span>↗</span>
+          </a>
+
+          <a
+            class="map-route-button"
+            href="https://www.google.com/maps/dir/?api=1&origin=GOP+Variete-Theater+Munchen,+Maximilianstrasse+47,+80538+Munich&destination=Holiday+Inn+Munich+City+Centre,+Hochstrasse+3,+81669+Munich&travelmode=walking"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>GOP Varieté → Hotel</span>
+            <span>↗</span>
+          </a>
+
+        </div>
+
+
+        <div class="route-group">
+
+          <div class="route-group-title">
+            BMW Welt
+          </div>
+
+          <a
+            class="map-route-button"
+            href="https://www.google.com/maps/dir/?api=1&origin=Holiday+Inn+Munich+City+Centre,+Hochstrasse+3,+81669+Munich&destination=BMW+Welt,+Am+Olympiapark+1,+80809+Munich&travelmode=transit"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>Hotel → BMW Welt</span>
+            <span>↗</span>
+          </a>
+
+          <a
+            class="map-route-button"
+            href="https://www.google.com/maps/dir/?api=1&origin=BMW+Welt,+Am+Olympiapark+1,+80809+Munich&destination=Holiday+Inn+Munich+City+Centre,+Hochstrasse+3,+81669+Munich&travelmode=transit"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>BMW Welt → Hotel</span>
+            <span>↗</span>
+          </a>
+
+        </div>
+
+
+        <div class="route-group">
+
+          <div class="route-group-title">
+            Allianz Arena
+          </div>
+
+          <a
+            class="map-route-button"
+            href="https://www.google.com/maps/dir/?api=1&origin=Holiday+Inn+Munich+City+Centre,+Hochstrasse+3,+81669+Munich&destination=Allianz+Arena,+Werner-Heisenberg-Allee+25,+80939+Munich&travelmode=transit"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>Hotel → Allianz Arena</span>
+            <span>↗</span>
+          </a>
+
+          <a
+            class="map-route-button"
+            href="https://www.google.com/maps/dir/?api=1&origin=Allianz+Arena,+Werner-Heisenberg-Allee+25,+80939+Munich&destination=Holiday+Inn+Munich+City+Centre,+Hochstrasse+3,+81669+Munich&travelmode=transit"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>Allianz Arena → Hotel</span>
+            <span>↗</span>
+          </a>
+
+        </div>
+
+      </div>
 
     </div>
-
 
 
     <!-- =====================================================
          SAMSTAG
          ===================================================== -->
 
-    <div
-      id="samstag"
-      class="day-content"
-    >
+    <div id="samstag" class="day-content">
 
       <div class="timeline">
 
-
         <div class="timeline-item">
 
-          <div class="timeline-time">
-            ab 07:00
-          </div>
-
+          <div class="timeline-time">ab 7:00</div>
           <div class="timeline-dot"></div>
 
           <div class="timeline-card">
-
-            <div class="timeline-label">
-              Morgen
-            </div>
-
-            <h3>
-              Frühstück & Check-out
-            </h3>
-
+            <div class="timeline-label">Frühstück</div>
+            <h3>Frühstück &amp; Check-out</h3>
             <p>
-              Frühstück ab 07:00 Uhr.
-              Anschließend Zimmer räumen und auschecken.
+              Frühstück im Hotel. Anschließend Check-out und Gepäck für die spätere Abholung vorbereiten.
             </p>
-
           </div>
 
         </div>
@@ -2279,26 +1814,15 @@ img {
 
         <div class="timeline-item">
 
-          <div class="timeline-time">
-            09:00
-          </div>
-
+          <div class="timeline-time">9:00</div>
           <div class="timeline-dot"></div>
 
           <div class="timeline-card">
-
-            <div class="timeline-label">
-              Spaziergang
-            </div>
-
-            <h3>
-              Richtung Marienplatz
-            </h3>
-
+            <div class="timeline-label">Spaziergang</div>
+            <h3>Auf dem Weg zum Marienplatz</h3>
             <p>
               Gemeinsamer Spaziergang vom Hotel Richtung Marienplatz.
             </p>
-
           </div>
 
         </div>
@@ -2306,57 +1830,26 @@ img {
 
         <div class="timeline-item">
 
-          <div class="timeline-time">
-            09:30
-          </div>
-
+          <div class="timeline-time">9:30</div>
           <div class="timeline-dot"></div>
 
-          <div class="timeline-card highlight-card">
+          <div class="timeline-card highlight">
 
-            <div class="timeline-label">
-              Stadtführung
-            </div>
+            <div class="timeline-label">Stadtführung</div>
 
-            <h3>
-              Marienplatz & Viktualienmarkt
-            </h3>
+            <h3>Marienplatz &amp; Viktualienmarkt</h3>
 
             <p>
-              Gemeinsame Stadtführung durch die Münchner Altstadt
-              mit Marienplatz und Viktualienmarkt.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-          <div class="timeline-time">
-            13:00
-          </div>
-
-          <div class="timeline-dot"></div>
-
-          <div class="timeline-card highlight-card">
-
-            <div class="timeline-label">
-              Mittagessen
-            </div>
-
-            <h3>
-              Hofbräuhaus
-            </h3>
-
-            <p>
-              Gemeinsamer Abschluss der München-Tour
-              beim Mittagessen im Hofbräuhaus.
+              Gemeinsame Stadtführung durch die Münchner Altstadt mit Marienplatz und Viktualienmarkt.
             </p>
 
             <div class="location-box">
-              Platzl 9 · München
+              <div class="location-title">
+                Treffpunkt Marienplatz
+              </div>
+              <div class="location-address">
+                Marienplatz · 80331 München
+              </div>
             </div>
 
           </div>
@@ -2366,25 +1859,46 @@ img {
 
         <div class="timeline-item">
 
-          <div class="timeline-time">
-            15:00
+          <div class="timeline-time">13:00</div>
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-card highlight">
+
+            <div class="timeline-label">Mittagessen</div>
+
+            <h3>Hofbräuhaus</h3>
+
+            <p>
+              Gemeinsames Mittagessen im Hofbräuhaus.
+            </p>
+
+            <div class="location-box">
+              <div class="location-title">
+                Hofbräuhaus München
+              </div>
+              <div class="location-address">
+                Platzl 9 · 80331 München
+              </div>
+            </div>
+
           </div>
 
+        </div>
+
+
+        <div class="timeline-item">
+
+          <div class="timeline-time">15:00</div>
           <div class="timeline-dot"></div>
 
           <div class="timeline-card">
 
-            <div class="timeline-label">
-              Hotel
-            </div>
+            <div class="timeline-label">Gepäck</div>
 
-            <h3>
-              Gepäck abholen
-            </h3>
+            <h3>Gepäck am Hotel abholen</h3>
 
             <p>
-              Rückweg zum Hotel und Gepäck abholen.
-              Die passende Gehroute ist unten hinterlegt.
+              Rückweg zum Hotel, Gepäck abholen und anschließend gemeinsam zur Abfahrt.
             </p>
 
           </div>
@@ -2394,90 +1908,111 @@ img {
 
         <div class="timeline-item">
 
-          <div class="timeline-time">
-            15:30
-          </div>
-
+          <div class="timeline-time">15:30</div>
           <div class="timeline-dot"></div>
 
-          <div class="timeline-card highlight-card">
+          <div class="timeline-card highlight">
 
-            <div class="timeline-label">
-              Heimreise
-            </div>
+            <div class="timeline-label">Heimreise</div>
 
-            <h3>
-              Abfahrt nach Uttenweiler
-            </h3>
+            <h3>Abfahrt nach Uttenweiler</h3>
 
             <p>
-              Gemeinsame Rückfahrt nach Uttenweiler.
+              Gemeinsame Heimfahrt von München nach Uttenweiler.
             </p>
 
           </div>
 
         </div>
-
 
       </div>
 
 
-      <div id="saturday-routes"></div>
+      <!-- Samstag-Routen -->
+
+      <div class="route-panel">
+
+        <div class="route-panel-header">
+          <strong>Routen am Samstag</strong>
+          <p>
+            Die wichtigsten Wege des Vormittags direkt in Google Maps.
+          </p>
+        </div>
+
+
+        <div class="route-group">
+
+          <div class="route-group-title">
+            Altstadt
+          </div>
+
+          <a
+            class="map-route-button"
+            href="https://www.google.com/maps/dir/?api=1&origin=Holiday+Inn+Munich+City+Centre,+Hochstrasse+3,+81669+Munich&destination=Marienplatz,+80331+Munich&travelmode=walking"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>Hotel → Marienplatz</span>
+            <span>↗</span>
+          </a>
+
+          <a
+            class="map-route-button"
+            href="https://www.google.com/maps/dir/?api=1&origin=Marienplatz,+80331+Munich&destination=Hofbraeuhaus+Munchen,+Platzl+9,+80331+Munich&travelmode=walking"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>Marienplatz → Hofbräuhaus</span>
+            <span>↗</span>
+          </a>
+
+          <a
+            class="map-route-button"
+            href="https://www.google.com/maps/dir/?api=1&origin=Hofbraeuhaus+Munchen,+Platzl+9,+80331+Munich&destination=Holiday+Inn+Munich+City+Centre,+Hochstrasse+3,+81669+Munich&travelmode=walking"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>Hofbräuhaus → Hotel</span>
+            <span>↗</span>
+          </a>
+
+        </div>
+
+      </div>
 
     </div>
-
 
   </div>
 
 </section>
 
 
-
 <!-- =========================================================
      NACHTLEBEN
      ========================================================= -->
 
-<section
-  id="nachtleben"
-  class="page-section"
->
+<section id="nachtleben" class="app-section">
 
   <div class="section-wrap">
 
     <div class="section-header">
-
-      <span class="section-kicker">
-        Freie Zeit
-      </span>
-
-      <h2>
-        Nachtleben
-      </h2>
-
+      <span class="section-kicker">FREIE ZEIT</span>
+      <h2>Nachtleben</h2>
       <p>
-        Einige Vorschläge für den Abend – ganz nach Lust und Laune.
+        Einige Vorschläge für Eure freie Zeit – ganz nach Lust und Laune.
       </p>
-
     </div>
 
 
     <div class="suggestion-note">
 
-      <span class="note-icon">
-        ★
-      </span>
+      <div class="note-icon">★</div>
 
       <div>
-
-        <strong>
-          Unsere Vorschläge
-        </strong>
-
+        <strong>Unsere Vorschläge</strong>
         <p>
-          Die folgenden Möglichkeiten sind lediglich Empfehlungen
-          für Eure freie Zeit.
+          Die folgenden Möglichkeiten sind lediglich Empfehlungen für Eure freie Zeit.
         </p>
-
       </div>
 
     </div>
@@ -2485,116 +2020,106 @@ img {
 
     <div id="nightlife-list"></div>
 
-
   </div>
 
 </section>
-
 
 
 <!-- =========================================================
      INFOS
      ========================================================= -->
 
-<section
-  id="infos"
-  class="page-section"
->
+<section id="infos" class="app-section">
 
   <div class="section-wrap">
 
     <div class="section-header">
-
-      <span class="section-kicker">
-        Wichtig
-      </span>
-
-      <h2>
-        Infos
-      </h2>
-
+      <span class="section-kicker">WICHTIGE INFORMATIONEN</span>
+      <h2>Infos</h2>
       <p>
-        Die wichtigsten Informationen rund um den Ausflug.
+        Die wichtigsten Adressen und Hinweise für unseren Jubiläumsausflug.
       </p>
-
     </div>
 
 
-    <div class="info-card">
+    <div class="info-grid">
 
-      <h3>
-        Hotel
-      </h3>
 
-      <p>
-        Holiday Inn München City Centre
-      </p>
+      <div class="info-card">
+
+        <div class="info-icon">⌂</div>
+
+        <h3>Hotel</h3>
+
+        <p>
+          Holiday Inn München City Centre<br>
+          Hochstraße 3<br>
+          81669 München
+        </p>
+
+      </div>
+
+
+      <div class="info-card">
+
+        <div class="info-icon">⌖</div>
+
+        <h3>Ausgangspunkt</h3>
+
+        <p>
+          Uttenweiler<br>
+          Firmenhof Fritschle
+        </p>
+
+      </div>
+
+
+      <div class="info-card info-full">
+
+        <div class="info-icon">🚌</div>
+
+        <h3>Bus &amp; Treffpunkte</h3>
+
+        <p>
+          Bitte bei den jeweiligen Programmpunkten auf die angegebenen Treffpunkt- und Abfahrtszeiten achten und rechtzeitig bereit sein.
+        </p>
+
+      </div>
+
+
+      <div class="info-card info-full">
+
+        <div class="info-icon">↗</div>
+
+        <h3>Karten &amp; Wege</h3>
+
+        <p>
+          Die mit „↗“ gekennzeichneten Schaltflächen öffnen die jeweilige Route direkt in Google Maps. Für Wege innerhalb Münchens sind – soweit passend – Fußwege hinterlegt; für längere Strecken sind öffentliche Verkehrsmittel ausgewählt.
+        </p>
+
+      </div>
+
+
+      <div class="info-card info-full">
+
+        <div class="info-icon">★</div>
+
+        <h3>80 Jahre Fritschle</h3>
+
+        <p>
+          Wir wünschen Euch drei schöne Tage, viele gemeinsame Erlebnisse und eine tolle Zeit in München!
+        </p>
+
+      </div>
+
 
     </div>
-
-
-    <div class="info-card">
-
-      <h3>
-        Ausgangspunkt
-      </h3>
-
-      <p>
-        Uttenweiler
-      </p>
-
-    </div>
-
-
-    <div class="info-card">
-
-      <h3>
-        Bus
-      </h3>
-
-      <p>
-        Bitte rechtzeitig am jeweiligen Treffpunkt bereit sein.
-      </p>
-
-    </div>
-
-
-    <div class="info-card">
-
-      <h3>
-        Unterwegs
-      </h3>
-
-      <p>
-        Für die wichtigsten Wege innerhalb Münchens sind
-        Karten-Links direkt im Programm hinterlegt.
-      </p>
-
-    </div>
-
-
-    <div class="info-card">
-
-      <h3>
-        Jubiläumsausflug
-      </h3>
-
-      <p>
-        80 Jahre Fritschle · München
-        <br>
-        15. – 17. Oktober 2026
-      </p>
-
-    </div>
-
 
   </div>
 
 </section>
 
-
 </main>
-
 
 
 <!-- =========================================================
@@ -2621,118 +2146,70 @@ img {
 </footer>
 
 
-
 <script>
-
 /* =========================================================
-   LOGO FALLBACK
+   NAVIGATION
    ========================================================= */
 
-function logoFallback(img) {
+window.showSection = function(sectionId){
 
-  img.style.display = "none";
+  const sections = document.querySelectorAll(".app-section");
 
-  const fallback = document.createElement("div");
-
-  fallback.className = "logo-fallback";
-
-  fallback.textContent = "Fritschle";
-
-  img.parentElement.appendChild(fallback);
-}
-
-
-/* =========================================================
-   HAUPTNAVIGATION
-   ========================================================= */
-
-window.showSection = function(sectionId) {
-
-  const sections =
-    document.querySelectorAll(".page-section");
-
-  sections.forEach(function(section) {
-
-    section.classList.remove("active-section");
-
+  sections.forEach(function(section){
+    section.classList.remove("active");
   });
 
+  const selectedSection = document.getElementById(sectionId);
 
-  const selected =
-    document.getElementById(sectionId);
-
-  if (selected) {
-
-    selected.classList.add("active-section");
-
+  if(selectedSection){
+    selectedSection.classList.add("active");
   }
 
+  const navButtons = document.querySelectorAll(".main-nav .nav-btn");
 
-  const buttons =
-    document.querySelectorAll(".main-nav button");
-
-  buttons.forEach(function(button) {
+  navButtons.forEach(function(button){
 
     button.classList.remove("active");
 
-    if (
-      button.getAttribute("data-section") === sectionId
-    ) {
-
+    if(button.dataset.section === sectionId){
       button.classList.add("active");
-
     }
 
   });
 
-
   window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+    top:0,
+    behavior:"smooth"
   });
-
 };
 
 
 /* =========================================================
-   TAGESPROGRAMM
+   TAGE
    ========================================================= */
 
-window.showDay = function(dayId) {
+window.showDay = function(dayId){
 
-  const days =
-    document.querySelectorAll(".day-content");
+  const days = document.querySelectorAll(".day-content");
 
-  days.forEach(function(day) {
-
+  days.forEach(function(day){
     day.classList.remove("active");
-
   });
 
+  const selectedDay = document.getElementById(dayId);
 
-  const selectedDay =
-    document.getElementById(dayId);
-
-  if (selectedDay) {
-
+  if(selectedDay){
     selectedDay.classList.add("active");
-
   }
 
+  const tabs = document.querySelectorAll(".day-tab");
 
-  const tabs =
-    document.querySelectorAll(".day-tab");
-
-  tabs.forEach(function(tab) {
+  tabs.forEach(function(tab){
 
     tab.classList.remove("active");
 
-    if (
-      tab.getAttribute("data-day") === dayId
-    ) {
-
+    if(tab.dataset.day === dayId){
       tab.classList.add("active");
-
     }
 
   });
@@ -2741,52 +2218,40 @@ window.showDay = function(dayId) {
 
 
 /* =========================================================
-   BMW / ALLIANZ VARIANTE
+   VARIANTEN
    ========================================================= */
 
-window.selectVariant = function(variant) {
+window.selectVariant = function(variant){
 
-  const buttons =
-    document.querySelectorAll(".variant-btn");
+  const buttons = document.querySelectorAll(".variant-button");
 
-  buttons.forEach(function(button) {
-
+  buttons.forEach(function(button){
     button.classList.remove("active");
-
   });
 
-
-  const selected =
+  const selectedButton =
     document.querySelector(
-      '.variant-btn[data-variant="' + variant + '"]'
+      '.variant-button[data-variant="' + variant + '"]'
     );
 
-  if (selected) {
-
-    selected.classList.add("active");
-
+  if(selectedButton){
+    selectedButton.classList.add("active");
   }
 
+  const info = document.getElementById("variant-selected");
 
-  const info =
-    document.getElementById("variant-selected");
+  if(info){
 
-  if (!info) return;
+    if(variant === "BMW"){
+      info.textContent = "Gebuchte Variante: BMW Welt";
+    }
 
+    if(variant === "Allianz"){
+      info.textContent = "Gebuchte Variante: Allianz Arena";
+    }
 
-  if (variant === "BMW") {
-
-    info.textContent =
-      "Gebuchte Variante: BMW Welt";
-
-  } else {
-
-    info.textContent =
-      "Gebuchte Variante: Allianz Arena";
-
+    info.classList.add("visible");
   }
-
-  info.classList.add("visible");
 
 };
 
@@ -2798,169 +2263,130 @@ window.selectVariant = function(variant) {
 const nightlifeSuggestions = [
 
   {
-    name: "Pacha München",
-
-    category: "Club & Nightlife",
-
+    name:"Pacha München",
+    category:"Club & Nightlife",
     description:
       "Einer der bekannten Münchner Clubs – ideal für alle, die nach dem gemeinsamen Abend noch weiterziehen möchten.",
-
     hours:
       "Donnerstag: ab 22:00 Uhr · Freitag: ab 22:00 Uhr",
-
     distanceDonisl:
       "ca. 1,8 km vom Donisl",
-
     distanceGop:
       "ca. 2,0 km vom GOP Varieté",
-
     hotelReturn:
       "Rückweg zum Hotel: ca. 25–30 Min.",
-
     map:
       "https://www.google.com/maps/dir/?api=1&destination=Pacha+München"
-
   },
 
-
   {
-    name: "GOP Varieté-Theater München",
-
-    category: "Varieté & Unterhaltung",
-
+    name:"GOP Varieté-Theater München",
+    category:"Varieté & Unterhaltung",
     description:
       "Hochklassige Varieté-Shows mit Akrobatik, Comedy und beeindruckender Bühnenkunst.",
-
     hours:
       "Donnerstag: je nach Show · Freitag: je nach Show",
-
     distanceDonisl:
       "ca. 1,5 km vom Donisl",
-
     distanceGop:
       "direkt vor Ort",
-
     hotelReturn:
       "Rückweg zum Hotel: ca. 20 Min.",
-
     map:
       "https://www.google.com/maps/dir/?api=1&destination=GOP+Varieté-Theater+München"
-
   },
 
-
   {
-    name: "Hofbräuhaus",
-
-    category: "Münchner Abend",
-
+    name:"Hofbräuhaus",
+    category:"Münchner Abend",
     description:
       "Traditionelle Münchner Atmosphäre mitten in der Altstadt – eine Möglichkeit für einen geselligen Abend.",
-
     hours:
       "Donnerstag: geöffnet · Freitag: geöffnet",
-
     distanceDonisl:
       "ca. 350 m vom Donisl",
-
     distanceGop:
       "ca. 1,2 km vom GOP Varieté",
-
     hotelReturn:
       "Rückweg zum Hotel: ca. 20–25 Min.",
-
     map:
       "https://www.google.com/maps/dir/?api=1&destination=Hofbräuhaus+München"
-
   },
 
-
   {
-    name: "Münchner Innenstadt",
-
-    category: "Bars & gemütlicher Abend",
-
+    name:"Münchner Innenstadt",
+    category:"Bars & gemütlicher Abend",
     description:
       "Rund um Marienplatz, Sendlinger Straße und Tal findet Ihr zahlreiche Möglichkeiten für einen entspannten Abend.",
-
     hours:
       "Donnerstag: je nach Lokal · Freitag: je nach Lokal",
-
     distanceDonisl:
       "direkt in der Innenstadt",
-
     distanceGop:
       "ca. 1–2 km vom GOP Varieté",
-
     hotelReturn:
       "Rückweg zum Hotel: ca. 20–30 Min.",
-
     map:
       "https://www.google.com/maps/dir/?api=1&destination=Marienplatz+München"
-
   }
 
 ];
 
 
-function renderNightlife() {
+function renderNightlife(){
 
   const container =
     document.getElementById("nightlife-list");
 
-  if (!container) return;
-
+  if(!container){
+    return;
+  }
 
   container.innerHTML = "";
 
-
-  nightlifeSuggestions.forEach(function(item,index) {
+  nightlifeSuggestions.forEach(function(item,index){
 
     const card =
-      document.createElement("div");
+      document.createElement("article");
 
     card.className = "nightlife-card";
 
-
     card.innerHTML = `
-
       <div class="nightlife-number">
         ${index + 1}
       </div>
 
       <div class="nightlife-content">
 
-        <h3>
-          ${item.name}
-        </h3>
+        <h3>${item.name}</h3>
 
         <div class="nightlife-category">
           ${item.category}
         </div>
 
-        <div class="nightlife-description">
+        <p class="nightlife-description">
           ${item.description}
-        </div>
+        </p>
 
         <div class="nightlife-details">
 
           <div class="nightlife-detail">
-            <strong>Öffnung:</strong><br>
+            <strong>Öffnungszeiten:</strong>
             ${item.hours}
           </div>
 
           <div class="nightlife-detail">
-            <strong>Donisl:</strong><br>
+            <strong>Entfernung Donisl:</strong>
             ${item.distanceDonisl}
           </div>
 
           <div class="nightlife-detail">
-            <strong>GOP:</strong><br>
+            <strong>Entfernung GOP:</strong>
             ${item.distanceGop}
           </div>
 
           <div class="nightlife-detail">
-            <strong>Hotel:</strong><br>
+            <strong>Rückweg zum Hotel:</strong>
             ${item.hotelReturn}
           </div>
 
@@ -2972,13 +2398,11 @@ function renderNightlife() {
           target="_blank"
           rel="noopener"
         >
-          🗺 Route öffnen
+          Route in Google Maps&nbsp; ↗
         </a>
 
       </div>
-
     `;
-
 
     container.appendChild(card);
 
@@ -2988,376 +2412,87 @@ function renderNightlife() {
 
 
 /* =========================================================
-   MAP-ROUTEN
+   STARTZUSTAND
    ========================================================= */
 
-const mapRoutes = {
+document.addEventListener("DOMContentLoaded",function(){
 
-  hotelToGop:
-    "https://www.google.com/maps/dir/?api=1&origin=Holiday+Inn+Munich+City+Centre,+Hochstrasse+3,+81669+Munich&destination=GOP+Variete-Theater+Munchen,+Maximilianstrasse+47,+80538+Munich&travelmode=walking",
+  const sections =
+    document.querySelectorAll(".app-section");
 
-  gopToHotel:
-    "https://www.google.com/maps/dir/?api=1&origin=GOP+Variete-Theater+Munchen,+Maximilianstrasse+47,+80538+Munich&destination=Holiday+Inn+Munich+City+Centre,+Hochstrasse+3,+81669+Munich&travelmode=walking",
+  sections.forEach(function(section){
+    section.classList.remove("active");
+  });
 
-  hotelToBmw:
-    "https://www.google.com/maps/dir/?api=1&origin=Holiday+Inn+Munich+City+Centre,+Hochstrasse+3,+81669+Munich&destination=BMW+Welt,+Am+Olympiapark+1,+80809+Munich&travelmode=transit",
+  const start =
+    document.getElementById("start");
 
-  bmwToHotel:
-    "https://www.google.com/maps/dir/?api=1&origin=BMW+Welt,+Am+Olympiapark+1,+80809+Munich&destination=Holiday+Inn+Munich+City+Centre,+Hochstrasse+3,+81669+Munich&travelmode=transit",
-
-  hotelToArena:
-    "https://www.google.com/maps/dir/?api=1&origin=Holiday+Inn+Munich+City+Centre,+Hochstrasse+3,+81669+Munich&destination=Allianz+Arena,+Werner-Heisenberg-Allee+25,+80939+Munich&travelmode=transit",
-
-  arenaToHotel:
-    "https://www.google.com/maps/dir/?api=1&origin=Allianz+Arena,+Werner-Heisenberg-Allee+25,+80939+Munich&destination=Holiday+Inn+Munich+City+Centre,+Hochstrasse+3,+81669+Munich&travelmode=transit",
-
-  hotelToMarienplatz:
-    "https://www.google.com/maps/dir/?api=1&origin=Holiday+Inn+Munich+City+Centre,+Hochstrasse+3,+81669+Munich&destination=Marienplatz,+80331+Munich&travelmode=walking",
-
-  marienplatzToHofbraeuhaus:
-    "https://www.google.com/maps/dir/?api=1&origin=Marienplatz,+80331+Munich&destination=Hofbraeuhaus+Munchen,+Platzl+9,+80331+Munich&travelmode=walking",
-
-  hofbraeuhausToHotel:
-    "https://www.google.com/maps/dir/?api=1&origin=Hofbraeuhaus+Munchen,+Platzl+9,+80331+Munich&destination=Holiday+Inn+Munich+City+Centre,+Hochstrasse+3,+81669+Munich&travelmode=walking",
-
-  donislToGop:
-    "https://www.google.com/maps/dir/?api=1&origin=Donisl,+Weinstrasse+1,+80333+Munich&destination=GOP+Variete-Theater+Munchen,+Maximilianstrasse+47,+80538+Munich&travelmode=walking",
-
-  donislToHotel:
-    "https://www.google.com/maps/dir/?api=1&origin=Donisl,+Weinstrasse+1,+80333+Munich&destination=Holiday+Inn+Munich+City+Centre,+Hochstrasse+3,+81669+Munich&travelmode=walking"
-
-};
-
-
-/* =========================================================
-   ROUTEN-BUTTON
-   ========================================================= */
-
-function createMapButton(text,url) {
-
-  return `
-
-    <a
-      class="map-route-button"
-      href="${url}"
-      target="_blank"
-      rel="noopener"
-    >
-      🗺 ${text}
-    </a>
-
-  `;
-
-}
-
-
-/* =========================================================
-   FREITAG ROUTEN
-   ========================================================= */
-
-function addFridayRoutes() {
-
-  const container =
-    document.getElementById("friday-routes");
-
-  if (!container) return;
-
-
-  container.innerHTML = `
-
-    <div class="route-panel">
-
-      <div class="route-panel-header">
-        🗺 Wichtige Routen am Freitag
-      </div>
-
-
-      <div class="route-item">
-
-        <div class="route-title">
-          Hotel → GOP Varieté
-          <br>
-          <small>zu Fuß</small>
-        </div>
-
-        ${createMapButton(
-          "Route",
-          mapRoutes.hotelToGop
-        )}
-
-      </div>
-
-
-      <div class="route-item">
-
-        <div class="route-title">
-          GOP Varieté → Hotel
-          <br>
-          <small>zu Fuß</small>
-        </div>
-
-        ${createMapButton(
-          "Rückweg",
-          mapRoutes.gopToHotel
-        )}
-
-      </div>
-
-
-      <div class="route-item">
-
-        <div class="route-title">
-          Hotel → BMW Welt
-          <br>
-          <small>ÖPNV</small>
-        </div>
-
-        ${createMapButton(
-          "Route",
-          mapRoutes.hotelToBmw
-        )}
-
-      </div>
-
-
-      <div class="route-item">
-
-        <div class="route-title">
-          BMW Welt → Hotel
-          <br>
-          <small>ÖPNV</small>
-        </div>
-
-        ${createMapButton(
-          "Rückweg",
-          mapRoutes.bmwToHotel
-        )}
-
-      </div>
-
-
-      <div class="route-item">
-
-        <div class="route-title">
-          Hotel → Allianz Arena
-          <br>
-          <small>ÖPNV</small>
-        </div>
-
-        ${createMapButton(
-          "Route",
-          mapRoutes.hotelToArena
-        )}
-
-      </div>
-
-
-      <div class="route-item">
-
-        <div class="route-title">
-          Allianz Arena → Hotel
-          <br>
-          <small>ÖPNV</small>
-        </div>
-
-        ${createMapButton(
-          "Rückweg",
-          mapRoutes.arenaToHotel
-        )}
-
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =========================================================
-   SAMSTAG ROUTEN
-   ========================================================= */
-
-function addSaturdayRoutes() {
-
-  const container =
-    document.getElementById("saturday-routes");
-
-  if (!container) return;
-
-
-  container.innerHTML = `
-
-    <div class="route-panel">
-
-      <div class="route-panel-header">
-        🗺 Wichtige Routen am Samstag
-      </div>
-
-
-      <div class="route-item">
-
-        <div class="route-title">
-          Hotel → Marienplatz
-          <br>
-          <small>zu Fuß</small>
-        </div>
-
-        ${createMapButton(
-          "Route",
-          mapRoutes.hotelToMarienplatz
-        )}
-
-      </div>
-
-
-      <div class="route-item">
-
-        <div class="route-title">
-          Marienplatz → Hofbräuhaus
-          <br>
-          <small>zu Fuß</small>
-        </div>
-
-        ${createMapButton(
-          "Route",
-          mapRoutes.marienplatzToHofbraeuhaus
-        )}
-
-      </div>
-
-
-      <div class="route-item">
-
-        <div class="route-title">
-          Hofbräuhaus → Hotel
-          <br>
-          <small>zu Fuß · Gepäck abholen</small>
-        </div>
-
-        ${createMapButton(
-          "Rückweg",
-          mapRoutes.hofbraeuhausToHotel
-        )}
-
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =========================================================
-   DONISL ROUTEN
-   ========================================================= */
-
-function addDonislRoutes() {
-
-  /*
-   * Die Donisl-Routen werden als kleiner zusätzlicher
-   * Bereich unter dem Nachtleben angezeigt.
-   */
-
-}
-
-
-/* =========================================================
-   INITIALISIERUNG
-   ========================================================= */
-
-document.addEventListener(
-  "DOMContentLoaded",
-  function() {
-
-    renderNightlife();
-
-    addFridayRoutes();
-
-    addSaturdayRoutes();
-
-    addDonislRoutes();
-
-
-    /* Donnerstag aktiv */
-
-    showDay("donnerstag");
-
-
-    /* Startseite aktiv */
-
-    showSection("start");
-
-
-    /* Bild-Animation */
-
-    document
-      .querySelectorAll("img")
-      .forEach(function(image) {
-
-        image.addEventListener(
-          "load",
-          function() {
-
-            image.classList.add("image-loaded");
-
-          }
-        );
-
-      });
-
+  if(start){
+    start.classList.add("active");
   }
-);
 
+  const navButtons =
+    document.querySelectorAll(".main-nav .nav-btn");
 
-/* =========================================================
-   SEITENWECHSEL
-   ========================================================= */
+  navButtons.forEach(function(button){
+    button.classList.remove("active");
+  });
 
-window.addEventListener(
-  "pageshow",
-  function() {
+  const startButton =
+    document.querySelector(
+      '.main-nav .nav-btn[data-section="start"]'
+    );
 
-    window.scrollTo(0,0);
-
+  if(startButton){
+    startButton.classList.add("active");
   }
-);
+
+  const donnerstag =
+    document.getElementById("donnerstag");
+
+  if(donnerstag){
+    donnerstag.classList.add("active");
+  }
+
+  renderNightlife();
+
+  document.body.style.overflowX = "hidden";
+
+});
 
 
 /* =========================================================
-   LEICHTER SKYLINE-PARALLAX
+   ZURÜCK NACH OBEN BEI SEITENAUFRUF
    ========================================================= */
 
-window.addEventListener(
-  "scroll",
-  function() {
+window.addEventListener("pageshow",function(){
 
-    const skyline =
-      document.querySelector(".munich-skyline");
+  window.scrollTo({
+    top:0,
+    left:0,
+    behavior:"auto"
+  });
 
-    if (!skyline) return;
-
-
-    const scrollY =
-      window.scrollY || 0;
+});
 
 
-    if (scrollY < window.innerHeight) {
+/* =========================================================
+   LOGO LADEN
+   ========================================================= */
 
-      skyline.style.transform =
-        "translateY(" +
-        (scrollY * 0.05) +
-        "px)";
+document.addEventListener("DOMContentLoaded",function(){
 
-    }
+  document.querySelectorAll("img").forEach(function(image){
 
-  },
-  { passive: true }
-);
+    image.addEventListener("load",function(){
+      image.classList.add("image-loaded");
+    });
 
+  });
+
+});
 </script>
-
 
 </body>
 </html>
+```
