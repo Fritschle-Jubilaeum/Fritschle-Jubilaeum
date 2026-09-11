@@ -336,6 +336,20 @@ margin-top:10px;
 margin-bottom:6px
 }
 
+/* AUSDRÜCKLICHES QUERFORMAT FÜR DIE DREI GEWÜNSCHTEN FOTOS */
+
+.landscape-photo{
+width:100%;
+height:220px !important;
+aspect-ratio:16 / 9;
+object-fit:cover;
+object-position:center;
+display:block;
+border-radius:14px;
+margin-top:10px;
+margin-bottom:6px
+}
+
 .variant-photo{
 width:100%;
 height:150px;
@@ -672,6 +686,14 @@ grid-template-columns:1fr
 
 .program-photo{
 height:190px;
+object-fit:cover
+}
+
+/* QUERFORMAT AUCH AUF DEM HANDY */
+
+.landscape-photo{
+height:190px !important;
+aspect-ratio:16 / 9;
 object-fit:cover
 }
 
@@ -1161,7 +1183,7 @@ TUM Sportcampus
 </strong>
 
 <img
-class="program-photo"
+class="program-photo landscape-photo"
 src="https://www.ingenieurholzbau.de/fileadmin/user_upload/Projekt_Kategorien/Oeffentliche_Bauten/Erziehung_Bildung_Forschung/Sportcampus_TU_Muenchen/Neubau_TU_Muenchen_Sportcampus_Ingenieurholzbau_CiO_TUM-Bild_01_Dietrich_Untertrifaller_web.jpg"
 alt="TUM Sportcampus im Olympiapark"
 >
@@ -1515,7 +1537,7 @@ Stadtführung Marienplatz / Viktualienmarkt
 </strong>
 
 <img
-class="program-photo saturday-wide-photo"
+class="program-photo landscape-photo"
 src="https://commons.wikimedia.org/wiki/Special:FilePath/Munich_-_Marienplatz.jpg"
 alt="Marienplatz München"
 >
@@ -1534,7 +1556,7 @@ Mittagessen im Hofbräuhaus
 </strong>
 
 <img
-class="program-photo saturday-wide-photo"
+class="program-photo landscape-photo"
 src="https://www.muenchen.travel/var/ger_muc/storage/images/_aliases/teaser_medium/1/0/2/1/2531201-3-ger-DE/hofbraeuhaus-Au%C3%9Fentotale-waagrecht-foto-tobias-ranzinger-IMG9191.jpg"
 alt="Hofbräuhaus München"
 >
