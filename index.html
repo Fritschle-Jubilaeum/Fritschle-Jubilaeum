@@ -397,6 +397,10 @@ color:var(--orange);
 white-space:nowrap
 }
 
+.event time.small-time{
+font-size:15px
+}
+
 .event strong{
 font-size:16px;
 line-height:1.35
@@ -684,6 +688,10 @@ grid-template-columns:70px 1fr
 
 .event time{
 font-size:16px
+}
+
+.event time.small-time{
+font-size:14px
 }
 
 .grid2{
@@ -1177,19 +1185,28 @@ Verbindlicher Treffpunkt im Hotel.
 <div class="event">
 
 <time>
-anschließend
+Fahrt
 </time>
 
 <strong>
 Fahrt zum TUM Sportcampus
 </strong>
 
+<a
+class="btn"
+style="grid-column:2"
+target="_blank"
+href="https://www.google.com/maps/dir/?api=1&origin=Holiday%20Inn%20M%C3%BCnchen%20City%20Centre&destination=TUM%20Sportcampus%20M%C3%BCnchen&travelmode=walking"
+>
+Route Hotel → Sportcampus
+</a>
+
 </div>
 
 
 <div class="event">
 
-<time>
+<time class="small-time">
 10:00–12:00
 </time>
 
@@ -1395,6 +1412,16 @@ href="https://www.google.com/maps/dir/?api=1&origin=Holiday%20Inn%20M%C3%BCnchen
 Route öffnen
 </a>
 
+<br>
+
+<a
+class="btn"
+target="_blank"
+href="https://www.google.com/maps/dir/?api=1&origin=GOP%20Variet%C3%A9-Theater%20M%C3%BCnchen&destination=Holiday%20Inn%20M%C3%BCnchen%20City%20Centre&travelmode=walking"
+>
+Route vom GOP Varieté zum Hotel
+</a>
+
 </div>
 
 </section>
@@ -1590,7 +1617,7 @@ Mittagessen im Hofbräuhaus
 
 <img
 class="program-photo landscape-photo"
-src="https://www.muenchen.travel/var/ger_muc/storage/images/_aliases/teaser_medium/1/0/2/1/2531201-3-ger-DE/hofbraeuhaus-Au%C3%9Fentotale-waagrecht-foto-tobias-ranzinger-IMG9191.jpg"
+src="https://www.muenchen.travel/var/ger_muc/storage/images/_aliases/teaser_medium/1/0/2/1/2531201-3-ger-DE/hofbraeuhaus-Au%C3%9Fantotale-waagrecht-foto-tobias-ranzinger-IMG9191.jpg"
 alt="Hofbräuhaus München"
 >
 
@@ -1690,6 +1717,16 @@ target="_blank"
 href="${maps('Donisl München')}"
 >
 Route öffnen
+</a>
+
+<br>
+
+<a
+class="btn"
+target="_blank"
+href="https://www.google.com/maps/dir/?api=1&origin=Donisl%20M%C3%BCnchen&destination=Holiday%20Inn%20M%C3%BCnchen%20City%20Centre&travelmode=walking"
+>
+Route zurück zum Hotel
 </a>
 
 </div>
