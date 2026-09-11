@@ -336,18 +336,22 @@ margin-top:10px;
 margin-bottom:6px
 }
 
-/* AUSDRÜCKLICHES QUERFORMAT FÜR DIE DREI GEWÜNSCHTEN FOTOS */
+/* DIE DREI GEWÜNSCHTEN FOTOS ÜBER DIE KOMPLETTE APP-BREITE */
 
 .landscape-photo{
-width:100%;
+grid-column:1 / -1;
+display:block;
+width:calc(100% + 70px);
+max-width:none;
 height:220px !important;
 aspect-ratio:16 / 9;
 object-fit:cover;
 object-position:center;
-display:block;
-border-radius:14px;
 margin-top:10px;
-margin-bottom:6px
+margin-left:-35px;
+margin-right:-35px;
+margin-bottom:6px;
+border-radius:0
 }
 
 .variant-photo{
@@ -689,12 +693,21 @@ height:190px;
 object-fit:cover
 }
 
-/* QUERFORMAT AUCH AUF DEM HANDY */
+/* QUERFORMAT ÜBER DIE KOMPLETTE APP-BREITE AUCH AUF DEM HANDY */
 
 .landscape-photo{
+grid-column:1 / -1;
+width:calc(100% + 70px);
+max-width:none;
 height:190px !important;
 aspect-ratio:16 / 9;
-object-fit:cover
+object-fit:cover;
+object-position:center;
+margin-left:-35px;
+margin-right:-35px;
+margin-top:10px;
+margin-bottom:6px;
+border-radius:0
 }
 
 .home-photo{
