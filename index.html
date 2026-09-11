@@ -214,7 +214,7 @@ letter-spacing:2px
 .munich{
 font-size:54px;
 font-weight:900;
-color:var(--gold2);
+color:var(--orange);
 line-height:1.05;
 margin-top:4px;
 text-shadow:0 3px 22px #000
@@ -239,7 +239,7 @@ text-align:left
 
 .welcome h2{
 margin:0 0 10px;
-color:var(--gold2);
+color:var(--orange);
 font-size:24px
 }
 
@@ -328,6 +328,15 @@ width:100%;
 height:175px;
 object-fit:cover;
 display:block
+}
+
+.variant-photo{
+width:100%;
+height:150px;
+object-fit:cover;
+display:block;
+border-radius:12px;
+margin-bottom:14px
 }
 
 .kicker{
@@ -846,9 +855,7 @@ events:[
 ''
 ]
 
-]}
-
-};
+]}};
 
 let page='home';
 let day='do';
@@ -1002,8 +1009,6 @@ photo=[
 
 else if(day==='fr'){
 
-/* Freitag bleibt ohne zusätzliches neues Foto */
-
 photo=[
 '',
 ''
@@ -1148,6 +1153,12 @@ Fahrt zum TUM Sportcampus
 TUM Sportcampus
 </strong>
 
+<img
+class="program-photo"
+src="https://mediatum.ub.tum.de/image/1658992.jpg"
+alt="TUM Sportcampus im Olympiapark"
+>
+
 </div>
 
 
@@ -1177,6 +1188,12 @@ Nach der Mittagspause: Bitte eine der beiden Varianten wählen
 
 <div class="variant">
 
+<img
+class="variant-photo"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/Munich_-_BMW_Welt.jpg"
+alt="BMW Welt München"
+>
+
 <span class="label">
 VARIANTE A
 </span>
@@ -1186,7 +1203,7 @@ BMW Welt &amp; BMW Museum
 </h3>
 
 <p>
-Am Olympiapark 1 · Besichtigung und anschließend freie Zeit.
+Am Olympiapark 1 · 14:00 Uhr Besichtigung und anschließend freie Zeit.
 </p>
 
 <a
@@ -1201,6 +1218,12 @@ Route öffnen
 
 
 <div class="variant">
+
+<img
+class="variant-photo"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/Allianz_arena.jpg"
+alt="Allianz Arena München"
+>
 
 <span class="label">
 VARIANTE B
@@ -1236,6 +1259,13 @@ Freie Zeit / Rückkehr zum Hotel
 </strong>
 
 </div>
+
+
+<img
+class="program-photo"
+src="https://images.bfv.de/resize/binaries/content/gallery/bfv/bildergalerien/partner/gop.-variete/gop_m_img_aussenansicht_rgb1.jpg/gop_m_img_aussenansicht_rgb1.jpg/bfv%253Athreebytwo?v=-204823231&width=694"
+alt="GOP Varieté-Theater München"
+>
 
 
 <div class="event">
@@ -1290,6 +1320,10 @@ ca. 23:15
 <strong>
 Hotelbar / Nachtleben
 </strong>
+
+<p>
+Vorschläge findet Ihr unter „Mehr → Nachtleben“.
+</p>
 
 </div>
 
@@ -1400,7 +1434,113 @@ ${d.date}
 
 <div class="timeline">
 
-${d.events.map(e =>
+${day==='sa'
+?
+`
+<div class="event">
+
+<time>
+ab 7:00
+</time>
+
+<strong>
+Frühstück
+</strong>
+
+</div>
+
+
+<div class="event">
+
+<time>
+danach
+</time>
+
+<strong>
+Check-out
+</strong>
+
+</div>
+
+
+<div class="event">
+
+<time>
+09:00
+</time>
+
+<strong>
+zu Fuß Richtung Innenstadt, Marienplatz
+</strong>
+
+</div>
+
+
+<div class="event">
+
+<time>
+09:30
+</time>
+
+<strong>
+Stadtführung Marienplatz / Viktualienmarkt
+</strong>
+
+<img
+class="program-photo"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/Munich_-_Marienplatz.jpg"
+alt="Marienplatz München"
+>
+
+</div>
+
+
+<div class="event">
+
+<time>
+13:00
+</time>
+
+<strong>
+Mittagessen im Hofbräuhaus
+</strong>
+
+<img
+class="program-photo"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/Hofbr%C3%A4uhaus%2C_M%C3%BCnchen.jpg"
+alt="Hofbräuhaus München"
+>
+
+</div>
+
+
+<div class="event">
+
+<time>
+15:00
+</time>
+
+<strong>
+Gepäck am Hotel abholen
+</strong>
+
+</div>
+
+
+<div class="event">
+
+<time>
+15:30
+</time>
+
+<strong>
+Abfahrt Heimreise nach Uttenweiler
+</strong>
+
+</div>
+`
+:
+d.events.map(e =>
 
 `
 
@@ -1425,7 +1565,8 @@ ${e[2]
 
 `
 
-).join('')}
+).join('')
+}
 
 </div>
 
