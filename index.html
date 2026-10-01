@@ -162,7 +162,7 @@ display:inline-block;
 width:7px;
 height:7px;
 background:var(--orange);
-border-radius:50%;
+border-radius:0;
 margin-left:4px;
 vertical-align:middle
 }
@@ -251,7 +251,7 @@ line-height:1.55;
 color:#f2f5f7
 }
 
-/* MÜNCHEN-FOTO AUF DER STARTSEITE */
+/* GOLDENE MÜNCHEN-SKYLINE AUF DER STARTSEITE */
 
 .home-photo{
 width:100%;
@@ -262,7 +262,8 @@ display:block;
 margin:16px auto 0;
 border-radius:18px;
 border:1px solid rgba(216,177,91,.38);
-box-shadow:0 12px 30px rgba(0,0,0,.28)
+box-shadow:0 12px 30px rgba(0,0,0,.28);
+filter:sepia(1) saturate(1.7) hue-rotate(355deg) brightness(1.05)
 }
 
 /* ALLGEMEIN */
@@ -838,7 +839,7 @@ events:[
 
 ['08:30',
 'Treffpunkt im Hotelfoyer',
-'Verbindlicher Treffpunkt im Hotel.'
+''
 ],
 
 ['anschließend',
@@ -1012,8 +1013,8 @@ Wir wünschen Euch schon heute eine schöne Zeit und viel Freude beim Jubiläums
 
 <img
 class="home-photo"
-src="https://a.travel-assets.com/findyours-php/viewfinder/images/res70/501000/501501-munich.jpg"
-alt="München Marienplatz bei Nacht"
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Munich_skyline.jpg/1280px-Munich_skyline.jpg"
+alt="Goldene Skyline von München"
 >
 
 
@@ -1167,10 +1168,6 @@ Frühstück im Hotel.
 Treffpunkt im Hotelfoyer
 </strong>
 
-<p>
-Verbindlicher Treffpunkt im Hotel.
-</p>
-
 </div>
 
 
@@ -1188,7 +1185,7 @@ Fahrt zum TUM Sportcampus
 class="btn"
 style="grid-column:2"
 target="_blank"
-href="https://www.google.com/maps/dir/?api=1&origin=Holiday%20Inn%20M%C3%BCnchen%20City%20Centre&destination=TUM%20Sportcampus%20M%C3%BCnchen&travelmode=walking"
+href="https://www.google.com/maps/dir/?api=1&origin=Holiday%20Inn%20M%C3%BCnchen%20City%20Centre&destination=TUM%20Sportcampus%20M%C3%BCnchen&travelmode=transit"
 >
 Route Hotel → Sportcampus
 </a>
@@ -1314,13 +1311,6 @@ Freie Zeit / Rückkehr zum Hotel
 </div>
 
 
-<img
-class="program-photo"
-src="https://iam-blog-de.gumlet.io/blog/wp-content/uploads/2020/08/GOP-Variete-Theater-Muenchen_Bild-04.jpg"
-alt="GOP Varieté-Theater München"
->
-
-
 <div class="event">
 
 <time>
@@ -1360,6 +1350,12 @@ Schlemmeressen im GOP
 <strong>
 Showbeginn
 </strong>
+
+<img
+class="program-photo"
+src="https://iam-blog-de.gumlet.io/blog/wp-content/uploads/2020/08/GOP-Variete-Theater-Muenchen_Bild-04.jpg"
+alt="GOP Varieté-Theater München"
+>
 
 </div>
 
@@ -1845,7 +1841,7 @@ Hotel → BMW Welt
 </strong>
 
 <span>
-ÖPNV · U3 Richtung Olympiazentrum
+S-Bahn bis Marienplatz · anschließend U3 Richtung Moosach bis Olympiazentrum
 </span>
 
 <a
@@ -1866,7 +1862,7 @@ Hotel → Allianz Arena
 </strong>
 
 <span>
-ÖPNV · U6 Richtung Fröttmaning
+S-Bahn bis Marienplatz · anschließend U6 Richtung Garching-Forschungszentrum bis Fröttmaning
 </span>
 
 <a
@@ -1887,7 +1883,7 @@ Hotel → Marienplatz
 </strong>
 
 <span>
-S-Bahn · Richtung Innenstadt
+S-Bahn ab Rosenheimer Platz Richtung Innenstadt · 2 Stationen
 </span>
 
 <a
@@ -1943,7 +1939,7 @@ Marienplatz
 
 <br>
 
-Rosenheimer Platz · S1 S2 S4 S6 S8 · ca. 5 Min.
+Ab Rosenheimer Platz mit der S-Bahn Richtung Innenstadt · 2 Stationen · ca. 5 Min.
 
 </p>
 
@@ -1951,16 +1947,16 @@ Rosenheimer Platz · S1 S2 S4 S6 S8 · ca. 5 Min.
 <p>
 
 <span class="pill">
-U
+S + U3
 </span>
 
 <b>
-Olympiazentrum
+Olympiazentrum / TUM Sportcampus
 </b>
 
 <br>
 
-Goetheplatz · U3 / U6 · ca. 20 Min.
+Ab Rosenheimer Platz mit der S-Bahn bis Marienplatz, dort Umstieg auf die U3 Richtung Moosach bis Olympiazentrum.
 
 </p>
 
@@ -1968,7 +1964,7 @@ Goetheplatz · U3 / U6 · ca. 20 Min.
 <p>
 
 <span class="pill">
-U
+S + U3
 </span>
 
 <b>
@@ -1977,7 +1973,7 @@ BMW Welt
 
 <br>
 
-Olympiazentrum · U3 · ca. 10 Min.
+Ab Rosenheimer Platz mit der S-Bahn bis Marienplatz, dort U3 Richtung Moosach bis Olympiazentrum · anschließend kurzer Fußweg zur BMW Welt.
 
 </p>
 
@@ -1985,7 +1981,7 @@ Olympiazentrum · U3 · ca. 10 Min.
 <p>
 
 <span class="pill">
-U
+S + U6
 </span>
 
 <b>
@@ -1994,7 +1990,7 @@ Allianz Arena
 
 <br>
 
-Fröttmaning · U6 · ca. 25 Min.
+Ab Rosenheimer Platz mit der S-Bahn bis Marienplatz, dort U6 Richtung Garching-Forschungszentrum bis Fröttmaning · anschließend zu Fuß zur Allianz Arena.
 
 </p>
 
