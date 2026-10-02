@@ -167,12 +167,12 @@ margin-left:4px;
 vertical-align:middle
 }
 
-/* 80 JAHRE – SANFTER GLOW */
+/* 80 JAHRE – EDLER GOLD-GLOW */
 
 .seal{
 width:126px;
 height:126px;
-border:2px solid var(--orange);
+border:2px solid var(--gold);
 border-radius:50%;
 margin:8px auto 18px;
 display:flex;
@@ -180,28 +180,36 @@ flex-direction:column;
 align-items:center;
 justify-content:center;
 background:rgba(5,11,18,.64);
+
 box-shadow:
-0 0 12px rgba(242,138,43,.38),
-0 0 30px rgba(242,138,43,.22);
-animation:sealGlow 3.8s ease-in-out infinite;
+0 0 12px rgba(216,177,91,.38),
+0 0 30px rgba(216,177,91,.22);
+
+animation:sealGoldGlow 3.8s ease-in-out infinite;
 transform-origin:center center
 }
 
-@keyframes sealGlow{
+@keyframes sealGoldGlow{
 
 0%,100%{
+border-color:var(--gold);
+
 box-shadow:
-0 0 10px rgba(242,138,43,.32),
-0 0 25px rgba(242,138,43,.16),
-0 0 40px rgba(242,138,43,.06);
+0 0 10px rgba(216,177,91,.32),
+0 0 25px rgba(216,177,91,.16),
+0 0 40px rgba(216,177,91,.06);
+
 transform:scale(1);
 }
 
 50%{
+border-color:var(--gold2);
+
 box-shadow:
-0 0 16px rgba(242,138,43,.60),
-0 0 34px rgba(242,138,43,.34),
-0 0 58px rgba(242,138,43,.16);
+0 0 16px rgba(240,213,138,.60),
+0 0 34px rgba(240,213,138,.34),
+0 0 58px rgba(240,213,138,.16);
+
 transform:scale(1.015);
 }
 
@@ -210,28 +218,30 @@ transform:scale(1.015);
 .seal:before,
 .seal:after{
 content:"✦";
-color:var(--orange);
+color:var(--gold2);
 font-size:13px;
-margin:2px
+margin:2px;
+text-shadow:
+0 0 8px rgba(240,213,138,.45)
 }
 
 .seal b{
 font-size:49px;
 line-height:.8;
-color:var(--orange);
+color:var(--gold2);
 font-weight:900;
 text-shadow:
-0 0 8px rgba(242,138,43,.35),
-0 0 18px rgba(242,138,43,.18)
+0 0 8px rgba(240,213,138,.45),
+0 0 18px rgba(240,213,138,.22)
 }
 
 .seal span{
 font-size:13px;
 letter-spacing:4px;
-color:var(--orange);
+color:var(--gold2);
 margin-top:7px;
 text-shadow:
-0 0 8px rgba(242,138,43,.35)
+0 0 8px rgba(240,213,138,.45)
 }
 
 .hero h1{
@@ -240,15 +250,21 @@ font-size:24px;
 letter-spacing:2px
 }
 
+/* MÜNCHEN – WARMES METALLGOLD */
+
 .munich{
 font-family:"Brush Script MT","Brush Script Std",cursive;
 font-size:54px;
 font-weight:900;
 font-style:italic;
-color:var(--orange);
+color:var(--gold);
 line-height:1.05;
 margin-top:4px;
-text-shadow:0 3px 22px #000
+
+text-shadow:
+0 2px 14px rgba(0,0,0,.75),
+0 0 8px rgba(216,177,91,.28),
+0 0 18px rgba(216,177,91,.14)
 }
 
 .date{
