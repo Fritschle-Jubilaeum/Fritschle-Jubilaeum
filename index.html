@@ -167,6 +167,8 @@ margin-left:4px;
 vertical-align:middle
 }
 
+/* 80 JAHRE – SANFTER GLOW */
+
 .seal{
 width:126px;
 height:126px;
@@ -178,7 +180,31 @@ flex-direction:column;
 align-items:center;
 justify-content:center;
 background:rgba(5,11,18,.64);
-box-shadow:0 0 30px rgba(242,138,43,.22)
+box-shadow:
+0 0 12px rgba(242,138,43,.38),
+0 0 30px rgba(242,138,43,.22);
+animation:sealGlow 3.8s ease-in-out infinite;
+transform-origin:center center
+}
+
+@keyframes sealGlow{
+
+0%,100%{
+box-shadow:
+0 0 10px rgba(242,138,43,.32),
+0 0 25px rgba(242,138,43,.16),
+0 0 40px rgba(242,138,43,.06);
+transform:scale(1);
+}
+
+50%{
+box-shadow:
+0 0 16px rgba(242,138,43,.60),
+0 0 34px rgba(242,138,43,.34),
+0 0 58px rgba(242,138,43,.16);
+transform:scale(1.015);
+}
+
 }
 
 .seal:before,
@@ -193,14 +219,19 @@ margin:2px
 font-size:49px;
 line-height:.8;
 color:var(--orange);
-font-weight:900
+font-weight:900;
+text-shadow:
+0 0 8px rgba(242,138,43,.35),
+0 0 18px rgba(242,138,43,.18)
 }
 
 .seal span{
 font-size:13px;
 letter-spacing:4px;
 color:var(--orange);
-margin-top:7px
+margin-top:7px;
+text-shadow:
+0 0 8px rgba(242,138,43,.35)
 }
 
 .hero h1{
@@ -551,6 +582,14 @@ line-height:1.5
 
 .info-box ul{
 padding-left:20px
+}
+
+.info-box.clickable{
+cursor:pointer
+}
+
+.info-box.clickable:active{
+transform:scale(.99)
 }
 
 .bottom-nav{
@@ -1013,8 +1052,8 @@ Wir wünschen Euch schon heute eine schöne Zeit und viel Freude beim Jubiläums
 
 
 <img class="home-photo"
-     src="https://images.unsplash.com/photo-1577462281852-279bf4986f7b?auto=format&fit=crop&fm=jpg&q=85&w=1400"
-     alt="München bei Nacht mit Marienplatz, Frauenkirche und Neuem Rathaus">
+src="https://images.unsplash.com/photo-1577462281852-279bf4986f7b?auto=format&fit=crop&fm=jpg&q=85&w=1400"
+alt="München bei Nacht mit Marienplatz, Frauenkirche und Neuem Rathaus">
 
 
 </div>
@@ -2209,6 +2248,71 @@ Noch bis zum Jubiläumsausflug …
 }
 
 
+/* TAXI & UBER */
+
+function taxi(){
+
+return `
+
+<section class="page">
+
+<h1 class="section-title">
+Taxi &amp; Uber
+</h1>
+
+<p class="sub">
+Schnell unterwegs in München.
+</p>
+
+
+<div class="info-box">
+
+<h3>
+🚕 Taxi München
+</h3>
+
+<p>
+Taxi-Zentrale München<br>
+<b>089 2161-0</b>
+</p>
+
+<a
+class="btn"
+href="tel:+498921610"
+>
+Taxi anrufen
+</a>
+
+</div>
+
+
+<div class="info-box">
+
+<h3>
+🚗 Uber
+</h3>
+
+<p>
+Uber direkt über die App bzw. den Webdienst öffnen.
+</p>
+
+<a
+class="btn"
+target="_blank"
+href="https://m.uber.com/"
+>
+Uber öffnen
+</a>
+
+</div>
+
+</section>
+
+`;
+
+}
+
+
 /* MEHR */
 
 function mehr(){
@@ -2226,23 +2330,23 @@ Nachtleben &amp; Mehr
 
 
 <div
-class="info-box"
-onclick="nav('karte')"
+class="info-box clickable"
+onclick="nav('info')"
 >
 
 <h3>
-⌖ Hotel
+🏨 Hotel &amp; weitere Adressen
 </h3>
 
 <p>
-Holiday Inn München City Centre
+Hotel, Veranstaltungsorte und wichtige Adressen
 </p>
 
 </div>
 
 
 <div
-class="info-box"
+class="info-box clickable"
 onclick="nav('nachtleben')"
 >
 
@@ -2251,36 +2355,55 @@ onclick="nav('nachtleben')"
 </h3>
 
 <p>
-Tipps &amp; Bars
+Tipps &amp; Bars für Donnerstag &amp; Freitag
 </p>
 
 </div>
 
 
 <div
-class="info-box"
+class="info-box clickable"
 onclick="nav('wetter')"
 >
 
 <h3>
-☀ Wetter
+☀ Wetter &amp; Countdown
 </h3>
 
 <p>
-München
+München · Wettervorhersage · Countdown
 </p>
 
 </div>
 
 
-<div class="info-box">
+<div
+class="info-box clickable"
+onclick="nav('info')"
+>
 
 <h3>
-ⓘ Wichtige Infos
+🚌 ÖPNV &amp; Adressen
 </h3>
 
 <p>
-Notfallnummern und Hinweise
+Schnellzugriff auf die wichtigsten Verbindungen und Ziele
+</p>
+
+</div>
+
+
+<div
+class="info-box clickable"
+onclick="nav('taxi')"
+>
+
+<h3>
+🚕 Taxi &amp; Uber
+</h3>
+
+<p>
+Taxi rufen oder Uber öffnen
 </p>
 
 </div>
@@ -2338,6 +2461,10 @@ else if(page==='wetter'){
 body=wetter();
 }
 
+else if(page==='taxi'){
+body=taxi();
+}
+
 else{
 body=mehr();
 }
@@ -2375,7 +2502,7 @@ b.classList.toggle(
 'active',
 b.dataset.page===page ||
 (
-(page==='nachtleben'||page==='wetter') &&
+(page==='nachtleben'||page==='wetter'||page==='taxi') &&
 b.dataset.page==='mehr'
 )
 );
