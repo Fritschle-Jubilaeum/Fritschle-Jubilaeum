@@ -8,349 +8,311 @@
 <title>Fritschle · Jubiläumsausflug München · 2026</title>
 
 <style>
+
 :root{
 --bg:#07111d;
---bg2:#0b1726;
---panel:#102337;
---panel2:#142b41;
---line:#29435c;
---white:#fff;
---muted:#aebbc8;
---green:#78a64a;
---green2:#9bc36c;
---orange:#f28a2b;
---gold:#c7963e;
---shadow:0 18px 50px rgba(0,0,0,.28)
+--card:#0d1e2f;
+--card2:#102337;
+--line:rgba(255,255,255,.10);
+--text:#f5f7fa;
+--muted:#aeb8c5;
+--gold:#d8b45a;
+--gold2:#f0d58b;
+--orange:#f28c28;
+--shadow:0 16px 45px rgba(0,0,0,.35);
 }
 
-*{box-sizing:border-box}
+*{
+box-sizing:border-box;
+}
 
 html{
-scroll-behavior:smooth
+scroll-behavior:smooth;
 }
 
 body{
 margin:0;
-background:#050c14;
-color:var(--white);
-font-family:Inter,Arial,Helvetica,sans-serif;
--webkit-font-smoothing:antialiased
-}
-
-button,a{
-font:inherit
-}
-
-.app{
-width:min(760px,100%);
+background:
+radial-gradient(circle at top,#132a42 0,#07111d 42%,#050b12 100%);
+color:var(--text);
+font-family:Arial,Helvetica,sans-serif;
 min-height:100vh;
-margin:auto;
-background:linear-gradient(180deg,#081522 0%,#0b1726 42%,#0b1827 100%);
-box-shadow:0 0 80px rgba(0,0,0,.35);
-position:relative
 }
 
-.top{
-position:sticky;
-top:0;
-z-index:50;
-height:70px;
-padding:10px 16px;
-display:flex;
-align-items:center;
-justify-content:flex-end;
-background:rgba(7,17,29,.94);
-backdrop-filter:blur(16px);
-border-bottom:1px solid rgba(255,255,255,.08)
+button,
+a{
+font-family:inherit;
 }
 
-.brand{
-border:0;
-background:transparent;
-padding:0;
-cursor:pointer
+a{
+color:inherit;
+text-decoration:none;
 }
 
-.brand img{
-width:158px;
-height:46px;
-object-fit:contain;
-object-position:left center;
-display:block
-}
-
-.menu{
-width:44px;
-height:44px;
-border:1px solid var(--line);
-border-radius:13px;
-background:#102337;
-color:#fff;
-font-size:23px;
-cursor:pointer
-}
-
-.content{
-padding:18px 16px 112px
+#app{
+width:100%;
+max-width:760px;
+margin:0 auto;
+min-height:100vh;
+padding-bottom:90px;
 }
 
 .page{
-animation:fade .22s ease
-}
-
-@keyframes fade{
-from{
-opacity:.4;
-transform:translateY(4px)
-}
-to{
-opacity:1;
-transform:none
-}
+padding:18px 18px 28px;
 }
 
 .hero{
-position:relative;
-overflow:hidden;
-border:1px solid #2b4358;
-border-radius:26px;
-background:#050b12;
-padding:25px 20px 25px;
 text-align:center;
-box-shadow:var(--shadow);
-min-height:650px
-}
-
-.hero>*{
-position:relative;
-z-index:2
+padding:22px 0 10px;
 }
 
 .hero-brand{
-text-align:left;
-margin:0 0 14px
-}
-
-.hero-brand strong{
-display:block;
-color:#fff;
-font-size:31px;
-line-height:1;
+font-size:28px;
 font-weight:900;
-letter-spacing:4px
+letter-spacing:1.5px;
+line-height:1;
 }
 
 .hero-brand span{
-display:block;
-color:#fff;
-font-size:11px;
-line-height:1;
-margin-top:5px;
-letter-spacing:1.5px
-}
-
-.hero-brand i{
 display:inline-block;
-width:7px;
-height:7px;
-background:var(--orange);
-border-radius:0;
-margin-left:4px;
-vertical-align:middle
 }
 
+.hero-brand .baut{
+font-size:16px;
+font-weight:500;
+letter-spacing:1px;
+margin-left:5px;
+}
 
-/* GOLDENER 80-JAHRE-KREIS */
+.hero-brand .dot{
+color:var(--orange);
+font-size:25px;
+margin-left:2px;
+}
 
 .seal{
-width:126px;
-height:126px;
-border:2px solid var(--gold);
+width:118px;
+height:118px;
+margin:22px auto 14px;
 border-radius:50%;
-margin:8px auto 18px;
 display:flex;
-flex-direction:column;
 align-items:center;
 justify-content:center;
-background:rgba(5,11,18,.64);
-
+flex-direction:column;
+border:2px solid var(--gold);
+background:
+radial-gradient(circle at 35% 30%,rgba(255,255,255,.18),transparent 28%),
+linear-gradient(145deg,#9c7426,#e7ca72 48%,#9a7024);
 box-shadow:
-0 0 12px rgba(199,150,62,.38),
-0 0 30px rgba(199,150,62,.22);
-
-animation:sealGoldGlow 3.8s ease-in-out infinite;
-transform-origin:center center
+0 0 0 5px rgba(216,180,90,.08),
+0 0 30px rgba(216,180,90,.18),
+inset 0 0 18px rgba(255,255,255,.16);
+animation:goldPulse 3.8s ease-in-out infinite;
 }
 
-@keyframes sealGoldGlow{
-
+@keyframes goldPulse{
 0%,100%{
-border-color:var(--gold);
-
 box-shadow:
-0 0 10px rgba(199,150,62,.32),
-0 0 25px rgba(199,150,62,.16),
-0 0 40px rgba(199,150,62,.06);
-
-transform:scale(1);
+0 0 0 5px rgba(216,180,90,.08),
+0 0 30px rgba(216,180,90,.18),
+inset 0 0 18px rgba(255,255,255,.16);
 }
-
 50%{
-border-color:var(--gold);
-
 box-shadow:
-0 0 16px rgba(199,150,62,.60),
-0 0 34px rgba(199,150,62,.34),
-0 0 58px rgba(199,150,62,.16);
-
-transform:scale(1.015);
+0 0 0 8px rgba(216,180,90,.11),
+0 0 48px rgba(216,180,90,.30),
+inset 0 0 22px rgba(255,255,255,.20);
+}
 }
 
+.seal strong{
+font-size:31px;
+line-height:1;
+color:#07111d;
 }
 
-.seal:before,
-.seal:after{
-content:"✦";
-color:var(--gold);
-font-size:13px;
-margin:2px;
-text-shadow:
-0 0 8px rgba(199,150,62,.35)
-}
-
-.seal b{
-font-size:49px;
-line-height:.8;
-color:var(--gold);
-font-weight:900;
-text-shadow:
-0 0 8px rgba(199,150,62,.35),
-0 0 18px rgba(199,150,62,.18)
-}
-
-.seal span{
-font-size:13px;
-letter-spacing:4px;
-color:var(--gold);
-margin-top:7px;
-text-shadow:
-0 0 8px rgba(199,150,62,.35)
-}
-
-.hero h1{
-margin:10px 0 0;
-font-size:24px;
-letter-spacing:2px
-}
-
-.munich{
-font-family:"Brush Script MT","Brush Script Std",cursive;
-font-size:54px;
-font-weight:900;
-font-style:italic;
-color:var(--gold);
-line-height:1.05;
-margin-top:4px;
-
-text-shadow:
-0 3px 22px #000,
-0 0 8px rgba(199,150,62,.28),
-0 0 18px rgba(199,150,62,.14)
-}
-
-.date{
-font-size:16px;
+.seal small{
+font-size:11px;
+font-weight:800;
 letter-spacing:2px;
-margin-top:10px;
-color:#fff
+color:#07111d;
+margin-top:4px;
+}
+
+.hero-title{
+font-size:15px;
+font-weight:700;
+letter-spacing:3px;
+color:var(--gold2);
+margin-top:8px;
+}
+
+.hero-munich{
+font-family:"Brush Script MT","Segoe Script",cursive;
+font-size:48px;
+line-height:1;
+color:var(--gold2);
+margin:2px 0 5px;
+}
+
+.hero-date{
+font-size:14px;
+color:var(--muted);
+letter-spacing:1px;
 }
 
 .welcome{
-margin:24px auto 0;
-max-width:560px;
-padding:18px;
-border:1px solid rgba(199,150,62,.38);
-border-radius:18px;
-background:rgba(5,11,18,.62);
-text-align:left
+margin-top:22px;
+padding:20px;
+background:linear-gradient(180deg,rgba(16,35,55,.96),rgba(10,25,39,.96));
+border:1px solid var(--line);
+border-radius:20px;
+box-shadow:var(--shadow);
+text-align:left;
 }
 
 .welcome h2{
-margin:0 0 10px;
-color:var(--orange);
-font-size:24px;
-font-family:"Brush Script MT","Brush Script Std",cursive;
-font-style:italic
+margin:0 0 13px;
+font-size:20px;
+color:var(--gold2);
 }
 
 .welcome p{
-margin:7px 0;
+margin:0 0 11px;
 line-height:1.55;
-color:#f2f5f7
+color:#dce3ea;
+font-size:15px;
 }
 
-.home-photo{
+.welcome p:last-child{
+margin-bottom:0;
+}
+
+.hero-photo{
 width:100%;
-max-width:560px;
-height:auto;
-object-fit:contain;
+height:230px;
+object-fit:cover;
 display:block;
-margin:16px auto 0;
 border-radius:18px;
-border:1px solid rgba(199,150,62,.38);
-box-shadow:0 12px 30px rgba(0,0,0,.28)
+margin-top:18px;
+box-shadow:var(--shadow);
 }
 
 .section-title{
-font-size:29px;
-margin:8px 0 15px
-}
-
-.sub{
-color:var(--muted);
-margin-top:-7px;
-margin-bottom:18px
+font-size:26px;
+margin:5px 0 18px;
+color:var(--gold2);
 }
 
 .tabs{
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:8px;
-margin-bottom:14px
+margin-bottom:16px;
 }
 
 .tab{
 border:1px solid var(--line);
-background:#0e2032;
-color:#fff;
-border-radius:14px;
-padding:11px 5px;
+background:#0b1a29;
+color:var(--muted);
+border-radius:13px;
+padding:10px 5px;
+font-size:13px;
+font-weight:700;
 cursor:pointer;
-font-weight:800
-}
-
-.tab.active{
-background:var(--orange);
-border-color:var(--orange)
 }
 
 .tab small{
-font-weight:500;
-opacity:.85
+font-size:11px;
+opacity:.8;
 }
 
-.day-card,
-.card,
-.variant,
-.change,
-.night,
-.route,
-.info-box{
-background:linear-gradient(180deg,#102337,#0d1e2f);
+.tab.active{
+background:linear-gradient(135deg,#c49c45,#e1c46e);
+color:#07111d;
+border-color:#e1c46e;
+}
+
+.day-card{
+background:linear-gradient(180deg,#102337,#0b1b2b);
 border:1px solid var(--line);
 border-radius:20px;
 box-shadow:var(--shadow);
-overflow:hidden
+padding:18px;
+overflow:hidden;
+}
+
+.kicker{
+font-size:12px;
+text-transform:uppercase;
+letter-spacing:1.7px;
+color:var(--gold);
+font-weight:800;
+}
+
+.day-card h2{
+margin:5px 0 18px;
+font-size:25px;
+}
+
+.timeline{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.event{
+display:grid;
+grid-template-columns:78px 1fr;
+gap:12px;
+padding:12px 0;
+border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.event:last-child{
+border-bottom:0;
+}
+
+.event time{
+font-size:14px;
+font-weight:800;
+color:var(--gold2);
+padding-top:2px;
+}
+
+.event time.small-time{
+font-size:12px;
+}
+
+.event strong{
+font-size:15px;
+line-height:1.35;
+}
+
+.event p{
+margin:4px 0 0;
+font-size:13px;
+line-height:1.45;
+color:var(--muted);
+}
+
+.btn{
+display:block;
+width:100%;
+padding:12px 14px;
+margin:8px 0 12px;
+border-radius:13px;
+border:1px solid rgba(216,180,90,.32);
+background:rgba(216,180,90,.08);
+color:var(--gold2);
+text-align:center;
+font-size:13px;
+font-weight:800;
+transition:.2s ease;
+}
+
+.btn:hover{
+background:rgba(216,180,90,.15);
 }
 
 .program-photo{
@@ -362,7 +324,7 @@ display:block;
 grid-column:1 / -1;
 border-radius:14px;
 margin-top:10px;
-margin-bottom:6px
+margin-bottom:6px;
 }
 
 .landscape-photo{
@@ -378,7 +340,36 @@ margin-top:10px;
 margin-left:-35px;
 margin-right:-35px;
 margin-bottom:6px;
-border-radius:0
+border-radius:0;
+}
+
+.variant{
+margin-top:18px;
+padding:15px;
+border-radius:18px;
+background:rgba(255,255,255,.035);
+border:1px solid rgba(255,255,255,.07);
+}
+
+.variant .label{
+display:inline-block;
+font-size:11px;
+font-weight:900;
+letter-spacing:1.5px;
+color:var(--gold);
+margin-bottom:8px;
+}
+
+.variant h3{
+margin:4px 0 7px;
+font-size:18px;
+}
+
+.variant p{
+font-size:13px;
+line-height:1.5;
+color:var(--muted);
+margin:8px 0;
 }
 
 .variant-photo{
@@ -386,344 +377,277 @@ width:100%;
 height:150px;
 object-fit:cover;
 display:block;
-border-radius:12px;
-margin-bottom:14px
+border-radius:13px;
+margin-bottom:10px;
 }
 
-.kicker{
-font-size:11px;
-letter-spacing:2px;
-color:var(--green2);
-font-weight:900;
-padding:18px 18px 4px
-}
-
-.day-card h2{
-margin:2px 18px 18px;
-font-size:27px
-}
-
-.timeline{
-padding:0 18px 18px
-}
-
-.event{
-display:grid;
-grid-template-columns:82px 1fr;
-gap:10px;
-padding:15px 0;
-border-top:1px solid rgba(255,255,255,.08)
-}
-
-.event time{
-font-size:18px;
-font-weight:900;
-color:var(--orange);
-white-space:nowrap
-}
-
-.event time.small-time{
-font-size:15px
-}
-
-.event strong{
-font-size:16px;
-line-height:1.35
-}
-
-.event p{
-grid-column:2;
-margin:4px 0 0;
-color:var(--muted);
-line-height:1.45
-}
-
-.variant{
-padding:18px;
-margin-top:12px
-}
-
-.variant .label{
-display:inline-block;
-color:#06101a;
-background:var(--green2);
-font-size:11px;
-font-weight:900;
-padding:6px 9px;
-border-radius:8px;
-letter-spacing:1px
-}
-
-.variant h3{
-font-size:22px;
-margin:11px 0 6px
-}
-
-.variant p{
-margin:0;
-color:var(--muted);
-line-height:1.45
-}
-
-.btn{
-display:inline-block;
-margin-top:12px;
-padding:10px 13px;
-border-radius:11px;
-background:var(--orange);
-color:#fff;
-text-decoration:none;
-font-weight:800
-}
-
-.map-card{
-height:430px;
-border:1px solid var(--line);
+.map-wrap{
 border-radius:20px;
 overflow:hidden;
-background:#152231;
-position:relative
-}
-
-.map-card iframe{
-width:100%;
-height:100%;
-border:0;
-filter:saturate(.72) brightness(.76)
-}
-
-.map-overlay{
-position:absolute;
-left:12px;
-right:12px;
-bottom:12px;
-display:flex;
-gap:8px;
-flex-wrap:wrap
-}
-
-.map-chip{
-background:rgba(7,17,29,.9);
 border:1px solid var(--line);
-padding:8px 10px;
-border-radius:10px;
-font-size:12px
+box-shadow:var(--shadow);
 }
 
-.route{
-padding:15px;
-margin-top:12px
-}
-
-.route strong{
-display:block;
-font-size:16px
-}
-
-.route span{
-display:block;
-color:var(--muted);
-font-size:13px;
-margin-top:4px
-}
-
-.night{
-padding:0;
-margin-top:12px
-}
-
-.night img{
+.map-wrap iframe{
 width:100%;
-height:145px;
-object-fit:cover;
-display:block
+height:430px;
+border:0;
+display:block;
 }
 
-.night .inside{
-padding:15px
+.chips{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-top:15px;
 }
 
-.night h3{
-margin:0 0 5px;
-font-size:20px
-}
-
-.night p{
-margin:4px 0;
-color:var(--muted);
-line-height:1.45
+.chip{
+padding:9px 11px;
+border-radius:999px;
+background:#102337;
+border:1px solid var(--line);
+color:#d8e0e7;
+font-size:12px;
 }
 
 .info-box{
-padding:17px;
-margin-top:12px
+background:linear-gradient(180deg,#102337,#0d1e2f);
+border:1px solid var(--line);
+border-radius:20px;
+box-shadow:var(--shadow);
+overflow:hidden;
+padding:18px;
+margin-bottom:15px;
 }
 
 .info-box h3{
-margin:0 0 9px;
-color:var(--green2);
-font-size:18px
+margin:0 0 10px;
+font-size:18px;
+color:var(--gold2);
 }
 
-.info-box p,
-.info-box li{
-color:#dbe3e9;
-line-height:1.5
+.info-box p{
+margin:7px 0;
+font-size:14px;
+line-height:1.5;
+color:#d6dee6;
 }
 
-.info-box ul{
-padding-left:20px
+.address{
+padding:11px 0;
+border-bottom:1px solid rgba(255,255,255,.07);
+font-size:14px;
+line-height:1.45;
 }
 
-.info-box.clickable{
-cursor:pointer
+.address:last-child{
+border-bottom:0;
 }
 
-.info-box.clickable:active{
-transform:scale(.99)
+.night-card{
+background:linear-gradient(180deg,#102337,#0d1e2f);
+border:1px solid var(--line);
+border-radius:20px;
+box-shadow:var(--shadow);
+overflow:hidden;
+margin-bottom:14px;
+}
+
+.night-card img{
+width:100%;
+height:170px;
+object-fit:cover;
+display:block;
+}
+
+.night-card-content{
+padding:15px;
+}
+
+.night-card h3{
+margin:0 0 6px;
+font-size:18px;
+color:var(--gold2);
+}
+
+.night-card p{
+margin:0;
+font-size:13px;
+color:var(--muted);
+line-height:1.45;
+}
+
+.more-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+
+.more-tile{
+padding:17px 14px;
+border-radius:18px;
+background:linear-gradient(180deg,#102337,#0d1e2f);
+border:1px solid var(--line);
+box-shadow:var(--shadow);
+cursor:pointer;
+min-height:120px;
+}
+
+.more-icon{
+font-size:28px;
+margin-bottom:9px;
+}
+
+.more-tile strong{
+display:block;
+font-size:14px;
+margin-bottom:5px;
+}
+
+.more-tile span{
+display:block;
+font-size:12px;
+line-height:1.4;
+color:var(--muted);
 }
 
 .bottom-nav{
 position:fixed;
-z-index:60;
-bottom:0;
 left:50%;
+bottom:0;
 transform:translateX(-50%);
 width:min(760px,100%);
 display:grid;
 grid-template-columns:repeat(5,1fr);
-padding:9px 8px calc(9px + env(safe-area-inset-bottom));
-background:rgba(7,17,29,.96);
+gap:3px;
+padding:8px 7px calc(8px + env(safe-area-inset-bottom));
+background:rgba(5,12,20,.94);
 backdrop-filter:blur(16px);
-border-top:1px solid rgba(255,255,255,.1)
+border-top:1px solid rgba(255,255,255,.08);
+z-index:50;
 }
 
-.nav-btn{
+.bottom-nav button{
 border:0;
-background:none;
-color:#aebbc8;
-font-size:11px;
-padding:5px 2px;
-cursor:pointer
+background:transparent;
+color:#8f9baa;
+font-size:10px;
+padding:6px 2px;
+cursor:pointer;
 }
 
-.nav-btn .ico{
+.bottom-nav button.active{
+color:var(--gold2);
+}
+
+.bottom-nav .nav-icon{
+font-size:18px;
 display:block;
-font-size:20px;
-margin-bottom:3px
+margin-bottom:3px;
 }
 
-.nav-btn.active{
-color:var(--orange);
-font-weight:900
+.drawer-overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.55);
+z-index:90;
+display:none;
 }
 
 .drawer{
 position:fixed;
-z-index:100;
 top:0;
-right:-330px;
-width:min(330px,88vw);
-height:100vh;
-background:#0b1726;
-border-left:1px solid var(--line);
-padding:22px;
-transition:.25s;
-box-shadow:-20px 0 50px rgba(0,0,0,.4)
+right:0;
+bottom:0;
+width:min(340px,88vw);
+background:#091522;
+z-index:100;
+transform:translateX(100%);
+transition:transform .25s ease;
+box-shadow:-20px 0 50px rgba(0,0,0,.45);
+padding:18px;
+overflow-y:auto;
 }
 
 .drawer.open{
-right:0
+transform:translateX(0);
+}
+
+.drawer.open + .drawer-overlay{
+display:block;
+}
+
+.drawer-head{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:15px;
+}
+
+.drawer-head strong{
+font-size:18px;
+color:var(--gold2);
+}
+
+.drawer-close{
+border:0;
+background:#122438;
+color:#fff;
+width:38px;
+height:38px;
+border-radius:50%;
+font-size:20px;
+cursor:pointer;
 }
 
 .drawer button{
-display:block;
 width:100%;
 text-align:left;
-border:1px solid var(--line);
-background:#102337;
-color:#fff;
-padding:14px;
-border-radius:12px;
-margin:8px 0;
-cursor:pointer
+border:0;
+background:#0d1e2f;
+color:#dce4eb;
+padding:13px 14px;
+border-radius:13px;
+margin-bottom:8px;
+font-size:14px;
+cursor:pointer;
 }
 
-.drawer .close{
-background:var(--orange);
-border-color:var(--orange)
-}
-
-.muted{
-color:var(--muted)
-}
-
-.grid2{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px
-}
-
-.pill{
-display:inline-block;
-border-radius:999px;
-padding:6px 10px;
-background:#173048;
-color:#dfe8ef;
-font-size:12px;
-margin:3px
+.drawer button:hover{
+background:#132a40;
 }
 
 .footer{
 text-align:center;
-color:#718292;
-font-size:12px;
-margin:24px 0 0;
-padding-bottom:15px
+padding:20px 10px 10px;
+color:#718091;
+font-size:11px;
+line-height:1.6;
 }
 
-.footer .credit{
-display:block;
-margin-top:7px;
-color:#aebbc8;
-letter-spacing:.4px
+.footer .powered{
+color:#8895a4;
 }
 
-@media(max-width:520px){
+@media(max-width:600px){
 
-.hero{
-min-height:620px;
-padding-left:16px;
-padding-right:16px
+.page{
+padding-left:15px;
+padding-right:15px;
 }
 
-.hero h1{
-font-size:22px
+.hero-photo{
+height:210px;
 }
 
-.munich{
-font-size:47px
-}
-
-.event{
-grid-template-columns:70px 1fr
-}
-
-.event time{
-font-size:16px
-}
-
-.event time.small-time{
-font-size:14px
-}
-
-.grid2{
-grid-template-columns:1fr
+.hero-munich{
+font-size:44px;
 }
 
 .program-photo{
 height:190px;
-object-fit:cover
+object-fit:cover;
 }
 
 .landscape-photo{
@@ -736,71 +660,51 @@ object-fit:cover;
 object-position:center;
 margin-left:-35px;
 margin-right:-35px;
-margin-top:10px;
-margin-bottom:6px;
-border-radius:0
 }
 
-.home-photo{
-height:auto;
-max-width:100%
+.event{
+grid-template-columns:70px 1fr;
+}
+
+.more-grid{
+grid-template-columns:1fr 1fr;
 }
 
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="app" id="app"></div>
+<div id="app"></div>
 
-<nav class="bottom-nav">
+<div id="drawer" class="drawer">
 
-<button class="nav-btn" data-page="home">
-<span class="ico">⌂</span>
-Start
+<div class="drawer-head">
+<strong>Menü</strong>
+
+<button
+class="drawer-close"
+onclick="closeDrawer()">
+×
 </button>
-
-<button class="nav-btn" data-page="programm">
-<span class="ico">☷</span>
-Programm
-</button>
-
-<button class="nav-btn" data-page="karte">
-<span class="ico">⌖</span>
-Karte
-</button>
-
-<button class="nav-btn" data-page="info">
-<span class="ico">ⓘ</span>
-Info
-</button>
-
-<button class="nav-btn" data-page="mehr">
-<span class="ico">☰</span>
-Nachtleben &amp; Mehr
-</button>
-
-</nav>
-
-<aside class="drawer" id="drawer">
-
-<button class="close" onclick="closeDrawer()">✕ Menü schließen</button>
+</div>
 
 <button onclick="nav('home')">
 ⌂ Start
 </button>
 
 <button onclick="nav('programm')">
-☷ Programm
+📅 Programm
 </button>
 
 <button onclick="nav('karte')">
-⌖ Karte
+📍 Karte
 </button>
 
 <button onclick="nav('info')">
-ⓘ Info
+ℹ ÖPNV &amp; Infos
 </button>
 
 <button onclick="nav('nachtleben')">
@@ -872,7 +776,11 @@ events:[
 ''],
 
 ['12:00',
-'Mittagspause',
+'Mittagspause / freie Zeit',
+''],
+
+['anschließend',
+'Anschließend gebuchte Variante wählen',
 '']
 
 ]},
@@ -969,29 +877,30 @@ return `
 
 <div class="hero-brand">
 
-<strong>FRITSCHLE</strong>
-
-<span>baut <i></i></span>
+<span>FRITSCHLE</span>
+<span class="baut">baut</span>
+<span class="dot">●</span>
 
 </div>
 
 
 <div class="seal">
 
-<b>80</b>
-
-<span>JAHRE</span>
+<strong>80</strong>
+<small>JAHRE</small>
 
 </div>
 
 
-<h1>JUBILÄUMSAUSFLUG</h1>
+<div class="hero-title">
+JUBILÄUMSAUSFLUG
+</div>
 
-<div class="munich">
+<div class="hero-munich">
 München
 </div>
 
-<div class="date">
+<div class="hero-date">
 15. – 17. Oktober 2026
 </div>
 
@@ -1003,12 +912,11 @@ Schön, dass Ihr dabei seid!
 </h2>
 
 <p>
-<b>Liebe Kolleginnen und Kollegen,</b>
+Liebe Kolleginnen und Kollegen,
 </p>
 
 <p>
-zum 80-jährigen Firmenjubiläum verbringen wir gemeinsam drei schöne Tage in München.
-Freut Euch auf interessante Programmpunkte, gesellige Abende und viele gemeinsame Erlebnisse.
+zum 80-jährigen Firmenjubiläum verbringen wir gemeinsam drei schöne Tage in München. Freut Euch auf interessante Programmpunkte, gesellige Abende und viele gemeinsame Erlebnisse.
 </p>
 
 <p>
@@ -1019,21 +927,10 @@ Wir wünschen Euch schon heute eine schöne Zeit und viel Freude beim Jubiläums
 
 
 <img
-class="home-photo"
+class="hero-photo"
 src="https://images.unsplash.com/photo-1577462281852-279bf4986f7b?auto=format&fit=crop&fm=jpg&q=85&w=1400"
 alt="München bei Nacht mit Marienplatz, Frauenkirche und Neuem Rathaus"
 >
-
-</div>
-
-
-<div class="footer">
-
-Fritschle · Jubiläumsausflug München 2026
-
-<span class="credit">
-powered by kerstin &amp; susanne
-</span>
 
 </div>
 
@@ -1098,6 +995,17 @@ ${d.title}
 
 ${d.events.map(e=>`
 
+${day==='fr' && e[1]==='TUM Sportcampus'?`
+
+<a
+class="btn"
+target="_blank"
+href="${maps('TUM Sportcampus München')}">
+📍 Route zum TUM Sportcampus
+</a>
+
+`:''}
+
 <div class="event">
 
 <time class="${e[0].length>8?'small-time':''}">
@@ -1111,6 +1019,16 @@ ${e[1]}
 </strong>
 
 ${e[2] ? `<p>${e[2]}</p>` : ''}
+
+${day==='fr' && e[1]==='TUM Sportcampus'?`
+
+<img
+class="program-photo"
+src="https://www.ingenieurholzbau.de/fileadmin/user_upload/Projekt_Kategorien/Oeffentliche_Bauten/Erziehung_Bildung_Forschung/Sportcampus_TU_Muenchen/Neubau_TU_Muenchen_Sportcampus_Ingenieurholzbau_CiO_TUM-Bild_01_Dietrich_Untertrifaller_web.jpg"
+alt="TUM Sportcampus München"
+>
+
+`:''}
 
 </div>
 
@@ -1139,20 +1057,6 @@ href="${maps('Donisl, Weinstraße 1, 80333 München')}">
 
 ${day==='fr'?`
 
-<img
-class="program-photo"
-src="https://www.ingenieurholzbau.de/fileadmin/user_upload/Projekt_Kategorien/Oeffentliche_Bauten/Erziehung_Bildung_Forschung/Sportcampus_TU_Muenchen/Neubau_TU_Muenchen_Sportcampus_Ingenieurholzbau_CiO_TUM-Bild_01_Dietrich_Untertrifaller_web.jpg"
-alt="TUM Sportcampus München"
->
-
-<a
-class="btn"
-target="_blank"
-href="${maps('TUM Sportcampus München')}">
-📍 Route zum TUM Sportcampus
-</a>
-
-
 <div class="variant">
 
 <span class="label">
@@ -1170,7 +1074,6 @@ BMW Welt &amp; BMW Museum
 </h3>
 
 <p>
-Abfahrt ca. 12:45 Uhr · Mittagspause / freie Zeit ·
 14:00 Uhr Besichtigung.
 </p>
 
@@ -1201,7 +1104,7 @@ Allianz Arena
 </h3>
 
 <p>
-Abfahrt 12:45 Uhr · Mittagessen / freie Zeit ·
+Abfahrt 12:45 Uhr · Mittagessen ·
 14:00 Uhr Besichtigung.
 </p>
 
@@ -1215,6 +1118,11 @@ href="${maps('Allianz Arena, Franz-Beckenbauer-Platz 5, 80939 München')}">
 </div>
 
 
+<p style="margin-top:16px">
+Nach den Besichtigungen Zeit zur freien Verfügung
+</p>
+
+
 <div class="variant">
 
 <span class="label">
@@ -1225,6 +1133,22 @@ ABEND
 GOP Varieté-Theater
 </h3>
 
+<p>
+19:00 Uhr Treffpunkt im Hotelfoyer
+</p>
+
+<a
+class="btn"
+target="_blank"
+href="https://www.google.com/maps/dir/?api=1&amp;origin=Holiday%20Inn%20M%C3%BCnchen%20City%20Centre&amp;destination=GOP%20Variet%C3%A9-Theater%20M%C3%BCnchen&amp;travelmode=walking">
+📍 Route Hotel → GOP
+</a>
+
+<p>
+19:45 Uhr Schlemmeressen<br>
+21:00 Uhr Show
+</p>
+
 <img
 class="landscape-photo"
 src="https://iam-blog-de.gumlet.io/blog/wp-content/uploads/2020/08/GOP-Variete-Theater-Muenchen_Bild-04.jpg"
@@ -1232,22 +1156,12 @@ alt="GOP Varieté-Theater München"
 >
 
 <p>
-19:00 Uhr Treffpunkt im Hotelfoyer<br>
-19:45 Uhr Schlemmeressen<br>
-21:00 Uhr Show<br>
 ca. 23:15 Uhr Hotelbar / Nachtleben
 </p>
 
 <p style="margin-top:8px">
 Vorschläge findet Ihr unter „Mehr → Nachtleben“.
 </p>
-
-<a
-class="btn"
-target="_blank"
-href="${maps('Holiday Inn München City Centre')}">
-📍 Route Hotel → GOP
-</a>
 
 </div>
 
@@ -1324,88 +1238,79 @@ return `
 Karte
 </h1>
 
-<p class="sub">
-Die wichtigsten Ziele auf einen Blick.
-</p>
-
-
-<div class="map-card">
+<div class="map-wrap">
 
 <iframe
 src="https://www.openstreetmap.org/export/embed.html?bbox=11.50%2C48.10%2C11.65%2C48.17&amp;layer=mapnik"
 loading="lazy">
 </iframe>
 
-<div class="map-overlay">
-
-<span class="map-chip">Donisl</span>
-<span class="map-chip">Holiday Inn</span>
-<span class="map-chip">GOP Varieté</span>
-<span class="map-chip">BMW Welt</span>
-<span class="map-chip">Allianz Arena</span>
-<span class="map-chip">Marienplatz</span>
-<span class="map-chip">Hofbräuhaus</span>
-
-</div>
-
 </div>
 
 
-<div class="route">
-
-<strong>
-🏨 Hotel → GOP Varieté
-</strong>
-
-<span>
-Zu Fuß ca. 20–25 Minuten.
-</span>
+<div class="chips">
 
 <a
-class="btn"
+class="chip"
+target="_blank"
+href="${maps('Donisl, Weinstraße 1, 80333 München')}">
+Donisl
+</a>
+
+<a
+class="chip"
+target="_blank"
+href="${maps('Holiday Inn München City Centre')}">
+Holiday Inn
+</a>
+
+<a
+class="chip"
 target="_blank"
 href="${maps('GOP Varieté-Theater München')}">
-Route öffnen
+GOP Varieté
+</a>
+
+<a
+class="chip"
+target="_blank"
+href="${maps('BMW Welt, Am Olympiapark 1, 80809 München')}">
+BMW Welt
+</a>
+
+<a
+class="chip"
+target="_blank"
+href="${maps('Allianz Arena, Franz-Beckenbauer-Platz 5, 80939 München')}">
+Allianz Arena
+</a>
+
+<a
+class="chip"
+target="_blank"
+href="${maps('Marienplatz, 80331 München')}">
+Marienplatz
+</a>
+
+<a
+class="chip"
+target="_blank"
+href="${maps('Hofbräuhaus München, Platzl 9, 80331 München')}">
+Hofbräuhaus
 </a>
 
 </div>
 
 
-<div class="route">
+<div class="info-box" style="margin-top:15px">
 
-<strong>
-🏨 Hotel → BMW Welt
-</strong>
+<h3>
+ÖPNV
+</h3>
 
-<span>
-S-Bahn bis Marienplatz, anschließend U3 Richtung Moosach bis Olympiazentrum.
-</span>
-
-</div>
-
-
-<div class="route">
-
-<strong>
-🏨 Hotel → Allianz Arena
-</strong>
-
-<span>
-S-Bahn bis Marienplatz, anschließend U6 Richtung Garching-Forschungszentrum bis Fröttmaning.
-</span>
-
-</div>
-
-
-<div class="route">
-
-<strong>
-🏨 Hotel → Marienplatz
-</strong>
-
-<span>
-S-Bahn ab Rosenheimer Platz Richtung Innenstadt, ca. 5–7 Minuten.
-</span>
+<p>
+Für die jeweiligen Verbindungen bitte die aktuellen Abfahrtszeiten in Google Maps bzw. MVV prüfen.
+</p>
 
 </div>
 
@@ -1416,7 +1321,7 @@ S-Bahn ab Rosenheimer Platz Richtung Innenstadt, ca. 5–7 Minuten.
 }
 
 
-/* INFO / ÖPNV */
+/* INFO */
 
 function info(){
 
@@ -1428,20 +1333,30 @@ return `
 ÖPNV &amp; Infos
 </h1>
 
-<p class="sub">
-Ab Hotel zu den wichtigsten Zielen.
-</p>
-
-
 <div class="info-box">
 
 <h3>
-🚉 Marienplatz
+Ab Hotel zu den wichtigsten Zielen
 </h3>
 
 <p>
-S-Bahn ab Rosenheimer Platz Richtung Innenstadt,
-2 Stationen, ca. 5–7 Minuten.
+<strong>Marienplatz:</strong><br>
+S-Bahn ab Rosenheimer Platz Richtung Innenstadt, 2 Stationen, ca. 5–7 Minuten.
+</p>
+
+<p>
+<strong>Olympiazentrum / TUM Sportcampus:</strong><br>
+S-Bahn bis Marienplatz, anschließend U3 Richtung Moosach bis Olympiazentrum.
+</p>
+
+<p>
+<strong>BMW Welt:</strong><br>
+S-Bahn bis Marienplatz, anschließend U3 Richtung Moosach bis Olympiazentrum, danach kurzer Fußweg.
+</p>
+
+<p>
+<strong>Allianz Arena:</strong><br>
+S-Bahn bis Marienplatz, anschließend U6 Richtung Garching-Forschungszentrum bis Fröttmaning, danach kurzer Fußweg.
 </p>
 
 </div>
@@ -1450,83 +1365,46 @@ S-Bahn ab Rosenheimer Platz Richtung Innenstadt,
 <div class="info-box">
 
 <h3>
-🚌 Olympiazentrum / TUM Sportcampus
+Wichtige Adressen
 </h3>
 
-<p>
-S-Bahn bis Marienplatz, anschließend U3 Richtung Moosach
-bis Olympiazentrum.
-</p>
-
+<div class="address">
+<strong>Holiday Inn München City Centre</strong>
 </div>
 
-
-<div class="info-box">
-
-<h3>
-🚗 BMW Welt
-</h3>
-
-<p>
-S-Bahn bis Marienplatz, anschließend U3 Richtung Moosach
-bis Olympiazentrum. Von dort kurzer Fußweg zur BMW Welt.
-</p>
-
+<div class="address">
+<strong>Donisl</strong><br>
+Weinstraße 1 · 80333 München
 </div>
 
-
-<div class="info-box">
-
-<h3>
-🏟 Allianz Arena
-</h3>
-
-<p>
-S-Bahn bis Marienplatz, anschließend U6 Richtung
-Garching-Forschungszentrum bis Fröttmaning.
-Danach kurzer Fußweg zur Arena.
-</p>
-
+<div class="address">
+<strong>TUM Sportcampus</strong><br>
+Connollystraße 32 · 80809 München
 </div>
 
+<div class="address">
+<strong>GOP Varieté-Theater München</strong>
+</div>
 
-<div class="info-box">
+<div class="address">
+<strong>BMW Welt</strong><br>
+Am Olympiapark 1 · 80809 München
+</div>
 
-<h3>
-📍 Wichtige Adressen
-</h3>
+<div class="address">
+<strong>Allianz Arena</strong><br>
+Franz-Beckenbauer-Platz 5 · 80939 München
+</div>
 
-<ul>
+<div class="address">
+<strong>Marienplatz</strong><br>
+80331 München
+</div>
 
-<li>
-<b>Holiday Inn München City Centre</b>
-</li>
-
-<li>
-<b>Donisl</b> · Weinstraße 1
-</li>
-
-<li>
-<b>GOP Varieté-Theater München</b>
-</li>
-
-<li>
-<b>BMW Welt</b> · Am Olympiapark 1
-</li>
-
-<li>
-<b>Allianz Arena</b> · Franz-Beckenbauer-Platz 5
-</li>
-
-<li>
-<b>Marienplatz</b> · 80331 München
-</li>
-
-<li>
-<b>Hofbräuhaus</b> · Platzl 9
-</li>
-
-</ul>
+<div class="address">
+<strong>Hofbräuhaus</strong><br>
+Platzl 9 · 80331 München
+</div>
 
 </div>
 
@@ -1549,150 +1427,119 @@ return `
 Nachtleben
 </h1>
 
-<p class="sub">
+<div class="info-box">
+
+<p>
 Nur Vorschläge für Donnerstag &amp; Freitag.
 </p>
 
+</div>
 
-<div class="night">
+
+<div class="night-card">
 
 <img
-src="https://commons.wikimedia.org/wiki/Special:FilePath/Munich_-_Platzl_street_and_bars_-_7644.jpg"
-alt="Bars in München"
+src="https://www.muenchen.de/sites/default/files/styles/3_2_wide/public/2023-02/Jodlerwirt-Muenchen-01.jpg"
+alt="Jodlerwirt München"
 >
 
-<div class="inside">
+<div class="night-card-content">
 
 <h3>
 Jodlerwirt
 </h3>
 
 <p>
-Ledererstraße 24 · urige Münchner Bar.
+Ledererstraße 24 · München
 </p>
 
-<a
-class="btn"
-target="_blank"
-href="${maps('Jodlerwirt, Ledererstraße 24, München')}">
-📍 Route
-</a>
-
 </div>
 
 </div>
 
 
-<div class="night">
+<div class="night-card">
 
 <img
-src="https://commons.wikimedia.org/wiki/Special:FilePath/089_Bar_Munich.jpg"
-alt="Bar München"
+src="https://www.muenchen.de/sites/default/files/styles/3_2_wide/public/2022-08/boazn-muenchen.jpg"
+alt="Boazn München"
 >
 
-<div class="inside">
+<div class="night-card-content">
 
 <h3>
 Boazn
 </h3>
 
 <p>
-Karl-Müller-Weg 2 · gemütliche Münchner Kneipe.
+Karl-Müller-Weg 2 · München
 </p>
 
-<a
-class="btn"
-target="_blank"
-href="${maps('Boazn, Karl-Müller-Weg 2, München')}">
-📍 Route
-</a>
-
 </div>
 
 </div>
 
 
-<div class="night">
+<div class="night-card">
 
 <img
-src="https://commons.wikimedia.org/wiki/Special:FilePath/Biergarten_at_Night_Cropped.JPG"
-alt="München bei Nacht"
+src="https://www.muenchen.de/sites/default/files/styles/3_2_wide/public/2022-09/valentin-stueberl-muenchen.jpg"
+alt="Valentin Stüberl München"
 >
 
-<div class="inside">
+<div class="night-card-content">
 
 <h3>
 Valentin Stüberl
 </h3>
 
 <p>
-Marienplatz 8 · zentral gelegen.
+Marienplatz 8 · München
 </p>
 
-<a
-class="btn"
-target="_blank"
-href="${maps('Valentin Stüberl, Marienplatz 8, München')}">
-📍 Route
-</a>
-
 </div>
 
 </div>
 
 
-<div class="night">
+<div class="night-card">
 
 <img
-src="https://commons.wikimedia.org/wiki/Special:FilePath/Schwabinger_7.jpg"
+src="https://www.muenchen.de/sites/default/files/styles/3_2_wide/public/2022-07/schwabinger-7-muenchen.jpg"
 alt="Schwabinger 7 München"
 >
 
-<div class="inside">
+<div class="night-card-content">
 
 <h3>
 Schwabinger 7
 </h3>
 
 <p>
-Feilitzschstraße 15 · bekannte Münchner Kultbar.
+Feilitzschstraße 15 · München
 </p>
 
-<a
-class="btn"
-target="_blank"
-href="${maps('Schwabinger 7, Feilitzschstraße 15, München')}">
-📍 Route
-</a>
-
 </div>
 
 </div>
 
 
-<div class="night">
+<div class="night-card">
 
 <img
-src="https://i0.wp.com/singleaktiv.de/wp-content/uploads/2012/03/singleaktiv_p1_muenchen.jpg?fit=634%2C458&ssl=1"
+src="https://www.muenchen.de/sites/default/files/styles/3_2_wide/public/2022-08/p1-club-muenchen.jpg"
 alt="P1 Club München"
 >
 
-<div class="inside">
+<div class="night-card-content">
 
 <h3>
 P1 Club
 </h3>
 
 <p>
-Prinzregentenstraße 1 · Münchner Nachtleben.
+Prinzregentenstraße 1 · München
 </p>
-
-<a
-class="btn"
-target="_blank"
-href="${maps('P1 Club München, Prinzregentenstraße 1')}">
-📍 Route
-</a>
 
 </div>
 
@@ -1705,7 +1552,7 @@ href="${maps('P1 Club München, Prinzregentenstraße 1')}">
 }
 
 
-/* WETTER & COUNTDOWN */
+/* WETTER */
 
 function wetter(){
 
@@ -1717,26 +1564,22 @@ return `
 Wetter &amp; Countdown
 </h1>
 
-<p class="sub">
-München · Wettervorhersage · Countdown
-</p>
-
 
 <div class="info-box">
 
 <h3>
-☀ Wetter in München
+München-Wetter
 </h3>
 
 <p>
-Aktuelle Wettervorhersage für München:
+Aktuelles Wetter und Vorhersage für München:
 </p>
 
 <a
 class="btn"
 target="_blank"
-href="https://www.google.com/search?q=Wetter+München">
-☀ Wetter öffnen
+href="https://www.google.com/search?q=Wetter+M%C3%BCnchen">
+☀ Wetter München öffnen
 </a>
 
 </div>
@@ -1745,18 +1588,137 @@ href="https://www.google.com/search?q=Wetter+München">
 <div class="info-box">
 
 <h3>
-⏳ Countdown
+Countdown
 </h3>
 
-<p>
-Bis zur Abfahrt am 15. Oktober 2026 um 14:00 Uhr:
+<div
+id="countdown"
+style="font-size:27px;font-weight:900;color:var(--gold2);text-align:center;padding:15px 0">
+wird geladen …
+</div>
+
+<p style="text-align:center">
+Start des Jubiläumsausflugs:
+<br>
+15. Oktober 2026 · 14:00 Uhr
 </p>
 
-<p
-id="countdown"
-style="font-size:20px;font-weight:900;color:var(--orange)">
-wird berechnet …
-</p>
+</div>
+
+</section>
+
+`;
+
+}
+
+
+/* MEHR */
+
+function mehr(){
+
+return `
+
+<section class="page">
+
+<h1 class="section-title">
+Nachtleben &amp; Mehr
+</h1>
+
+<div class="more-grid">
+
+<div
+class="more-tile"
+onclick="nav('info')">
+
+<div class="more-icon">
+🏨
+</div>
+
+<strong>
+Hotel &amp; weitere Adressen
+</strong>
+
+<span>
+Wichtige Adressen für die drei Tage.
+</span>
+
+</div>
+
+
+<div
+class="more-tile"
+onclick="nav('nachtleben')">
+
+<div class="more-icon">
+♫
+</div>
+
+<strong>
+Nachtleben
+</strong>
+
+<span>
+Vorschläge für Donnerstag &amp; Freitag.
+</span>
+
+</div>
+
+
+<div
+class="more-tile"
+onclick="nav('wetter')">
+
+<div class="more-icon">
+☀
+</div>
+
+<strong>
+Wetter &amp; Countdown
+</strong>
+
+<span>
+Wetter in München und Countdown.
+</span>
+
+</div>
+
+
+<div
+class="more-tile"
+onclick="nav('info')">
+
+<div class="more-icon">
+🚌
+</div>
+
+<strong>
+ÖPNV &amp; Adressen
+</strong>
+
+<span>
+Anreise und wichtige Ziele.
+</span>
+
+</div>
+
+
+<div
+class="more-tile"
+onclick="taxi()">
+
+<div class="more-icon">
+🚕
+</div>
+
+<strong>
+Taxi &amp; Uber
+</strong>
+
+<span>
+Schnell und sicher unterwegs.
+</span>
+
+</div>
 
 </div>
 
@@ -1779,26 +1741,21 @@ return `
 Taxi &amp; Uber
 </h1>
 
-<p class="sub">
-Schnell unterwegs in München.
-</p>
-
 
 <div class="info-box">
 
 <h3>
-🚕 Taxi München
+Taxi-Zentrale München
 </h3>
 
 <p>
-Taxi-Zentrale München<br>
-<b>089 2161-0</b>
+089 2161-0
 </p>
 
 <a
 class="btn"
 href="tel:+498921610">
-Taxi anrufen
+📞 Taxi anrufen
 </a>
 
 </div>
@@ -1807,132 +1764,19 @@ Taxi anrufen
 <div class="info-box">
 
 <h3>
-🚗 Uber
+Uber
 </h3>
 
 <p>
-Uber direkt über die App bzw. den Webdienst öffnen.
+Fahrten bequem per App buchen.
 </p>
 
 <a
 class="btn"
 target="_blank"
 href="https://m.uber.com/">
-Uber öffnen
+🚕 Uber öffnen
 </a>
-
-</div>
-
-</section>
-
-`;
-
-}
-
-
-/* NACHTLEBEN & MEHR */
-
-function mehr(){
-
-return `
-
-<section class="page">
-
-<h1 class="section-title">
-Nachtleben &amp; Mehr
-</h1>
-
-
-<div class="grid2">
-
-
-<div
-class="info-box clickable"
-onclick="nav('info')">
-
-<h3>
-🏨 Hotel &amp; weitere Adressen
-</h3>
-
-<p>
-Hotel, Veranstaltungsorte und wichtige Adressen
-</p>
-
-</div>
-
-
-<div
-class="info-box clickable"
-onclick="nav('nachtleben')">
-
-<h3>
-♫ Nachtleben
-</h3>
-
-<p>
-Tipps &amp; Bars für Donnerstag &amp; Freitag
-</p>
-
-</div>
-
-
-<div
-class="info-box clickable"
-onclick="nav('wetter')">
-
-<h3>
-☀ Wetter &amp; Countdown
-</h3>
-
-<p>
-München · Wettervorhersage · Countdown
-</p>
-
-</div>
-
-
-<div
-class="info-box clickable"
-onclick="nav('info')">
-
-<h3>
-🚌 ÖPNV &amp; Adressen
-</h3>
-
-<p>
-Schnellzugriff auf die wichtigsten Verbindungen und Ziele
-</p>
-
-</div>
-
-
-<div
-class="info-box clickable"
-onclick="nav('taxi')">
-
-<h3>
-🚕 Taxi &amp; Uber
-</h3>
-
-<p>
-Taxi rufen oder Uber öffnen
-</p>
-
-</div>
-
-
-</div>
-
-
-<div class="info-box">
-
-<h3>
-Impressum &amp; Datenschutz
-</h3>
-
-<p>
-Fritschle · Jubiläumsausflug München 2026
-</p>
 
 </div>
 
@@ -1947,85 +1791,121 @@ Fritschle · Jubiläumsausflug München 2026
 
 function render(){
 
-let body;
+let content='';
 
 if(page==='home'){
-body=home();
+content=home();
 }
 
-else if(page==='programm'){
-body=programm();
+if(page==='programm'){
+content=programm();
 }
 
-else if(page==='karte'){
-body=karte();
+if(page==='karte'){
+content=karte();
 }
 
-else if(page==='info'){
-body=info();
+if(page==='info'){
+content=info();
 }
 
-else if(page==='nachtleben'){
-body=nachtleben();
+if(page==='nachtleben'){
+content=nachtleben();
 }
 
-else if(page==='wetter'){
-body=wetter();
+if(page==='wetter'){
+content=wetter();
 }
 
-else if(page==='taxi'){
-body=taxi();
+if(page==='mehr'){
+content=mehr();
 }
 
-else{
-body=mehr();
+if(page==='taxi'){
+content=taxi();
 }
 
 
-app.innerHTML=`
+app.innerHTML=content+`
 
-<header class="top">
+<footer class="footer">
 
-<button
-class="menu"
-onclick="openDrawer()"
-aria-label="Menü">
-☰
-</button>
+<div>
+Fritschle · Jubiläumsausflug München 2026
+</div>
 
-</header>
+<div class="powered">
+powered by kerstin &amp; susanne
+</div>
 
+</footer>
 
-<main class="content">
-${body}
-</main>
+${bottomNav()}
 
 `;
 
-
-document
-.querySelectorAll('.nav-btn')
-.forEach(b=>{
-
-b.classList.toggle(
-'active',
-
-b.dataset.page===page ||
-
-(
-(page==='nachtleben' ||
-page==='wetter' ||
-page==='taxi')
-&&
-b.dataset.page==='mehr'
-)
-
-);
-
-});
-
-
 updateCountdown();
+
+}
+
+
+function bottomNav(){
+
+return `
+
+<nav class="bottom-nav">
+
+<button
+class="${page==='home'?'active':''}"
+onclick="nav('home')">
+
+<span class="nav-icon">⌂</span>
+Start
+
+</button>
+
+
+<button
+class="${page==='programm'?'active':''}"
+onclick="nav('programm')">
+
+<span class="nav-icon">📅</span>
+Programm
+
+</button>
+
+
+<button
+class="${page==='karte'?'active':''}"
+onclick="nav('karte')">
+
+<span class="nav-icon">📍</span>
+Karte
+
+</button>
+
+
+<button
+class="${page==='info'?'active':''}"
+onclick="nav('info')">
+
+<span class="nav-icon">ℹ</span>
+Info
+
+</button>
+
+
+<button
+onclick="openDrawer()">
+
+<span class="nav-icon">☰</span>
+Mehr
+
+</button>
+
+</nav>
+
+`;
 
 }
 
@@ -2043,87 +1923,73 @@ return;
 const target=
 new Date('2026-10-15T14:00:00+02:00').getTime();
 
-const now=Date.now();
+function tick(){
+
+const now=new Date().getTime();
 
 let diff=target-now;
 
 if(diff<=0){
 
-el.textContent=
-'Der Jubiläumsausflug hat begonnen!';
+el.textContent='Es geht los! 🎉';
 
 return;
 
 }
 
-const d=
-Math.floor(diff/86400000);
+const days=Math.floor(diff/(1000*60*60*24));
 
-diff%=86400000;
+diff%=1000*60*60*24;
 
-const h=
-Math.floor(diff/3600000);
+const hours=Math.floor(diff/(1000*60*60));
 
-diff%=3600000;
+diff%=1000*60*60;
 
-const m=
-Math.floor(diff/60000);
+const minutes=Math.floor(diff/(1000*60));
+
+diff%=1000*60;
+
+const seconds=Math.floor(diff/1000);
 
 el.textContent=
-`Noch ${d} Tage, ${h} Stunden und ${m} Minuten`;
+`${days} Tage · ${hours} Std. · ${minutes} Min. · ${seconds} Sek.`;
+
+}
+
+tick();
+
+setInterval(tick,1000);
 
 }
 
 
-/* NAVIGATION */
-
-document
-.querySelectorAll('.nav-btn')
-.forEach(b=>{
-
-b.addEventListener(
-'click',
-()=>nav(b.dataset.page)
-);
-
-});
-
-
-window.addEventListener(
-'hashchange',
-()=>{
-
-const h=
-location.hash.replace('#','');
-
-if(h){
-
-page=h;
-
-render();
-
-}
-
-});
-
+/* HASH */
 
 if(location.hash){
 
-page=
-location.hash.replace('#','')
-||
-'home';
+const h=location.hash.replace('#','');
+
+if([
+'home',
+'programm',
+'karte',
+'info',
+'nachtleben',
+'wetter',
+'mehr',
+'taxi'
+].includes(h)){
+
+page=h;
+
+}
 
 }
 
 
+/* START */
+
 render();
-
-
-setInterval(
-updateCountdown,
-60000
-);
 
 </script>
 
