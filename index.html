@@ -170,11 +170,9 @@ flex-direction:column;
 align-items:center;
 justify-content:center;
 background:rgba(5,11,18,.64);
-
 box-shadow:
 0 0 12px rgba(199,150,62,.38),
 0 0 30px rgba(199,150,62,.22);
-
 animation:sealGoldGlow 3.8s ease-in-out infinite;
 transform-origin:center center
 }
@@ -183,23 +181,19 @@ transform-origin:center center
 
 0%,100%{
 border-color:var(--gold);
-
 box-shadow:
 0 0 10px rgba(199,150,62,.32),
 0 0 25px rgba(199,150,62,.16),
 0 0 40px rgba(199,150,62,.06);
-
 transform:scale(1);
 }
 
 50%{
 border-color:var(--gold);
-
 box-shadow:
 0 0 16px rgba(199,150,62,.60),
 0 0 34px rgba(199,150,62,.34),
 0 0 58px rgba(199,150,62,.16);
-
 transform:scale(1.015);
 }
 
@@ -248,7 +242,6 @@ font-style:italic;
 color:var(--gold);
 line-height:1.05;
 margin-top:4px;
-
 text-shadow:
 0 3px 22px #000,
 0 0 8px rgba(199,150,62,.28),
@@ -728,28 +721,31 @@ grid-column:1 / -1;
 width:calc(100% + 70px);
 max-width:none;
 height:190px !important;
-aspect-ratio:16 / 9;
-object-fit:cover;
-object-position:center;
 margin-left:-35px;
-margin-right:-35px;
-margin-top:10px;
-margin-bottom:6px;
-border-radius:0
+margin-right:-35px
 }
 
-.home-photo{
-height:auto;
-max-width:100%
+.variant-photo{
+height:140px
 }
 
 }
+
+
+/* FREITAG – FREIE ZEIT ORANGE */
+
+.free-time{
+color:var(--orange) !important;
+font-weight:900
+}
+
 </style>
 </head>
 
 <body>
 
 <div class="app" id="app"></div>
+
 
 <nav class="bottom-nav">
 
@@ -780,9 +776,12 @@ Nachtleben &amp; Mehr
 
 </nav>
 
-<aside class="drawer" id="drawer">
 
-<button class="close" onclick="closeDrawer()">✕ Menü schließen</button>
+<div class="drawer" id="drawer">
+
+<button class="close" onclick="closeDrawer()">
+✕ Menü schließen
+</button>
 
 <button onclick="nav('home')">
 ⌂ Start
@@ -808,112 +807,26 @@ Nachtleben &amp; Mehr
 ☀ Wetter &amp; Countdown
 </button>
 
+<button onclick="nav('taxi')">
+🚕 Taxi &amp; Uber
+</button>
+
 <button onclick="nav('mehr')">
 ☰ Nachtleben &amp; Mehr
 </button>
 
-</aside>
+</div>
 
 
 <script>
 
-const maps=q =>
-'https://www.google.com/maps/dir/?api=1&destination='+
-encodeURIComponent(q);
-
-
-const data={
-
-do:{
-title:'DONNERSTAG',
-date:'15. Oktober 2026',
-events:[
-
-['14:00',
-'Abfahrt Uttenweiler',
-'Bitte um 14:00 Uhr abfahrbereit am Firmenhof.'],
-
-['17:00',
-'Ankunft München',
-'Fahrt zum Holiday Inn München City Centre und Check-in.'],
-
-['18:30',
-'Treffpunkt im Hotelfoyer',
-'Gemeinsamer Treffpunkt vor dem Abendprogramm.'],
-
-['19:00',
-'Donisl',
-'Weinstraße 1 · gemeinsamer Abend bis ca. 22:00 Uhr.']
-
-]},
-
-fr:{
-title:'FREITAG',
-date:'16. Oktober 2026',
-events:[
-
-['07:00',
-'Frühstück',
-'Frühstück im Hotel.'],
-
-['08:30',
-'Treffpunkt im Hotelfoyer',
-''],
-
-['anschließend',
-'Fahrt zum TUM Sportcampus',
-''],
-
-['10:00–12:00',
-'TUM Sportcampus',
-''],
-
-['12:00',
-'Mittagspause',
-'']
-
-]},
-
-sa:{
-title:'SAMSTAG',
-date:'17. Oktober 2026',
-events:[
-
-['ab 7:00',
-'Frühstück',
-''],
-
-['danach',
-'Check-out',
-''],
-
-['09:00',
-'zu Fuß Richtung Innenstadt, Marienplatz',
-''],
-
-['09:30',
-'Stadtführung Marienplatz / Viktualienmarkt',
-''],
-
-['13:00',
-'Mittagessen im Hofbräuhaus',
-''],
-
-['15:00',
-'Gepäck am Hotel abholen',
-''],
-
-['15:30',
-'Abfahrt Heimreise nach Uttenweiler',
-'']
-
-]}};
-
-
 let page='home';
-let day='do';
 
-const app=document.getElementById('app');
+const app=
+document.getElementById('app');
+
+const drawer=
+document.getElementById('drawer');
 
 
 function nav(p){
@@ -922,8 +835,6 @@ page=p;
 
 location.hash=p;
 
-closeDrawer();
-
 render();
 
 window.scrollTo({
@@ -931,27 +842,28 @@ top:0,
 behavior:'smooth'
 });
 
+closeDrawer();
+
 }
 
 
 function openDrawer(){
 
-document
-.getElementById('drawer')
-.classList
-.add('open');
+drawer.classList.add('open');
 
 }
 
 
 function closeDrawer(){
 
-document
-.getElementById('drawer')
-.classList
-.remove('open');
+drawer.classList.remove('open');
 
 }
+
+
+const maps=q =>
+'https://www.google.com/maps/dir/?api=1&destination='+
+encodeURIComponent(q);
 
 
 /* STARTSEITE */
@@ -966,30 +878,40 @@ return `
 
 <div class="hero-brand">
 
-<strong>FRITSCHLE</strong>
+<strong>
+FRITSCHLE
+</strong>
 
-<span>baut <i></i></span>
+<span>
+baut <i></i>
+</span>
 
 </div>
 
 
 <div class="seal">
 
-<b>80</b>
+<b>
+80
+</b>
 
-<span>JAHRE</span>
+<span>
+JAHRE
+</span>
 
 </div>
 
 
-<h1>JUBILÄUMSAUSFLUG</h1>
+<h1>
+JUBILÄUMSAUSFLUG
+</h1>
 
 <div class="munich">
 München
 </div>
 
 <div class="date">
-15. – 17. Oktober 2026
+15.–17. Oktober 2026
 </div>
 
 
@@ -1000,7 +922,7 @@ Schön, dass Ihr dabei seid!
 </h2>
 
 <p>
-<b>Liebe Kolleginnen und Kollegen,</b>
+Liebe Kolleginnen und Kollegen,
 </p>
 
 <p>
@@ -1018,7 +940,7 @@ Wir wünschen Euch schon heute eine schöne Zeit und viel Freude beim Jubiläums
 <img
 class="home-photo"
 src="https://images.unsplash.com/photo-1577462281852-279bf4986f7b?auto=format&fit=crop&fm=jpg&q=85&w=1400"
-alt="München bei Nacht mit Marienplatz, Frauenkirche und Neuem Rathaus"
+alt="München"
 >
 
 </div>
@@ -1043,9 +965,45 @@ powered by kerstin &amp; susanne
 
 /* PROGRAMM */
 
-function programm(){
+const data={
 
-const d=data[day];
+do:{
+title:'Donnerstag · 15. Oktober',
+events:[
+['14:00','Abfahrt Uttenweiler','Bitte um 14:00 Uhr abfahrbereit am Firmenhof.'],
+['17:00','Ankunft München','Fahrt zum Holiday Inn München City Centre und Check-in.'],
+['18:30','Treffpunkt im Hotelfoyer','Gemeinsamer Treffpunkt vor dem Abendprogramm.'],
+['19:00','Donisl','Weinstraße 1 · gemeinsamer Abend bis ca. 22:00 Uhr.']
+]
+},
+
+fr:{
+title:'Freitag · 16. Oktober',
+events:[
+['07:00','Frühstück','Gemeinsamer Start in den Tag.'],
+['08:30','Treffpunkt im Hotelfoyer','Verbindlicher Treffpunkt.'],
+['','anschließend','Fahrt zum TUM Sportcampus.'],
+['10:00–12:00','TUM Sportcampus','Besichtigung des TUM Sportcampus.'],
+['12:00','Mittagspause','Zeit zur freien Verfügung.']
+]
+},
+
+sa:{
+title:'Samstag · 17. Oktober',
+events:[
+['ab 7:00','Frühstück','Danach Check-out.'],
+['09:00','Innenstadt','Zu Fuß Richtung Innenstadt, Marienplatz.'],
+['09:30','Stadtführung','Marienplatz / Viktualienmarkt.'],
+['13:00','Mittagessen im Hofbräuhaus','Gemeinsames Mittagessen.'],
+['15:00','Gepäck am Hotel abholen',''],
+['15:30','Abfahrt Heimreise','Heimreise nach Uttenweiler.']
+]
+}
+
+};
+
+
+function programm(){
 
 return `
 
@@ -1055,26 +1013,34 @@ return `
 Programm
 </h1>
 
+<p class="sub">
+Alle wichtigen Zeiten und Programmpunkte.
+</p>
+
+
 <div class="tabs">
 
 <button
 class="tab ${day==='do'?'active':''}"
-onclick="day='do';render()">
-Donnerstag<br>
+onclick="setDay('do')">
+DO
+<br>
 <small>15.10.</small>
 </button>
 
 <button
 class="tab ${day==='fr'?'active':''}"
-onclick="day='fr';render()">
-Freitag<br>
+onclick="setDay('fr')">
+FR
+<br>
 <small>16.10.</small>
 </button>
 
 <button
 class="tab ${day==='sa'?'active':''}"
-onclick="day='sa';render()">
-Samstag<br>
+onclick="setDay('sa')">
+SA
+<br>
 <small>17.10.</small>
 </button>
 
@@ -1084,16 +1050,16 @@ Samstag<br>
 <div class="day-card">
 
 <div class="kicker">
-${d.date}
+FRITSCHLE · 80 JAHRE
 </div>
 
 <h2>
-${d.title}
+${data[day].title}
 </h2>
 
 <div class="timeline">
 
-${d.events.map(e=>`
+${data[day].events.map(e=>`
 
 <div class="event">
 
@@ -1101,15 +1067,15 @@ ${d.events.map(e=>`
 ${e[0]}
 </time>
 
-<div>
-
 <strong>
 ${e[1]}
 </strong>
 
-${e[2] ? `<p>${e[2]}</p>` : ''}
-
-</div>
+${e[2]?`
+<p>
+${e[2]}
+</p>
+`:''}
 
 </div>
 
@@ -1120,21 +1086,21 @@ ${day==='do'?`
 
 <img
 class="program-photo"
-src="https://www.mux.de/images/1600x800c/object/00/1528703400/teaser-1.jpg"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/Donisl_Munich.jpg"
 alt="Donisl München"
 >
 
 <a
 class="btn"
 target="_blank"
-href="${maps('Donisl, Weinstraße 1, 80333 München')}">
+href="${maps('Donisl, Weinstraße 1, 80331 München')}">
 📍 Route zum Donisl
 </a>
 
 <a
 class="btn"
 target="_blank"
-href="https://www.google.com/maps/dir/?api=1&amp;origin=Donisl%2C%20Weinstra%C3%9Fe%201%2C%2080333%20M%C3%BCnchen&amp;destination=Holiday%20Inn%20M%C3%BCnchen%20City%20Centre&amp;travelmode=walking">
+href="https://www.google.com/maps/dir/?api=1&amp;origin=Donisl%2C%20Weinstra%C3%9Fe%201%2C%2080331%20M%C3%BCnchen&amp;destination=Holiday%20Inn%20M%C3%BCnchen%20City%20Centre&amp;travelmode=walking">
 📍 Route zurück zum Hotel
 </a>
 
@@ -1152,31 +1118,16 @@ ${day==='fr'?`
 <a
 class="btn"
 target="_blank"
-href="${maps('TUM Sportcampus München')}">
+href="${maps('TUM Sportcampus, Connollystraße 32, 80809 München')}">
 📍 Route zum TUM Sportcampus
 </a>
 
-<div class="event" style="margin-top:10px;border-top:1px solid rgba(255,255,255,.08)">
-
-<time>
-10:00–12:00
-</time>
-
-<div>
-
-<strong>
-TUM Sportcampus
-</strong>
-
 <img
 class="program-photo"
-src="https://www.ingenieurholzbau.de/fileadmin/user_upload/Projekt_Kategorien/Oeffentliche_Bauten/Erziehung_Bildung_Forschung/Sportcampus_TU_Muenchen/Neubau_TU_Muenchen_Sportcampus_Ingenieurholzbau_CiO_TUM-Bild_01_Dietrich_Untertrifaller_web.jpg"
-alt="TUM Sportcampus München"
+src="https://www.tum.de/fileadmin/w00bfo/www/News/2020/2020_08_Sportcampus/2020_08_Sportcampus_01.jpg"
+alt="TUM Sportcampus"
 >
 
-</div>
-
-</div>
 
 <div class="event">
 
@@ -1184,19 +1135,23 @@ alt="TUM Sportcampus München"
 12:00
 </time>
 
-<div>
-
 <strong>
 Mittagspause / freie Zeit
 </strong>
 
 </div>
 
+
+<div class="event">
+
+<time></time>
+
+<strong>
+Anschließend gebuchte Variante wählen
+</strong>
+
 </div>
 
-<p style="margin:4px 0 12px;color:var(--muted);line-height:1.45">
-Anschließend gebuchte Variante wählen
-</p>
 
 <div class="variant">
 
@@ -1204,18 +1159,18 @@ Anschließend gebuchte Variante wählen
 VARIANTE A
 </span>
 
-<img
-class="variant-photo"
-src="https://www.sjs-carstyling.com/blog/wp-content/uploads/2025/10/BMW-Museum-Welt-Muenchen-3.jpg"
-alt="BMW Welt und BMW Museum München"
->
-
 <h3>
 BMW Welt &amp; BMW Museum
 </h3>
 
+<img
+class="variant-photo"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/BMW_Welt_-_Munich.jpg"
+alt="BMW Welt München"
+>
+
 <p>
-14:00 Uhr Besichtigung.
+14:00 Uhr Besichtigung
 </p>
 
 <a
@@ -1234,24 +1189,25 @@ href="https://www.google.com/maps/dir/?api=1&amp;origin=BMW%20Welt%2C%20Am%20Oly
 
 </div>
 
+
 <div class="variant">
 
 <span class="label">
 VARIANTE B
 </span>
 
-<img
-class="variant-photo"
-src="https://img.fotocommunity.com/allianz-arena-muenchen-d2c1dd64-3c4d-4f72-8cfd-afa402936256.jpg?height=1080"
-alt="Allianz Arena München"
->
-
 <h3>
 Allianz Arena
 </h3>
 
+<img
+class="variant-photo"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/Allianz_Arena_2010.jpg"
+alt="Allianz Arena München"
+>
+
 <p>
-Abfahrt 12:45 Uhr · Mittagessen · 14:00 Uhr Besichtigung.
+Abfahrt 12:45 Uhr · Mittagessen · 14:00 Uhr Besichtigung
 </p>
 
 <a
@@ -1270,23 +1226,30 @@ href="https://www.google.com/maps/dir/?api=1&amp;origin=Allianz%20Arena%2C%20Fra
 
 </div>
 
-<p style="margin:14px 0 12px;color:var(--orange);line-height:1.45">
+
+<div class="event">
+
+<time></time>
+
+<strong class="free-time">
 Nach den Besichtigungen Zeit zur freien Verfügung
-</p>
+</strong>
 
-<div class="variant">
+</div>
 
-<span class="label">
+
+<div class="event">
+
+<time>
 ABEND
-</span>
+</time>
 
-<h3>
-GOP Varieté-Theater
-</h3>
+<strong>
+GOP Varieté
+</strong>
 
-<p>
-19:00 Uhr Treffpunkt im Hotelfoyer
-</p>
+</div>
+
 
 <a
 class="btn"
@@ -1295,24 +1258,56 @@ href="https://www.google.com/maps/dir/?api=1&amp;origin=Holiday%20Inn%20M%C3%BCn
 📍 Route Hotel → GOP
 </a>
 
-<p style="margin-top:8px">
-19:45 Uhr Schlemmeressen<br>
-21:00 Uhr Show
-</p>
 
 <img
 class="landscape-photo"
-src="https://iam-blog-de.gumlet.io/blog/wp-content/uploads/2020/08/GOP-Variete-Theater-Muenchen_Bild-04.jpg"
-alt="GOP Varieté-Theater München"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/GOP_Variet%C3%A9-Theater_M%C3%BCnchen.jpg"
+alt="GOP Varieté München"
 >
 
-<p>
-ca. 23:15 Uhr Hotelbar / Nachtleben
-</p>
 
-<p style="margin-top:8px">
+<div class="event">
+
+<time>
+19:45
+</time>
+
+<strong>
+GOP Varieté Schlemmeressen
+</strong>
+
+</div>
+
+
+<div class="event">
+
+<time>
+21:00
+</time>
+
+<strong>
+Show-Beginn
+</strong>
+
+</div>
+
+
+<div class="event">
+
+<time>
+ca. 23:15
+</time>
+
+<strong>
+Hotelbar / Nachtleben
+</strong>
+
+<p>
 Vorschläge findet Ihr unter „Mehr → Nachtleben“.
 </p>
+
+</div>
+
 
 <a
 class="btn"
@@ -1326,8 +1321,6 @@ class="btn"
 onclick="nav('mehr')">
 ☰ Nachtleben &amp; Mehr
 </button>
-
-</div>
 
 `:''}
 
