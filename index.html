@@ -240,267 +240,235 @@ font-size:24px;
 letter-spacing:2px
 }
 
-.hero .munich{
-font-family:"Brush Script MT","Segoe Script",cursive;
-font-size:48px;
-line-height:1;
-color:var(--gold);
-margin:0 0 16px;
-text-shadow:
-0 0 10px rgba(199,150,62,.24)
-}
-
-.welcome{
-border:1px solid rgba(199,150,62,.4);
-background:rgba(16,35,55,.78);
-border-radius:17px;
-padding:15px 16px;
-margin:16px 0 18px;
-text-align:left
-}
-
-.welcome strong{
-display:block;
-color:var(--gold);
-font-size:16px;
-margin-bottom:8px
-}
-
-.welcome p{
-margin:0;
-color:#edf2f7;
-font-size:14px;
-line-height:1.55
-}
-
-.hero-text{
-color:#d9e1e8;
-font-size:14px;
-line-height:1.65;
-margin:0 auto;
-max-width:620px
-}
-
-.hero-photo{
-width:100%;
-height:260px;
-object-fit:cover;
-border-radius:18px;
-margin-top:20px;
-border:1px solid rgba(255,255,255,.12);
-display:block
-}
-
-.section-title{
-font-size:26px;
+.munich{
+font-family:"Brush Script MT","Brush Script Std",cursive;
+font-size:54px;
 font-weight:900;
-margin:4px 0 18px;
-letter-spacing:.5px
+font-style:italic;
+color:var(--gold);
+line-height:1.05;
+margin-top:4px;
+
+text-shadow:
+0 3px 22px #000,
+0 0 8px rgba(199,150,62,.28),
+0 0 18px rgba(199,150,62,.14)
 }
 
-.section-sub{
-color:var(--muted);
-font-size:14px;
-line-height:1.55;
-margin:-8px 0 20px
-}
-
-.card{
-background:linear-gradient(180deg,#102337,#0e2032);
-border:1px solid var(--line);
-border-radius:20px;
-padding:17px;
-margin-bottom:15px;
-box-shadow:0 10px 30px rgba(0,0,0,.18)
-}
-
-.card h3{
-margin:0 0 7px;
-font-size:19px;
+.date{
+font-size:16px;
+letter-spacing:2px;
+margin-top:10px;
 color:#fff
 }
 
-.card p{
-margin:5px 0;
-font-size:14px;
+.welcome{
+margin:24px auto 0;
+max-width:560px;
+padding:18px;
+border:1px solid rgba(199,150,62,.38);
+border-radius:18px;
+background:rgba(5,11,18,.62);
+text-align:left
+}
+
+.welcome h2{
+margin:0 0 10px;
+color:var(--orange);
+font-size:24px;
+font-family:"Brush Script MT","Brush Script Std",cursive;
+font-style:italic
+}
+
+.welcome p{
+margin:7px 0;
 line-height:1.55;
-color:#d9e2ea
+color:#f2f5f7
 }
 
-.day{
-border:1px solid rgba(199,150,62,.34);
-border-radius:21px;
-padding:17px;
-margin-bottom:18px;
-background:rgba(11,23,38,.82)
+.home-photo{
+width:100%;
+max-width:560px;
+height:auto;
+object-fit:contain;
+display:block;
+margin:16px auto 0;
+border-radius:18px;
+border:1px solid rgba(199,150,62,.38);
+box-shadow:0 12px 30px rgba(0,0,0,.28)
 }
 
-.day-head{
-display:flex;
-align-items:flex-end;
-justify-content:space-between;
-gap:12px;
-margin-bottom:16px
+.section-title{
+font-size:29px;
+margin:8px 0 15px
 }
 
-.day-name{
-font-size:23px;
-font-weight:900;
-color:var(--gold)
-}
-
-.day-date{
-font-size:13px;
+.sub{
 color:var(--muted);
-white-space:nowrap
+margin-top:-7px;
+margin-bottom:18px
+}
+
+.tabs{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:8px;
+margin-bottom:14px
+}
+
+.tab{
+border:1px solid var(--line);
+background:#0e2032;
+color:#fff;
+border-radius:14px;
+padding:11px 5px;
+cursor:pointer;
+font-weight:800
+}
+
+.tab.active{
+background:var(--orange);
+border-color:var(--orange)
+}
+
+.tab small{
+font-weight:500;
+opacity:.85
+}
+
+.day-card,
+.card,
+.variant,
+.change,
+.night,
+.route,
+.info-box{
+background:linear-gradient(180deg,#102337,#0d1e2f);
+border:1px solid var(--line);
+border-radius:20px;
+box-shadow:var(--shadow);
+overflow:hidden
+}
+
+.program-photo{
+width:100%;
+height:220px;
+object-fit:cover;
+object-position:center;
+display:block;
+grid-column:1 / -1;
+border-radius:14px;
+margin-top:10px;
+margin-bottom:6px
+}
+
+.landscape-photo{
+grid-column:1 / -1;
+display:block;
+width:calc(100% + 70px);
+max-width:none;
+height:220px !important;
+aspect-ratio:16 / 9;
+object-fit:cover;
+object-position:center;
+margin-top:10px;
+margin-left:-35px;
+margin-right:-35px;
+margin-bottom:6px;
+border-radius:0
+}
+
+.variant-photo{
+width:100%;
+height:150px;
+object-fit:cover;
+display:block;
+border-radius:12px;
+margin-bottom:14px
+}
+
+.kicker{
+font-size:11px;
+letter-spacing:2px;
+color:var(--green2);
+font-weight:900;
+padding:18px 18px 4px
+}
+
+.day-card h2{
+margin:2px 18px 18px;
+font-size:27px
 }
 
 .timeline{
-position:relative;
-padding-left:2px
+padding:0 18px 18px
 }
 
 .event{
-position:relative;
-padding:0 0 19px 77px
+display:grid;
+grid-template-columns:82px 1fr;
+gap:10px;
+padding:15px 0;
+border-top:1px solid rgba(255,255,255,.08)
 }
 
-.event:last-child{
-padding-bottom:0
-}
-
-.event:before{
-content:"";
-position:absolute;
-left:58px;
-top:6px;
-bottom:-2px;
-width:1px;
-background:#35516b
-}
-
-.event:last-child:before{
-display:none
-}
-
-.time{
-position:absolute;
-left:0;
-top:0;
-width:52px;
+.event time{
+font-size:18px;
 font-weight:900;
-font-size:13px;
-color:var(--gold);
-text-align:right
+color:var(--orange);
+white-space:nowrap
 }
 
-.dot{
-position:absolute;
-left:54px;
-top:5px;
-width:9px;
-height:9px;
-border-radius:50%;
-background:var(--orange);
-box-shadow:0 0 0 4px rgba(242,138,43,.12)
+.event time.small-time{
+font-size:15px
 }
 
-.event-content{
-background:#102337;
-border:1px solid #29435c;
-border-radius:15px;
-padding:12px 13px
+.event strong{
+font-size:16px;
+line-height:1.35
 }
 
-.event-content strong{
-display:block;
-font-size:15px;
-margin-bottom:5px
-}
-
-.event-content p{
-margin:0;
-font-size:13px;
-line-height:1.5;
-color:#d2dde7
-}
-
-.photo{
-width:100%;
-height:190px;
-object-fit:cover;
-display:block;
-border-radius:15px;
-margin-top:12px;
-border:1px solid rgba(255,255,255,.1)
-}
-
-.photo-wide{
-width:100%;
-height:235px;
-object-fit:cover;
-display:block;
-border-radius:15px;
-margin-top:12px;
-border:1px solid rgba(255,255,255,.1)
-}
-
-.address{
-color:#aebbc8;
-font-size:12px;
-margin-top:5px
-}
-
-.note{
-margin-top:11px;
-padding:11px 12px;
-border-left:3px solid var(--gold);
-background:rgba(199,150,62,.09);
-border-radius:0 10px 10px 0;
-font-size:13px;
-line-height:1.5;
-color:#dce4eb
-}
-
-.choice{
-margin-top:13px;
-border:1px solid rgba(199,150,62,.48);
-background:rgba(199,150,62,.08);
-border-radius:13px;
-padding:11px 12px;
-font-size:14px;
-font-weight:800;
-color:#f0d49a;
-text-align:center
+.event p{
+grid-column:2;
+margin:4px 0 0;
+color:var(--muted);
+line-height:1.45
 }
 
 .variant{
-margin-top:13px;
-border:1px solid #29435c;
-border-radius:16px;
-padding:14px;
-background:#0d1f30
+padding:18px;
+margin-top:12px
 }
 
-.variant h4{
-margin:0 0 8px;
-font-size:15px;
-color:var(--gold)
+.variant .label{
+display:inline-block;
+color:#06101a;
+background:var(--green2);
+font-size:11px;
+font-weight:900;
+padding:6px 9px;
+border-radius:8px;
+letter-spacing:1px
+}
+
+.variant h3{
+font-size:22px;
+margin:11px 0 6px
 }
 
 .variant p{
-margin:4px 0;
-font-size:13px;
-line-height:1.5;
-color:#d8e1e9
+margin:0;
+color:var(--muted);
+line-height:1.45
 }
+
+/* EINHEITLICHE AKTIONSBUTTONS */
 
 .button-row{
 display:flex;
-flex-wrap:nowrap;
+flex-wrap:wrap;
 align-items:center;
 gap:6px;
-width:100%;
 margin-top:2px
 }
 
@@ -512,449 +480,328 @@ width:210px;
 min-width:210px;
 height:42px;
 margin-top:12px;
-padding:8px 12px;
+padding:10px 13px;
 border-radius:11px;
 background:var(--orange);
 color:#fff;
 text-decoration:none;
-font-size:13px;
+font-size:14px;
 font-weight:800;
 text-align:center;
 vertical-align:middle;
-line-height:1.15;
+line-height:1.2;
 border:0;
-cursor:pointer;
-white-space:normal
+cursor:pointer
 }
 
-.button-row .btn{
-flex:1 1 0;
-width:auto;
-min-width:0;
-max-width:210px
-}
-
-.btn.secondary{
-background:#17324a;
-border:1px solid #35516b
-}
-
-.btn.green{
-background:var(--green)
-}
-
-.btn.gold{
-background:var(--gold);
-color:#07111d
+.info-frame{
+margin:14px 0 4px;
+padding:12px 14px;
+border:1px solid rgba(242,138,43,.45);
+border-radius:13px;
+background:rgba(242,138,43,.08);
+color:#f4d4b6;
+font-weight:800;
+line-height:1.4
 }
 
 .map-card{
-background:#102337;
+height:430px;
 border:1px solid var(--line);
-border-radius:17px;
-padding:14px;
-margin-bottom:12px
+border-radius:20px;
+overflow:hidden;
+background:#152231;
+position:relative
 }
 
-.map-card h3{
-margin:0 0 4px;
+.map-card iframe{
+width:100%;
+height:100%;
+border:0;
+filter:saturate(.72) brightness(.76)
+}
+
+.map-overlay{
+position:absolute;
+left:12px;
+right:12px;
+bottom:12px;
+display:flex;
+gap:8px;
+flex-wrap:wrap
+}
+
+.map-chip{
+background:rgba(7,17,29,.9);
+border:1px solid var(--line);
+padding:8px 10px;
+border-radius:10px;
+font-size:12px
+}
+
+.route{
+padding:15px;
+margin-top:12px
+}
+
+.route strong{
+display:block;
 font-size:16px
 }
 
-.map-card p{
-margin:3px 0;
-color:#cfd9e2;
+.route span{
+display:block;
+color:var(--muted);
 font-size:13px;
+margin-top:4px
+}
+
+.night{
+padding:0;
+margin-top:12px
+}
+
+.night img{
+width:100%;
+height:145px;
+object-fit:cover;
+display:block
+}
+
+.night .inside{
+padding:15px
+}
+
+.night h3{
+margin:0 0 5px;
+font-size:20px
+}
+
+.night p{
+margin:4px 0;
+color:var(--muted);
 line-height:1.45
 }
 
-.map-actions{
-display:flex;
-gap:7px;
-flex-wrap:wrap;
-margin-top:10px
+.info-box{
+padding:17px;
+margin-top:12px
 }
 
-.map-actions .btn{
-margin-top:0;
-flex:1 1 150px;
-width:auto;
-min-width:0
+.info-box h3{
+margin:0 0 9px;
+color:var(--green2);
+font-size:18px
 }
 
-.info-list{
-display:grid;
-gap:11px
+.info-box p,
+.info-box li{
+color:#dbe3e9;
+line-height:1.5
 }
 
-.info-item{
-padding:14px;
-border:1px solid var(--line);
-border-radius:16px;
-background:#102337
+.info-box ul{
+padding-left:20px
 }
 
-.info-item strong{
-display:block;
-color:var(--gold);
-margin-bottom:5px
+.info-box.clickable{
+cursor:pointer
 }
 
-.info-item span{
-display:block;
-font-size:13px;
-line-height:1.5;
-color:#d3dde6
+.info-box.clickable:active{
+transform:scale(.99)
 }
 
-.navbar{
+.bottom-nav{
 position:fixed;
-left:50%;
+z-index:60;
 bottom:0;
+left:50%;
 transform:translateX(-50%);
 width:min(760px,100%);
-z-index:60;
-padding:9px 10px calc(9px + env(safe-area-inset-bottom));
-background:rgba(5,12,20,.96);
-backdrop-filter:blur(18px);
-border-top:1px solid rgba(255,255,255,.08);
 display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:6px
+grid-template-columns:repeat(5,1fr);
+padding:9px 8px calc(9px + env(safe-area-inset-bottom));
+background:rgba(7,17,29,.96);
+backdrop-filter:blur(16px);
+border-top:1px solid rgba(255,255,255,.1)
 }
 
 .nav-btn{
-border:1px solid transparent;
-background:transparent;
-color:#9faebb;
-border-radius:12px;
-min-height:50px;
-font-size:10px;
-font-weight:800;
-cursor:pointer;
-display:flex;
-align-items:center;
-justify-content:center;
-flex-direction:column;
-gap:3px;
-padding:5px 2px
+border:0;
+background:none;
+color:#aebbc8;
+font-size:11px;
+padding:5px 2px;
+cursor:pointer
 }
 
 .nav-btn .ico{
-font-size:19px;
-line-height:1
+display:block;
+font-size:20px;
+margin-bottom:3px
 }
 
 .nav-btn.active{
-color:#fff;
-background:#102337;
-border-color:#29435c
-}
-
-.drawer-backdrop{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.6);
-z-index:80;
-display:none
+color:var(--orange);
+font-weight:900
 }
 
 .drawer{
 position:fixed;
-right:0;
+z-index:100;
 top:0;
+right:-330px;
+width:min(330px,88vw);
 height:100vh;
-width:min(350px,92vw);
-background:#0a1725;
-z-index:81;
-transform:translateX(100%);
-transition:transform .25s ease;
-box-shadow:-20px 0 50px rgba(0,0,0,.35);
-padding:18px;
-overflow:auto
+background:#0b1726;
+border-left:1px solid var(--line);
+padding:22px;
+transition:.25s;
+box-shadow:-20px 0 50px rgba(0,0,0,.4)
 }
 
 .drawer.open{
-transform:translateX(0)
+right:0
 }
 
-.drawer-backdrop.open{
-display:block
-}
-
-.drawer-head{
-display:flex;
-align-items:center;
-justify-content:space-between;
-margin-bottom:18px
-}
-
-.drawer-head strong{
-font-size:20px
-}
-
-.drawer-close{
-width:40px;
-height:40px;
-border:1px solid var(--line);
-background:#102337;
-color:#fff;
-border-radius:12px;
-font-size:21px;
-cursor:pointer
-}
-
-.drawer-link{
+.drawer button{
 display:block;
 width:100%;
 text-align:left;
 border:1px solid var(--line);
 background:#102337;
 color:#fff;
-padding:13px 14px;
-border-radius:13px;
-margin-bottom:9px;
+padding:14px;
+border-radius:12px;
+margin:8px 0;
 cursor:pointer
 }
 
-.drawer-link small{
-display:block;
-color:var(--muted);
-margin-top:3px
+.drawer .close{
+background:var(--orange);
+border-color:var(--orange)
 }
 
-.address-block{
-margin-top:12px;
-padding:13px;
-border-radius:14px;
-background:#0d1e2e;
-border:1px solid #263f56
+.muted{
+color:var(--muted)
 }
 
-.address-block strong{
-display:block;
-color:#fff;
-font-size:14px;
-margin-bottom:4px
+.grid2{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px
 }
 
-.address-block span{
+.pill{
+display:inline-block;
+border-radius:999px;
+padding:6px 10px;
+background:#173048;
+color:#dfe8ef;
 font-size:12px;
-line-height:1.5;
-color:#b9c5d0
-}
-
-.night-card{
-border:1px solid #29435c;
-background:#102337;
-border-radius:18px;
-padding:15px;
-margin-bottom:12px
-}
-
-.night-card h3{
-margin:0 0 6px;
-font-size:17px;
-color:#fff
-}
-
-.night-card p{
-margin:0;
-font-size:13px;
-line-height:1.55;
-color:#d3dde5
-}
-
-.weather-box{
-border:1px solid rgba(199,150,62,.4);
-background:rgba(199,150,62,.08);
-border-radius:18px;
-padding:15px;
-margin-bottom:15px
-}
-
-.weather-box strong{
-color:var(--gold)
+margin:3px
 }
 
 .footer{
 text-align:center;
-padding:22px 10px 8px;
-color:#718293;
-font-size:11px;
-line-height:1.6
+color:#718292;
+font-size:12px;
+margin:24px 0 0;
+padding-bottom:15px
 }
 
-.footer span{
-display:block
-}
-
-.skyline{
-width:100%;
-height:110px;
-object-fit:cover;
-object-position:center;
+.footer .credit{
 display:block;
-border-radius:15px;
-margin:12px 0 16px;
-opacity:.92
+margin-top:7px;
+color:#aebbc8;
+letter-spacing:.4px
 }
 
-hr.sep{
-border:0;
-border-top:1px solid rgba(255,255,255,.08);
-margin:18px 0
+.notice{
+padding:14px 16px;
+border:1px solid rgba(242,138,43,.35);
+background:rgba(242,138,43,.08);
+border-radius:14px;
+color:#f4d4b6;
+line-height:1.5
 }
 
 @media(max-width:520px){
 
-.content{
-padding-left:11px;
-padding-right:11px
-}
-
 .hero{
-padding:20px 15px 22px;
-border-radius:22px
+min-height:620px;
+padding-left:16px;
+padding-right:16px
 }
 
-.hero-brand strong{
-font-size:28px
+.hero h1{
+font-size:22px
 }
 
-.seal{
-width:118px;
-height:118px
-}
-
-.seal b{
-font-size:46px
-}
-
-.hero .munich{
-font-size:44px
-}
-
-.day{
-padding:13px;
-border-radius:18px
+.munich{
+font-size:47px
 }
 
 .event{
-padding-left:69px
+grid-template-columns:70px 1fr
 }
 
-.event:before{
-left:51px
+.event time{
+font-size:16px
 }
 
-.time{
-width:46px;
-font-size:12px
+.event time.small-time{
+font-size:14px
 }
 
-.dot{
-left:47px
+.grid2{
+grid-template-columns:1fr
 }
 
-.event-content{
-padding:11px
+.program-photo{
+height:190px;
+object-fit:cover
 }
 
-.button-row{
-width:100%;
-gap:6px
-}
-
-.button-row .btn{
-flex:1 1 0;
-width:0;
-min-width:0;
+.landscape-photo{
+grid-column:1 / -1;
+width:calc(100% + 70px);
 max-width:none;
-padding-left:6px;
-padding-right:6px;
-font-size:12.5px
-}
-
-.photo{
-height:175px
-}
-
-.photo-wide{
-height:205px
-}
-
-.map-actions .btn{
-flex-basis:0
-}
-
-.nav-btn{
-font-size:9.5px
-}
-}
-
-@media(max-width:360px){
-
-.content{
-padding-left:8px;
-padding-right:8px
-}
-
-.event{
-padding-left:64px
-}
-
-.event:before{
-left:46px
-}
-
-.time{
-width:41px;
-font-size:11px
-}
-
-.dot{
-left:42px
+height:190px !important;
+margin-left:-35px;
+margin-right:-35px
 }
 
 .button-row{
-gap:4px
+gap:5px
 }
 
-.button-row .btn{
-font-size:11.5px;
-padding-left:4px;
-padding-right:4px
+.btn{
+width:210px;
+min-width:210px;
+height:42px;
+font-size:14px
 }
+
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="app">
+<div class="app" id="app"></div>
 
-<header class="top">
+<nav class="bottom-nav">
 
-<button class="brand" onclick="showPage('start')" aria-label="Startseite">
-<img src="https://fritschle-jubilaeum.github.io/Fritschle-Jubilaeum/assets/fritschle-logo.png" alt="Fritschle">
-</button>
-
-<button class="menu" onclick="openDrawer()" aria-label="Menü">☰</button>
-
-</header>
-
-<main class="content" id="appContent"></main>
-
-<nav class="navbar">
-
-<button class="nav-btn active" data-page="start">
+<button class="nav-btn active" data-page="home">
 <span class="ico">⌂</span>
 Start
 </button>
 
 <button class="nav-btn" data-page="programm">
-<span class="ico">▤</span>
+<span class="ico">☷</span>
 Programm
 </button>
 
@@ -970,860 +817,1625 @@ Info
 
 <button class="nav-btn" data-page="mehr">
 <span class="ico">☰</span>
-Nachtleben &amp; Mehr
+Mehr
 </button>
 
 </nav>
 
-</div>
+<div class="drawer" id="drawer">
 
-<div class="drawer-backdrop" id="drawerBackdrop" onclick="closeDrawer()"></div>
-
-<aside class="drawer" id="drawer">
-
-<div class="drawer-head">
-<strong>Nachtleben &amp; Mehr</strong>
-<button class="drawer-close" onclick="closeDrawer()">×</button>
-</div>
-
-<button class="drawer-link" onclick="showPage('mehr');closeDrawer()">
-🌙 Nachtleben
-<small>Vorschläge für die Abende in München</small>
+<button
+class="close"
+onclick="closeDrawer()">
+✕ Menü schließen
 </button>
 
-<button class="drawer-link" onclick="showPage('wetter');closeDrawer()">
-☀️ Wetter &amp; Countdown
-<small>Vorfreude auf München</small>
+<button onclick="nav('home');closeDrawer()">
+⌂ Start
 </button>
 
-</aside>
+<button onclick="nav('programm');closeDrawer()">
+☷ Programm
+</button>
+
+<button onclick="nav('karte');closeDrawer()">
+⌖ Karte
+</button>
+
+<button onclick="nav('info');closeDrawer()">
+ⓘ Info
+</button>
+
+<button onclick="nav('nachtleben');closeDrawer()">
+♫ Nachtleben
+</button>
+
+<button onclick="nav('wetter');closeDrawer()">
+☀ Wetter &amp; Countdown
+</button>
+
+<button onclick="nav('taxi');closeDrawer()">
+🚕 Taxi &amp; Uber
+</button>
+
+<button onclick="nav('mehr');closeDrawer()">
+☰ Nachtleben &amp; Mehr
+</button>
+
+</div>
 
 <script>
 
-const pages = {
+let page='home';
 
-start: `
+const app=document.getElementById('app');
+
+function openDrawer(){
+document.getElementById('drawer').classList.add('open');
+}
+
+function closeDrawer(){
+document.getElementById('drawer').classList.remove('open');
+}
+
+function nav(p){
+page=p;
+location.hash=p;
+render();
+window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function maps(destination){
+
+return 'https://www.google.com/maps/dir/?api=1&destination='+
+encodeURIComponent(destination);
+
+}
+
+function route(from,to,mode='walking'){
+
+return 'https://www.google.com/maps/dir/?api=1&origin='+
+encodeURIComponent(from)+
+'&destination='+
+encodeURIComponent(to)+
+'&travelmode='+
+encodeURIComponent(mode);
+
+}
+
+
+/* START */
+
+function home(){
+
+return `
 
 <section class="page">
 
 <div class="hero">
 
 <div class="hero-brand">
-<strong>FRITSCHLE</strong>
-<span>baut<i></i></span>
+
+<strong>
+FRITSCHLE
+</strong>
+
+<span>
+baut<i></i>
+</span>
+
 </div>
 
 <div class="seal">
-<b>80</b>
-<span>JAHRE</span>
+
+<b>
+80
+</b>
+
+<span>
+JAHRE
+</span>
+
 </div>
 
-<h1>JUBILÄUMSAUSFLUG</h1>
+<h1>
+JUBILÄUMSAUSFLUG
+</h1>
 
-<div class="munich">München</div>
+<div class="munich">
+München
+</div>
+
+<div class="date">
+15.–17. Oktober 2026
+</div>
 
 <div class="welcome">
-<strong>Schön, dass Ihr dabei seid!</strong>
+
+<h2>
+Schön, dass Ihr dabei seid!
+</h2>
+
 <p>
 Liebe Kolleginnen und Kollegen,
+</p>
+
+<p>
 zum 80-jährigen Firmenjubiläum verbringen wir gemeinsam drei schöne Tage in München.
 Freut Euch auf interessante Programmpunkte, gesellige Abende und viele gemeinsame Erlebnisse.
 </p>
-</div>
 
-<p class="hero-text">
-Gemeinsam feiern · gemeinsam erleben · gemeinsam München entdecken
-</p>
-
-<img
-class="hero-photo"
-src="https://images.unsplash.com/photo-1595867818082-083862f3d20f?auto=format&fit=crop&w=1200&q=85"
-alt="München bei Nacht"
->
-
-<p class="hero-text" style="margin-top:18px">
+<p>
 Wir wünschen Euch schon heute eine schöne Zeit und viel Freude beim Jubiläumsausflug!
 </p>
 
 </div>
 
+<img
+class="home-photo"
+src="https://images.unsplash.com/photo-1595867818082-083862f3d630?auto=format&fit=crop&w=1200&q=85"
+alt="München bei Nacht"
+>
+
+</div>
+
 <div class="footer">
-<span>Fritschle · Jubiläumsausflug München 2026</span>
-<span>powered by kerstin &amp; susanne</span>
+
+Fritschle · Jubiläumsausflug München 2026
+
+<span class="credit">
+powered by kerstin &amp; susanne
+</span>
+
 </div>
 
 </section>
 
-`,
+`;
 
-programm: `
+}
 
-<section class="page">
 
-<h2 class="section-title">Programm</h2>
+/* PROGRAMM */
 
-<p class="section-sub">
-Drei Tage München – mit gemeinsamen Erlebnissen, Besichtigungen und geselligen Abenden.
-</p>
+let activeDay='do';
 
-<div class="day">
+function setDay(day){
 
-<div class="day-head">
-<div class="day-name">Donnerstag</div>
-<div class="day-date">15.10.2026</div>
+activeDay=day;
+render();
+
+}
+
+function programm(){
+
+let dayContent='';
+
+if(activeDay==='do'){
+
+dayContent=`
+
+<div class="day-card">
+
+<div class="kicker">
+DONNERSTAG · 15. OKTOBER
 </div>
+
+<h2>
+Anreise &amp; gemeinsamer Abend
+</h2>
 
 <div class="timeline">
 
 <div class="event">
 
-<div class="time">14:00</div>
-<div class="dot"></div>
+<time>
+14:00
+</time>
 
-<div class="event-content">
-<strong>Abfahrt nach München</strong>
-<p>Abfahrt Uttenweiler / Firmenhof</p>
-</div>
+<strong>
+Abfahrt Uttenweiler
+</strong>
 
 </div>
 
 <div class="event">
 
-<div class="time">17:00</div>
-<div class="dot"></div>
+<time>
+17:00
+</time>
 
-<div class="event-content">
+<strong>
+Ankunft München
+</strong>
 
-<strong>Holiday Inn München City Centre</strong>
+<p>
+Fahrt zum Holiday Inn München City Centre und Check-in.
+</p>
 
-<p>Zimmerbezug und Check-in</p>
+</div>
+
+<div class="event">
+
+<time>
+18:30
+</time>
+
+<strong>
+Treffpunkt im Hotelfoyer
+</strong>
+
+<p>
+Gemeinsamer Treffpunkt vor dem Abendprogramm.
+</p>
+
+</div>
+
+<div class="event">
+
+<time>
+19:00
+</time>
+
+<strong>
+Donisl
+</strong>
+
+<p>
+Weinstraße 1 · gemeinsamer Abend bis ca. 22:00 Uhr.
+</p>
 
 <img
-class="photo"
-src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=85"
-alt="Hotel"
+class="program-photo"
+src="https://www.mux.de/images/1600x800c/object/00/1528703400/teaser-1.jpg"
+alt="Donisl München"
 >
-
-<div class="address">
-Hochstraße 3, 81669 München
-</div>
-
-</div>
-
-</div>
-
-<div class="event">
-
-<div class="time">18:30</div>
-<div class="dot"></div>
-
-<div class="event-content">
-<strong>Treffpunkt Hotelfoyer</strong>
-<p>Gemeinsamer Spaziergang zum Donisl</p>
-</div>
-
-</div>
-
-<div class="event">
-
-<div class="time">19:00</div>
-<div class="dot"></div>
-
-<div class="event-content">
-
-<strong>Donisl</strong>
-<p>Gemeinsames Abendessen bis ca. 22:00 Uhr</p>
-
-<img
-class="photo"
-src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=85"
-alt="Bayerisches Restaurant"
->
-
-<div class="address">
-Weinstraße 1, 80333 München
-</div>
-
-</div>
-
-</div>
-
-</div>
 
 <div class="button-row">
 
-<a class="btn" target="_blank"
-href="https://www.google.com/maps/dir/?api=1&origin=Holiday+Inn+Munich+City+Centre,+Hochstra%C3%9Fe+3,+81669+M%C3%BCnchen&destination=Donisl,+Weinstra%C3%9Fe+1,+80333+M%C3%BCnchen&travelmode=transit">
-🚶 Hotel → Donisl
+<a
+class="btn"
+target="_blank"
+href="${route('Holiday Inn München City Centre','Donisl, Weinstraße 1, 80333 München')}">
+📍 Route zum Donisl
 </a>
 
-<a class="btn secondary" target="_blank"
-href="https://www.google.com/maps/dir/?api=1&origin=Donisl,+Weinstra%C3%9Fe+1,+80333+M%C3%BCnchen&destination=Holiday+Inn+Munich+City+Centre,+Hochstra%C3%9Fe+3,+81669+M%C3%BCnchen&travelmode=transit">
-🚶 Donisl → Hotel
+<a
+class="btn"
+target="_blank"
+href="${route('Donisl, Weinstraße 1, 80333 München','Holiday Inn München City Centre')}">
+📍 Route zurück zum Hotel
 </a>
 
 </div>
 
-<a class="btn gold" style="width:100%;max-width:none" onclick="showPage('mehr')">
+<button
+class="btn"
+onclick="nav('mehr')">
 ☰ Nachtleben &amp; Mehr
-</a>
+</button>
 
 </div>
 
-
-<div class="day">
-
-<div class="day-head">
-<div class="day-name">Freitag</div>
-<div class="day-date">16.10.2026</div>
 </div>
+
+</div>
+
+`;
+
+}
+
+else if(activeDay==='fr'){
+
+dayContent=`
+
+<div class="day-card">
+
+<div class="kicker">
+FREITAG · 16. OKTOBER
+</div>
+
+<h2>
+Sport, BMW Welt / Allianz Arena &amp; GOP
+</h2>
 
 <div class="timeline">
 
 <div class="event">
 
-<div class="time">07:00</div>
-<div class="dot"></div>
+<time>
+ab 7:00
+</time>
 
-<div class="event-content">
-<strong>Frühstück</strong>
-<p>Frühstück im Hotel</p>
-</div>
-
-</div>
-
-<div class="event">
-
-<div class="time">08:30</div>
-<div class="dot"></div>
-
-<div class="event-content">
-<strong>Treffpunkt Hotelfoyer</strong>
-<p>Gemeinsamer Start zum TUM Sportcampus</p>
-</div>
+<strong>
+Frühstück
+</strong>
 
 </div>
 
 <div class="event">
 
-<div class="time">10:00</div>
-<div class="dot"></div>
+<time>
+08:30
+</time>
 
-<div class="event-content">
+<strong>
+Treffpunkt im Hotelfoyer
+</strong>
 
-<strong>TUM Sportcampus</strong>
-<p>10:00–12:00 Uhr Besichtigung des TUM Sportcampus</p>
+<p>
+Gemeinsamer Treffpunkt vor der Fahrt zum TUM Sportcampus.
+</p>
 
 <img
-class="photo"
-src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1000&q=85"
-alt="Sport"
+class="program-photo"
+src="https://www.ingenieurholzbau.de/fileadmin/user_upload/Projekt_Kategorien/Oeffentliche_Bauten/Erziehung_Bildung_Forschung/Sportcampus_TU_Muenchen/Neubau_TU_Muenchen_Sportcampus_Ingenieurholzbau_CiO_TUM-Bild_01_Dietrich_Untertrifaller_web.jpg"
+alt="TUM Sportcampus München"
 >
 
-</div>
+<a
+class="btn"
+target="_blank"
+href="${route('Holiday Inn München City Centre','TUM Sportcampus München','transit')}">
+📍 Route zum TUM Sportcampus
+</a>
 
 </div>
 
 <div class="event">
 
-<div class="time">12:00</div>
-<div class="dot"></div>
+<time>
+10:00–12:00
+</time>
 
-<div class="event-content">
-<strong>Mittagspause</strong>
-<p>Zeit zur freien Verfügung</p>
-</div>
+<strong>
+Besichtigung TUM Sportcampus
+</strong>
 
 </div>
 
 <div class="event">
 
-<div class="time"></div>
-<div class="dot"></div>
+<time>
+12:00
+</time>
 
-<div class="event-content">
+<strong>
+Mittagspause
+</strong>
 
-<div class="choice">
+</div>
+
+<div class="info-frame">
 Anschließend gebuchte Variante wählen
 </div>
 
 <div class="variant">
 
-<h4>Variante A – BMW Welt &amp; Museum</h4>
+<span class="label">
+VARIANTE A
+</span>
 
-<p>
-<strong>14:00 Uhr Besichtigung</strong>
-</p>
+<h3>
+BMW Welt &amp; BMW Museum
+</h3>
 
 <img
-class="photo"
-src="https://images.unsplash.com/photo-1551830820-330a71b99659?auto=format&fit=crop&w=1000&q=85"
-alt="BMW Welt"
+class="variant-photo"
+src="https://www.sjs-carstyling.com/blog/wp-content/uploads/2025/10/BMW-Museum-Welt-Muenchen-3.jpg"
+alt="BMW Welt München"
 >
 
-<div class="address">
-Am Olympiapark 1, 80809 München
+<p style="margin-top:8px">
+<strong>
+14:00 Uhr Besichtigung
+</strong>
+</p>
+
+<a
+class="btn"
+target="_blank"
+href="${route('Holiday Inn München City Centre','BMW Welt, Am Olympiapark 1, 80809 München','transit')}">
+📍 Route zur BMW Welt
+</a>
+
+<div class="button-row">
+
+<a
+class="btn"
+target="_blank"
+href="${route('BMW Welt, Am Olympiapark 1, 80809 München','Holiday Inn München City Centre','transit')}">
+📍 Route zurück zum Hotel
+</a>
+
 </div>
 
 </div>
 
 <div class="variant">
 
-<h4>Variante B – Allianz Arena</h4>
+<span class="label">
+VARIANTE B
+</span>
 
-<p>
-<strong>12:45 Uhr Abfahrt</strong>
-</p>
-
-<p>
-Mittagessen nach Möglichkeit rund um die Allianz Arena
-</p>
-
-<p>
-<strong>14:00 Uhr Besichtigung</strong>
-</p>
+<h3>
+Allianz Arena
+</h3>
 
 <img
-class="photo"
-src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1000&q=85"
-alt="Allianz Arena"
+class="variant-photo"
+src="https://img.fotocommunity.com/allianz-arena-muenchen-d2c1dd64-3c4d-4f72-8cfd-afa402936256.jpg?height=1080"
+alt="Allianz Arena München"
 >
 
-<div class="address">
-Werner-Heisenberg-Allee 25, 80939 München
-</div>
+<p>
+Abfahrt 12:45 Uhr · Mittagessen · 14:00 Uhr Besichtigung.
+</p>
 
-</div>
-
-</div>
-
-</div>
-
-<div class="event">
-
-<div class="time"></div>
-<div class="dot"></div>
-
-<div class="event-content">
-
-<div class="choice">
-Nach den Besichtigungen Zeit zur freien Verfügung
-</div>
-
-</div>
-
-</div>
-
-<div class="event">
-
-<div class="time">19:00</div>
-<div class="dot"></div>
-
-<div class="event-content">
-<strong>Treffpunkt Hotelfoyer</strong>
-<p>Gemeinsamer Aufbruch zum GOP Varieté</p>
-</div>
-
-</div>
-
-<div class="event">
-
-<div class="time">19:45</div>
-<div class="dot"></div>
-
-<div class="event-content">
-
-<strong>GOP Varieté</strong>
-<p>Schlemmeressen</p>
-
-<img
-class="photo-wide"
-src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1200&q=85"
-alt="GOP Varieté"
->
-
-<div class="address">
-Maximilianstraße 47, 80538 München
-</div>
-
-</div>
-
-</div>
-
-<div class="event">
-
-<div class="time">21:00</div>
-<div class="dot"></div>
-
-<div class="event-content">
-<strong>Show-Beginn</strong>
-<p>GOP Varieté München</p>
-</div>
-
-</div>
-
-<div class="event">
-
-<div class="time">ca. 23:15</div>
-<div class="dot"></div>
-
-<div class="event-content">
-<strong>Nachtleben / Hotelbar</strong>
-<p>Vorschläge findet Ihr unter „Nachtleben &amp; Mehr“.</p>
-</div>
-
-</div>
-
-</div>
+<a
+class="btn"
+target="_blank"
+href="${route('Holiday Inn München City Centre','Allianz Arena, Franz-Beckenbauer-Platz 5, 80939 München','transit')}">
+📍 Route zur Allianz Arena
+</a>
 
 <div class="button-row">
 
-<a class="btn secondary" target="_blank"
-href="https://www.google.com/maps/dir/?api=1&origin=GOP+Variet%C3%A9+M%C3%BCnchen,+Maximilianstra%C3%9Fe+47,+80538+M%C3%BCnchen&destination=Holiday+Inn+Munich+City+Centre,+Hochstra%C3%9Fe+3,+81669+M%C3%BCnchen&travelmode=transit">
-🚶 GOP → Hotel
+<a
+class="btn"
+target="_blank"
+href="${route('Allianz Arena, Franz-Beckenbauer-Platz 5, 80939 München','Holiday Inn München City Centre','transit')}">
+📍 Route zurück zum Hotel
 </a>
 
-<a class="btn gold" onclick="showPage('mehr')">
+</div>
+
+</div>
+
+<div class="info-frame">
+Nach den Besichtigungen Zeit zur freien Verfügung
+</div>
+
+<div class="event">
+
+<time>
+19:00
+</time>
+
+<strong>
+Treffpunkt im Hotelfoyer
+</strong>
+
+<a
+class="btn"
+target="_blank"
+href="${route('Holiday Inn München City Centre','GOP Varieté-Theater München','transit')}">
+📍 Route zum GOP
+</a>
+
+</div>
+
+<div class="event">
+
+<time>
+19:45
+</time>
+
+<strong>
+GOP Varieté – Schlemmeressen
+</strong>
+
+<p>
+Gemeinsames Schlemmeressen im GOP Varieté-Theater.
+</p>
+
+<img
+class="landscape-photo"
+src="https://iam-blog-de.gumlet.io/blog/wp-content/uploads/2020/08/GOP-Variete-Theater-Muenchen_Bild-04.jpg"
+alt="GOP Varieté-Theater München"
+>
+
+</div>
+
+<div class="event">
+
+<time>
+21:00
+</time>
+
+<strong>
+Show-Beginn
+</strong>
+
+</div>
+
+<div class="event">
+
+<time>
+ca. 23:15
+</time>
+
+<strong>
+Hotelbar / Nachtleben
+</strong>
+
+<p>
+Vorschläge findet Ihr unter „Mehr → Nachtleben“.
+</p>
+
+<div class="button-row">
+
+<a
+class="btn"
+target="_blank"
+href="${route('GOP Varieté-Theater München','Holiday Inn München City Centre','transit')}">
+📍 Route zum Hotel
+</a>
+
+<button
+class="btn"
+onclick="nav('mehr')">
 ☰ Nachtleben &amp; Mehr
-</a>
+</button>
 
 </div>
 
 </div>
 
-
-<div class="day">
-
-<div class="day-head">
-<div class="day-name">Samstag</div>
-<div class="day-date">17.10.2026</div>
 </div>
+
+</div>
+
+`;
+
+}
+
+else{
+
+dayContent=`
+
+<div class="day-card">
+
+<div class="kicker">
+SAMSTAG · 17. OKTOBER
+</div>
+
+<h2>
+München entdecken &amp; Heimreise
+</h2>
 
 <div class="timeline">
 
 <div class="event">
 
-<div class="time">07:00</div>
-<div class="dot"></div>
+<time>
+ab 7:00
+</time>
 
-<div class="event-content">
-<strong>Frühstück &amp; Check-out</strong>
-<p>Frühstück im Hotel, anschließend Gepäck auschecken</p>
-</div>
+<strong>
+Frühstück
+</strong>
 
 </div>
 
 <div class="event">
 
-<div class="time">09:00</div>
-<div class="dot"></div>
+<time>
+danach
+</time>
 
-<div class="event-content">
+<strong>
+Check-out
+</strong>
 
-<strong>Marienplatz</strong>
-<p>Treffpunkt am Marienplatz</p>
+</div>
+
+<div class="event">
+
+<time>
+09:00
+</time>
+
+<strong>
+Richtung Innenstadt
+</strong>
+
+<p>
+Zu Fuß Richtung Marienplatz.
+</p>
+
+</div>
+
+<div class="event">
+
+<time>
+09:30
+</time>
+
+<strong>
+Stadtführung Marienplatz / Viktualienmarkt
+</strong>
 
 <img
-class="photo"
-src="https://images.unsplash.com/photo-1595867818082-083862f3d20f?auto=format&fit=crop&w=1000&q=85"
+class="program-photo"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/Munich_-_Marienplatz.jpg"
 alt="Marienplatz München"
 >
 
-</div>
+<a
+class="btn"
+target="_blank"
+href="${maps('Marienplatz München')}">
+📍 Route zum Marienplatz
+</a>
 
 </div>
 
 <div class="event">
 
-<div class="time">09:30</div>
-<div class="dot"></div>
+<time>
+13:00
+</time>
 
-<div class="event-content">
-<strong>Stadtführung</strong>
-<p>Marienplatz / Viktualienmarkt</p>
-</div>
-
-</div>
-
-<div class="event">
-
-<div class="time">13:00</div>
-<div class="dot"></div>
-
-<div class="event-content">
-
-<strong>Hofbräuhaus</strong>
-<p>Gemeinsames Mittagessen</p>
+<strong>
+Mittagessen im Hofbräuhaus
+</strong>
 
 <img
-class="photo"
-src="https://images.unsplash.com/photo-1567521464027-f127ff144326?auto=format&fit=crop&w=1000&q=85"
+class="program-photo"
+src="https://commons.wikimedia.org/wiki/Special:FilePath/Hofbr%C3%A4uhaus_M%C3%BCnchen.jpg"
 alt="Hofbräuhaus München"
 >
 
-<div class="address">
-Platzl 9, 80331 München
-</div>
-
-</div>
-
-</div>
-
-<div class="event">
-
-<div class="time">15:00</div>
-<div class="dot"></div>
-
-<div class="event-content">
-<strong>Gepäck</strong>
-<p>Gepäckaufnahme am Hotel</p>
-</div>
-
-</div>
-
-<div class="event">
-
-<div class="time">15:30</div>
-<div class="dot"></div>
-
-<div class="event-content">
-<strong>Heimfahrt</strong>
-<p>Abfahrt Richtung Uttenweiler</p>
-</div>
-
-</div>
-
-</div>
-
 <div class="button-row">
 
-<a class="btn" target="_blank"
-href="https://www.google.com/maps/dir/?api=1&origin=Holiday+Inn+Munich+City+Centre,+Hochstra%C3%9Fe+3,+81669+M%C3%BCnchen&destination=Hofbr%C3%A4uhaus+M%C3%BCnchen,+Platzl+9,+80331+M%C3%BCnchen&travelmode=transit">
-🚶 Hotel → Hofbräuhaus
+<a
+class="btn"
+target="_blank"
+href="${maps('Hofbräuhaus München, Platzl 9, 80331 München')}">
+📍 Route zum Hofbräuhaus
 </a>
 
-<a class="btn secondary" target="_blank"
-href="https://www.google.com/maps/dir/?api=1&origin=Hofbr%C3%A4uhaus+M%C3%BCnchen,+Platzl+9,+80331+M%C3%BCnchen&destination=Holiday+Inn+Munich+City+Centre,+Hochstra%C3%9Fe+3,+81669+M%C3%BCnchen&travelmode=transit">
-🚶 Hofbräuhaus → Hotel
+<a
+class="btn"
+target="_blank"
+href="${route('Hofbräuhaus München, Platzl 9, 80331 München','Holiday Inn München City Centre')}">
+📍 Route zurück zum Hotel
 </a>
 
 </div>
 
 </div>
 
-</section>
+<div class="event">
 
-`,
+<time>
+15:00
+</time>
 
-karte: `
+<strong>
+Gepäck am Hotel abholen
+</strong>
 
-<section class="page">
-
-<h2 class="section-title">Karte</h2>
-
-<p class="section-sub">
-Alle wichtigen Ziele unseres Jubiläumsausflugs auf einen Blick.
-</p>
-
-<div class="map-card">
-<h3>🏨 Holiday Inn München City Centre</h3>
-<p>Hochstraße 3, 81669 München</p>
-
-<a class="btn" target="_blank"
-href="https://www.google.com/maps/search/?api=1&query=Holiday+Inn+Munich+City+Centre,+Hochstra%C3%9Fe+3,+81669+M%C3%BCnchen">
-📍 Route / Karte
-</a>
 </div>
 
-<div class="map-card">
-<h3>🍺 Donisl</h3>
-<p>Weinstraße 1, 80333 München</p>
+<div class="event">
 
-<a class="btn" target="_blank"
-href="https://www.google.com/maps/search/?api=1&query=Donisl,+Weinstra%C3%9Fe+1,+80333+M%C3%BCnchen">
-📍 Route / Karte
-</a>
-</div>
+<time>
+15:30
+</time>
 
-<div class="map-card">
-<h3>🏃 TUM Sportcampus</h3>
-<p>Connollystraße 32, 80809 München</p>
+<strong>
+Abfahrt Heimreise nach Uttenweiler
+</strong>
 
-<a class="btn" target="_blank"
-href="https://www.google.com/maps/search/?api=1&query=TUM+Sportcampus,+Connollystra%C3%9Fe+32,+80809+M%C3%BCnchen">
-📍 Route / Karte
-</a>
-</div>
-
-<div class="map-card">
-<h3>🚗 BMW Welt &amp; Museum</h3>
-<p>Am Olympiapark 1, 80809 München</p>
-
-<a class="btn" target="_blank"
-href="https://www.google.com/maps/search/?api=1&query=BMW+Welt,+Am+Olympiapark+1,+80809+M%C3%BCnchen">
-📍 Route / Karte
-</a>
-</div>
-
-<div class="map-card">
-<h3>⚽ Allianz Arena</h3>
-<p>Werner-Heisenberg-Allee 25, 80939 München</p>
-
-<a class="btn" target="_blank"
-href="https://www.google.com/maps/search/?api=1&query=Allianz+Arena,+Werner-Heisenberg-Allee+25,+80939+M%C3%BCnchen">
-📍 Route / Karte
-</a>
-</div>
-
-<div class="map-card">
-<h3>🎭 GOP Varieté</h3>
-<p>Maximilianstraße 47, 80538 München</p>
-
-<a class="btn" target="_blank"
-href="https://www.google.com/maps/search/?api=1&query=GOP+Variet%C3%A9+M%C3%BCnchen,+Maximilianstra%C3%9Fe+47,+80538+M%C3%BCnchen">
-📍 Route / Karte
-</a>
-</div>
-
-<div class="map-card">
-<h3>🍽️ Hofbräuhaus</h3>
-<p>Platzl 9, 80331 München</p>
-
-<a class="btn" target="_blank"
-href="https://www.google.com/maps/search/?api=1&query=Hofbr%C3%A4uhaus+M%C3%BCnchen,+Platzl+9,+80331+M%C3%BCnchen">
-📍 Route / Karte
-</a>
-</div>
-
-<div class="note">
-💡 Für öffentliche Verkehrsmittel könnt Ihr die Routen direkt über Google Maps öffnen und dort „Öffentliche Verkehrsmittel“ auswählen.
-</div>
-
-</section>
-
-`,
-
-info: `
-
-<section class="page">
-
-<h2 class="section-title">Info</h2>
-
-<p class="section-sub">
-Die wichtigsten Adressen für unseren Jubiläumsausflug.
-</p>
-
-<div class="info-list">
-
-<div class="info-item">
-<strong>🏨 Holiday Inn München City Centre</strong>
-<span>Hochstraße 3, 81669 München</span>
-</div>
-
-<div class="info-item">
-<strong>🍺 Donisl</strong>
-<span>Weinstraße 1, 80333 München</span>
-</div>
-
-<div class="info-item">
-<strong>🏃 TUM Sportcampus</strong>
-<span>Connollystraße 32, 80809 München</span>
-</div>
-
-<div class="info-item">
-<strong>🚗 BMW Welt &amp; Museum</strong>
-<span>Am Olympiapark 1, 80809 München</span>
-</div>
-
-<div class="info-item">
-<strong>⚽ Allianz Arena</strong>
-<span>Werner-Heisenberg-Allee 25, 80939 München</span>
-</div>
-
-<div class="info-item">
-<strong>🎭 GOP Varieté</strong>
-<span>Maximilianstraße 47, 80538 München</span>
-</div>
-
-<div class="info-item">
-<strong>🍽️ Hofbräuhaus</strong>
-<span>Platzl 9, 80331 München</span>
 </div>
 
 </div>
 
-<hr class="sep">
-
-<div class="card">
-
-<h3>📅 Jubiläumsausflug</h3>
-
-<p>
-<strong>15.–17. Oktober 2026</strong>
-</p>
-
-<p>
-Drei gemeinsame Tage in München zum 80-jährigen Firmenjubiläum von Fritschle.
-</p>
-
 </div>
 
-<div class="footer">
-<span>Fritschle · Jubiläumsausflug München 2026</span>
-<span>powered by kerstin &amp; susanne</span>
-</div>
-
-</section>
-
-`,
-
-mehr: `
-
-<section class="page">
-
-<h2 class="section-title">Nachtleben &amp; Mehr</h2>
-
-<p class="section-sub">
-Hier findet Ihr Vorschläge für die Abende und weitere Möglichkeiten rund um unseren Aufenthalt in München.
-</p>
-
-<div class="night-card">
-
-<h3>🌙 Nachtleben München</h3>
-
-<p>
-München bietet rund um die Innenstadt zahlreiche Bars, Kneipen und gemütliche Lokale.
-Viele Ziele sind vom Hotel und Marienplatz bequem zu Fuß oder mit öffentlichen Verkehrsmitteln erreichbar.
-</p>
-
-</div>
-
-<div class="night-card">
-
-<h3>🍺 Hofbräukeller</h3>
-
-<p>
-Gemütlicher bayerischer Treffpunkt mit Biergarten und klassischer Münchner Atmosphäre.
-</p>
-
-</div>
-
-<div class="night-card">
-
-<h3>🍸 Cocktailbars</h3>
-
-<p>
-Für einen entspannten Abend gibt es in der Münchner Innenstadt zahlreiche Cocktailbars und Lounges.
-</p>
-
-</div>
-
-<div class="night-card">
-
-<h3>🎶 Musik &amp; Clubs</h3>
-
-<p>
-Wer noch weiterziehen möchte, findet rund um das Glockenbachviertel und die Innenstadt verschiedene Clubs und Musiklocations.
-</p>
-
-</div>
-
-<div class="night-card">
-
-<h3>🌆 Münchner Innenstadt</h3>
-
-<p>
-Marienplatz, Viktualienmarkt und die umliegenden Gassen bieten auch am Abend zahlreiche Möglichkeiten für einen gemütlichen Spaziergang.
-</p>
-
-</div>
-
-<div class="note">
-💡 Die Vorschläge sind als Inspiration gedacht. Bitte beachtet die aktuellen Öffnungszeiten und eventuelle Reservierungsmöglichkeiten.
-</div>
-
-</section>
-
-`,
-
-wetter: `
-
-<section class="page">
-
-<h2 class="section-title">Wetter &amp; Countdown</h2>
-
-<div class="weather-box">
-
-<strong>☀️ Vorfreude auf München</strong>
-
-<p style="margin:8px 0 0;color:#d9e2ea;font-size:13px;line-height:1.5">
-Das genaue Wetter für den Jubiläumsausflug lässt sich am zuverlässigsten kurz vor der Abfahrt prüfen.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>📅 15.–17. Oktober 2026</h3>
-
-<p>
-Unser Jubiläumsausflug nach München steht vor der Tür!
-</p>
-
-<p>
-Drei Tage gemeinsam feiern, gemeinsam erleben und gemeinsam München entdecken.
-</p>
-
-</div>
-
-</section>
-
-`
-
-};
-
-function showPage(page){
-
-const content=document.getElementById("appContent");
-
-content.innerHTML=pages[page] || pages.start;
-
-document.querySelectorAll(".nav-btn").forEach(btn=>{
-btn.classList.toggle("active",btn.dataset.page===page);
-});
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+`;
 
 }
 
-function openDrawer(){
+return `
 
-document.getElementById("drawer").classList.add("open");
-document.getElementById("drawerBackdrop").classList.add("open");
+<section class="page">
+
+<h1 class="section-title">
+Programm
+</h1>
+
+<p class="sub">
+Alle wichtigen Programmpunkte auf einen Blick.
+</p>
+
+<div class="tabs">
+
+<button
+class="tab ${activeDay==='do'?'active':''}"
+onclick="setDay('do')">
+DO<br>
+<small>15.10.</small>
+</button>
+
+<button
+class="tab ${activeDay==='fr'?'active':''}"
+onclick="setDay('fr')">
+FR<br>
+<small>16.10.</small>
+</button>
+
+<button
+class="tab ${activeDay==='sa'?'active':''}"
+onclick="setDay('sa')">
+SA<br>
+<small>17.10.</small>
+</button>
+
+</div>
+
+${dayContent}
+
+</section>
+
+`;
 
 }
 
-function closeDrawer(){
 
-document.getElementById("drawer").classList.remove("open");
-document.getElementById("drawerBackdrop").classList.remove("open");
+/* KARTE */
+
+function karte(){
+
+return `
+
+<section class="page">
+
+<h1 class="section-title">
+Karte
+</h1>
+
+<p class="sub">
+Die wichtigsten Ziele auf einen Blick.
+</p>
+
+<div class="map-card">
+
+<iframe
+src="https://www.openstreetmap.org/export/embed.html?bbox=11.50%2C48.10%2C11.65%2C48.17&amp;layer=mapnik"
+loading="lazy">
+</iframe>
+
+<div class="map-overlay">
+
+<span class="map-chip">Donisl</span>
+<span class="map-chip">Holiday Inn</span>
+<span class="map-chip">GOP Varieté</span>
+<span class="map-chip">BMW Welt</span>
+<span class="map-chip">Allianz Arena</span>
+<span class="map-chip">Marienplatz</span>
+<span class="map-chip">Hofbräuhaus</span>
+
+</div>
+
+</div>
+
+<div class="route">
+
+<strong>
+🏨 Hotel → GOP Varieté
+</strong>
+
+<span>
+Zu Fuß ca. 20–25 Minuten.
+</span>
+
+<a
+class="btn"
+target="_blank"
+href="${maps('GOP Varieté-Theater München')}">
+Route öffnen
+</a>
+
+</div>
+
+<div class="route">
+
+<strong>
+🏨 Hotel → BMW Welt
+</strong>
+
+<span>
+S-Bahn bis Marienplatz, anschließend U3 Richtung Moosach bis Olympiazentrum.
+</span>
+
+</div>
+
+<div class="route">
+
+<strong>
+🏨 Hotel → Allianz Arena
+</strong>
+
+<span>
+S-Bahn bis Marienplatz, anschließend U6 Richtung Garching-Forschungszentrum bis Fröttmaning.
+</span>
+
+</div>
+
+<div class="route">
+
+<strong>
+🏨 Hotel → Marienplatz
+</strong>
+
+<span>
+S-Bahn ab Rosenheimer Platz Richtung Innenstadt, ca. 5–7 Minuten.
+</span>
+
+</div>
+
+</section>
+
+`;
 
 }
 
-document.querySelectorAll(".nav-btn").forEach(btn=>{
 
-btn.addEventListener("click",()=>{
+/* INFO / ÖPNV */
 
-showPage(btn.dataset.page);
+function info(){
+
+return `
+
+<section class="page">
+
+<h1 class="section-title">
+ÖPNV &amp; Infos
+</h1>
+
+<p class="sub">
+Ab Hotel zu den wichtigsten Zielen.
+</p>
+
+<div class="info-box">
+
+<h3>
+🚉 Marienplatz
+</h3>
+
+<p>
+S-Bahn ab Rosenheimer Platz Richtung Innenstadt,
+2 Stationen, ca. 5–7 Minuten.
+</p>
+
+</div>
+
+<div class="info-box">
+
+<h3>
+🚌 Olympiazentrum / TUM Sportcampus
+</h3>
+
+<p>
+S-Bahn bis Marienplatz, anschließend U3 Richtung Moosach
+bis Olympiazentrum.
+</p>
+
+</div>
+
+<div class="info-box">
+
+<h3>
+🚗 BMW Welt
+</h3>
+
+<p>
+S-Bahn bis Marienplatz, anschließend U3 Richtung Moosach
+bis Olympiazentrum. Von dort kurzer Fußweg zur BMW Welt.
+</p>
+
+</div>
+
+<div class="info-box">
+
+<h3>
+🏟 Allianz Arena
+</h3>
+
+<p>
+S-Bahn bis Marienplatz, anschließend U6 Richtung
+Garching-Forschungszentrum bis Fröttmaning.
+Danach kurzer Fußweg zur Arena.
+</p>
+
+</div>
+
+<div class="info-box">
+
+<h3>
+📍 Wichtige Adressen
+</h3>
+
+<ul>
+
+<li>
+<b>Holiday Inn München City Centre</b>
+</li>
+
+<li>
+<b>Donisl</b> · Weinstraße 1
+</li>
+
+<li>
+<b>GOP Varieté-Theater München</b>
+</li>
+
+<li>
+<b>BMW Welt</b> · Am Olympiapark 1
+</li>
+
+<li>
+<b>Allianz Arena</b> · Franz-Beckenbauer-Platz 5
+</li>
+
+<li>
+<b>Marienplatz</b> · 80331 München
+</li>
+
+<li>
+<b>Hofbräuhaus</b> · Platzl 9
+</li>
+
+</ul>
+
+</div>
+
+</section>
+
+`;
+
+}
+
+
+/* NACHTLEBEN */
+
+function nachtleben(){
+
+return `
+
+<section class="page">
+
+<h1 class="section-title">
+Nachtleben München
+</h1>
+
+<p class="notice">
+Hier findet ihr ausschließlich Vorschläge. Die Angaben dienen als Orientierung – Öffnungszeiten bitte vor dem Besuch aktuell prüfen.
+</p>
+
+<div class="night">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:FilePath/Munich_-_Platzl_street_and_bars_-_7644.jpg"
+alt="Bars in München"
+>
+
+<div class="inside">
+
+<h3>
+Jodlerwirt
+</h3>
+
+<p>
+Ledererstraße 24 · urige Münchner Bar.
+</p>
+
+<p>
+📍 Ab Donisl: ca. 4 Min. zu Fuß<br>
+📍 Ab GOP: ca. 16 Min. zu Fuß<br>
+🏨 Zum Hotel: ca. 15 Min. zu Fuß
+</p>
+
+<a
+class="btn"
+target="_blank"
+href="${maps('Jodlerwirt, Ledererstraße 24, München')}">
+📍 Route
+</a>
+
+<br>
+
+<a
+class="btn"
+target="_blank"
+href="${route('Jodlerwirt, Ledererstraße 24, München','Holiday Inn München City Centre')}">
+📍 Route zurück zum Hotel
+</a>
+
+</div>
+
+</div>
+
+<div class="night">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:FilePath/089_Bar_Munich.jpg"
+alt="Bar München"
+>
+
+<div class="inside">
+
+<h3>
+Boazn
+</h3>
+
+<p>
+Karl-Müller-Weg 2 · gemütliche Münchner Kneipe.
+</p>
+
+<p>
+📍 Ab Donisl: ca. 12 Min. zu Fuß<br>
+📍 Ab GOP: ca. 14 Min. zu Fuß<br>
+🏨 Zum Hotel: ca. 10 Min. zu Fuß
+</p>
+
+<a
+class="btn"
+target="_blank"
+href="${maps('Boazn, Karl-Müller-Weg 2, München')}">
+📍 Route
+</a>
+
+<br>
+
+<a
+class="btn"
+target="_blank"
+href="${route('Boazn, Karl-Müller-Weg 2, München','Holiday Inn München City Centre')}">
+📍 Route zurück zum Hotel
+</a>
+
+</div>
+
+</div>
+
+<div class="night">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:FilePath/Biergarten_at_Night_Cropped.JPG"
+alt="München bei Nacht"
+>
+
+<div class="inside">
+
+<h3>
+Valentin Stüberl
+</h3>
+
+<p>
+Marienplatz 8 · zentral gelegen.
+</p>
+
+<p>
+📍 Ab Donisl: ca. 2 Min. zu Fuß<br>
+📍 Ab GOP: ca. 14 Min. zu Fuß<br>
+🏨 Zum Hotel: ca. 14 Min. zu Fuß
+</p>
+
+<a
+class="btn"
+target="_blank"
+href="${maps('Valentin Stüberl, Marienplatz 8, München')}">
+📍 Route
+</a>
+
+<br>
+
+<a
+class="btn"
+target="_blank"
+href="${route('Valentin Stüberl, Marienplatz 8, München','Holiday Inn München City Centre')}">
+📍 Route zurück zum Hotel
+</a>
+
+</div>
+
+</div>
+
+<div class="night">
+
+<img
+src="https://commons.wikimedia.org/wiki/Special:FilePath/Schwabinger_7.jpg"
+alt="Schwabinger 7 München"
+>
+
+<div class="inside">
+
+<h3>
+Schwabing 7
+</h3>
+
+<p>
+Feilitzschstraße 15 · bekannte Münchner Kultbar.
+</p>
+
+<p>
+📍 Ab Donisl: ca. 15 Min. mit U-Bahn<br>
+📍 Ab GOP: ca. 20 Min. mit U-Bahn<br>
+🏨 Zum Hotel: mit U-Bahn
+</p>
+
+<a
+class="btn"
+target="_blank"
+href="${maps('Schwabinger 7, Feilitzschstraße 15, München')}">
+📍 Route
+</a>
+
+<br>
+
+<a
+class="btn"
+target="_blank"
+href="${route('Schwabinger 7, Feilitzschstraße 15, München','Holiday Inn München City Centre','transit')}">
+📍 Route zurück zum Hotel
+</a>
+
+</div>
+
+</div>
+
+<div class="night">
+
+<img
+src="https://i0.wp.com/singleaktiv.de/wp-content/uploads/2012/03/singleaktiv_p1_muenchen.jpg?fit=634%2C458&ssl=1"
+alt="P1 Club München"
+>
+
+<div class="inside">
+
+<h3>
+P1 Club
+</h3>
+
+<p>
+Prinzregentenstraße 1 · Münchner Nachtleben.
+</p>
+
+<p>
+📍 Ab Donisl: ca. 8 Min. zu Fuß<br>
+📍 Ab GOP: ca. 18 Min. zu Fuß
+</p>
+
+<a
+class="btn"
+target="_blank"
+href="${maps('P1 Club München, Prinzregentenstraße 1')}">
+📍 Route
+</a>
+
+<br>
+
+<a
+class="btn"
+target="_blank"
+href="${route('P1 Club München, Prinzregentenstraße 1','Holiday Inn München City Centre')}">
+📍 Route zurück zum Hotel
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+`;
+
+}
+
+
+/* WETTER & COUNTDOWN */
+
+function wetter(){
+
+return `
+
+<section class="page">
+
+<h1 class="section-title">
+Wetter &amp; Countdown
+</h1>
+
+<p class="sub">
+München · Wettervorhersage · Countdown
+</p>
+
+<div class="info-box">
+
+<h3>
+☀ Wetter in München
+</h3>
+
+<p>
+Aktuelle Wettervorhersage für München:
+</p>
+
+<a
+class="btn"
+target="_blank"
+href="https://www.google.com/search?q=Wetter+München">
+☀ Wetter öffnen
+</a>
+
+</div>
+
+<div class="info-box">
+
+<h3>
+⏳ Countdown
+</h3>
+
+<p>
+Bis zur Abfahrt am 15. Oktober 2026 um 14:00 Uhr:
+</p>
+
+<p
+id="countdown"
+style="font-size:20px;font-weight:900;color:var(--orange)">
+wird berechnet …
+</p>
+
+</div>
+
+</section>
+
+`;
+
+}
+
+
+/* TAXI */
+
+function taxi(){
+
+return `
+
+<section class="page">
+
+<h1 class="section-title">
+Taxi &amp; Uber
+</h1>
+
+<p class="sub">
+Schnell unterwegs in München.
+</p>
+
+<div class="info-box">
+
+<h3>
+🚕 Taxi München
+</h3>
+
+<p>
+Taxi-Zentrale München<br>
+<b>089 2161-0</b>
+</p>
+
+<a
+class="btn"
+href="tel:+498921610">
+Taxi anrufen
+</a>
+
+</div>
+
+<div class="info-box">
+
+<h3>
+🚗 Uber
+</h3>
+
+<p>
+Uber direkt über die App bzw. den Webdienst öffnen.
+</p>
+
+<a
+class="btn"
+target="_blank"
+href="https://m.uber.com/">
+Uber öffnen
+</a>
+
+</div>
+
+</section>
+
+`;
+
+}
+
+
+/* NACHTLEBEN & MEHR */
+
+function mehr(){
+
+return `
+
+<section class="page">
+
+<h1 class="section-title">
+Nachtleben &amp; Mehr
+</h1>
+
+<div class="grid2">
+
+<div
+class="info-box clickable"
+onclick="nav('info')">
+
+<h3>
+🏨 Hotel &amp; weitere Adressen
+</h3>
+
+<p>
+Hotel, Veranstaltungsorte und wichtige Adressen
+</p>
+
+</div>
+
+<div
+class="info-box clickable"
+onclick="nav('nachtleben')">
+
+<h3>
+♫ Nachtleben
+</h3>
+
+<p>
+Tipps &amp; Bars für Donnerstag &amp; Freitag
+</p>
+
+</div>
+
+<div
+class="info-box clickable"
+onclick="nav('wetter')">
+
+<h3>
+☀ Wetter &amp; Countdown
+</h3>
+
+<p>
+München · Wettervorhersage · Countdown
+</p>
+
+</div>
+
+<div
+class="info-box clickable"
+onclick="nav('info')">
+
+<h3>
+🚌 ÖPNV &amp; Adressen
+</h3>
+
+<p>
+Schnellzugriff auf die wichtigsten Verbindungen und Ziele
+</p>
+
+</div>
+
+<div
+class="info-box clickable"
+onclick="nav('taxi')">
+
+<h3>
+🚕 Taxi &amp; Uber
+</h3>
+
+<p>
+Taxi rufen oder Uber öffnen
+</p>
+
+</div>
+
+</div>
+
+<div class="info-box">
+
+<h3>
+Impressum &amp; Datenschutz
+</h3>
+
+<p>
+Fritschle · Jubiläumsausflug München 2026
+</p>
+
+</div>
+
+</section>
+
+`;
+
+}
+
+
+/* RENDER */
+
+function render(){
+
+let body;
+
+if(page==='home'){
+body=home();
+}
+
+else if(page==='programm'){
+body=programm();
+}
+
+else if(page==='karte'){
+body=karte();
+}
+
+else if(page==='info'){
+body=info();
+}
+
+else if(page==='nachtleben'){
+body=nachtleben();
+}
+
+else if(page==='wetter'){
+body=wetter();
+}
+
+else if(page==='taxi'){
+body=taxi();
+}
+
+else{
+body=mehr();
+}
+
+app.innerHTML=`
+
+<header class="top">
+
+<button
+class="menu"
+onclick="openDrawer()"
+aria-label="Menü">
+☰
+</button>
+
+</header>
+
+<main class="content">
+${body}
+</main>
+
+`;
+
+document
+.querySelectorAll('.nav-btn')
+.forEach(b=>{
+
+b.classList.toggle(
+'active',
+
+b.dataset.page===page ||
+
+(
+(page==='nachtleben' ||
+page==='wetter' ||
+page==='taxi')
+&&
+b.dataset.page==='mehr'
+)
+
+);
 
 });
 
+updateCountdown();
+
+}
+
+
+/* COUNTDOWN */
+
+function updateCountdown(){
+
+const el=document.getElementById('countdown');
+
+if(!el){
+return;
+}
+
+const target=
+new Date('2026-10-15T14:00:00+02:00').getTime();
+
+const now=Date.now();
+
+let diff=target-now;
+
+if(diff<=0){
+
+el.textContent=
+'Der Jubiläumsausflug hat begonnen!';
+
+return;
+
+}
+
+const d=
+Math.floor(diff/86400000);
+
+diff%=86400000;
+
+const h=
+Math.floor(diff/3600000);
+
+diff%=3600000;
+
+const m=
+Math.floor(diff/60000);
+
+el.textContent=
+`Noch ${d} Tage, ${h} Stunden und ${m} Minuten`;
+
+}
+
+
+/* NAVIGATION */
+
+document
+.querySelectorAll('.nav-btn')
+.forEach(b=>{
+
+b.addEventListener(
+'click',
+()=>nav(b.dataset.page)
+);
+
 });
 
-showPage("start");
+window.addEventListener(
+'hashchange',
+()=>{
+
+const h=
+location.hash.replace('#','');
+
+if(h){
+
+page=h;
+
+render();
+
+}
+
+});
+
+if(location.hash){
+
+page=
+location.hash.replace('#','')
+||
+'home';
+
+}
+
+render();
+
+setInterval(
+updateCountdown,
+60000
+);
 
 </script>
 
