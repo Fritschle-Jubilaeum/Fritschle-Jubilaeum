@@ -170,11 +170,9 @@ flex-direction:column;
 align-items:center;
 justify-content:center;
 background:rgba(5,11,18,.64);
-
 box-shadow:
 0 0 12px rgba(199,150,62,.38),
 0 0 30px rgba(199,150,62,.22);
-
 animation:sealGoldGlow 3.8s ease-in-out infinite;
 transform-origin:center center
 }
@@ -183,23 +181,19 @@ transform-origin:center center
 
 0%,100%{
 border-color:var(--gold);
-
 box-shadow:
 0 0 10px rgba(199,150,62,.32),
 0 0 25px rgba(199,150,62,.16),
 0 0 40px rgba(199,150,62,.06);
-
 transform:scale(1);
 }
 
 50%{
 border-color:var(--gold);
-
 box-shadow:
 0 0 16px rgba(199,150,62,.60),
 0 0 34px rgba(199,150,62,.34),
 0 0 58px rgba(199,150,62,.16);
-
 transform:scale(1.015);
 }
 
@@ -248,7 +242,6 @@ font-style:italic;
 color:var(--gold);
 line-height:1.05;
 margin-top:4px;
-
 text-shadow:
 0 3px 22px #000,
 0 0 8px rgba(199,150,62,.28),
@@ -686,6 +679,15 @@ color:#aebbc8;
 letter-spacing:.4px
 }
 
+.notice{
+padding:14px 16px;
+border:1px solid rgba(242,138,43,.35);
+background:rgba(242,138,43,.08);
+border-radius:14px;
+color:#f4d4b6;
+line-height:1.5
+}
+
 @media(max-width:520px){
 
 .hero{
@@ -725,25 +727,14 @@ object-fit:cover
 
 .landscape-photo{
 grid-column:1 / -1;
-width:calc(100% + 70px);
-max-width:none;
+width:calc(100% + 50px);
 height:190px !important;
-aspect-ratio:16 / 9;
-object-fit:cover;
-object-position:center;
-margin-left:-35px;
-margin-right:-35px;
-margin-top:10px;
-margin-bottom:6px;
-border-radius:0
-}
-
-.home-photo{
-height:auto;
-max-width:100%
+margin-left:-25px;
+margin-right:-25px
 }
 
 }
+
 </style>
 </head>
 
@@ -751,9 +742,10 @@ max-width:100%
 
 <div class="app" id="app"></div>
 
+
 <nav class="bottom-nav">
 
-<button class="nav-btn" data-page="home">
+<button class="nav-btn active" data-page="home">
 <span class="ico">⌂</span>
 Start
 </button>
@@ -775,181 +767,96 @@ Info
 
 <button class="nav-btn" data-page="mehr">
 <span class="ico">☰</span>
-Nachtleben &amp; Mehr
+Mehr
 </button>
 
 </nav>
 
-<aside class="drawer" id="drawer">
 
-<button class="close" onclick="closeDrawer()">✕ Menü schließen</button>
+<div class="drawer" id="drawer">
 
-<button onclick="nav('home')">
+<button
+class="close"
+onclick="closeDrawer()">
+✕ Menü schließen
+</button>
+
+<button onclick="nav('home');closeDrawer()">
 ⌂ Start
 </button>
 
-<button onclick="nav('programm')">
+<button onclick="nav('programm');closeDrawer()">
 ☷ Programm
 </button>
 
-<button onclick="nav('karte')">
+<button onclick="nav('karte');closeDrawer()">
 ⌖ Karte
 </button>
 
-<button onclick="nav('info')">
+<button onclick="nav('info');closeDrawer()">
 ⓘ Info
 </button>
 
-<button onclick="nav('nachtleben')">
+<button onclick="nav('nachtleben');closeDrawer()">
 ♫ Nachtleben
 </button>
 
-<button onclick="nav('wetter')">
+<button onclick="nav('wetter');closeDrawer()">
 ☀ Wetter &amp; Countdown
 </button>
 
-<button onclick="nav('mehr')">
+<button onclick="nav('taxi');closeDrawer()">
+🚕 Taxi &amp; Uber
+</button>
+
+<button onclick="nav('mehr');closeDrawer()">
 ☰ Nachtleben &amp; Mehr
 </button>
 
-</aside>
+</div>
 
 
 <script>
 
-const maps=q =>
-'https://www.google.com/maps/dir/?api=1&destination='+
-encodeURIComponent(q);
-
-const route=(from,to,mode='walking') =>
-'https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent(from)+'&destination='+encodeURIComponent(to)+'&travelmode='+mode;
-
-
-const data={
-
-do:{
-title:'DONNERSTAG',
-date:'15. Oktober 2026',
-events:[
-
-['14:00',
-'Abfahrt Uttenweiler',
-'Bitte um 14:00 Uhr abfahrbereit am Firmenhof.'],
-
-['17:00',
-'Ankunft München',
-'Fahrt zum Holiday Inn München City Centre und Check-in.'],
-
-['18:30',
-'Treffpunkt im Hotelfoyer',
-'Gemeinsamer Treffpunkt vor dem Abendprogramm.'],
-
-['19:00',
-'Donisl',
-'Weinstraße 1 · gemeinsamer Abend bis ca. 22:00 Uhr.']
-
-]},
-
-fr:{
-title:'FREITAG',
-date:'16. Oktober 2026',
-events:[
-
-['ab 7:00',
-'Frühstück',
-'Frühstück im Hotel.'],
-
-['08:30',
-'Treffpunkt im Hotelfoyer',
-''],
-
-['anschließend',
-'Fahrt zum TUM Sportcampus',
-'']
-
-]},
-
-sa:{
-title:'SAMSTAG',
-date:'17. Oktober 2026',
-events:[
-
-['ab 7:00',
-'Frühstück',
-''],
-
-['danach',
-'Check-out',
-''],
-
-['09:00',
-'zu Fuß Richtung Innenstadt, Marienplatz',
-''],
-
-['09:30',
-'Stadtführung Marienplatz / Viktualienmarkt',
-''],
-
-['13:00',
-'Mittagessen im Hofbräuhaus',
-''],
-
-['15:00',
-'Gepäck am Hotel abholen',
-''],
-
-['15:30',
-'Abfahrt Heimreise nach Uttenweiler',
-'']
-
-]}};
-
-
 let page='home';
-let day='do';
 
 const app=document.getElementById('app');
 
-
-function nav(p){
-
-page=p;
-
-location.hash=p;
-
-closeDrawer();
-
-render();
-
-window.scrollTo({
-top:0,
-behavior:'smooth'
-});
-
-}
-
-
 function openDrawer(){
-
-document
-.getElementById('drawer')
-.classList
-.add('open');
-
+document.getElementById('drawer').classList.add('open');
 }
-
 
 function closeDrawer(){
+document.getElementById('drawer').classList.remove('open');
+}
 
-document
-.getElementById('drawer')
-.classList
-.remove('open');
+function nav(p){
+page=p;
+location.hash=p;
+render();
+window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function maps(destination){
+
+return 'https://www.google.com/maps/dir/?api=1&destination='+
+encodeURIComponent(destination);
+
+}
+
+function route(from,to,mode='walking'){
+
+return 'https://www.google.com/maps/dir/?api=1&origin='+
+encodeURIComponent(from)+
+'&destination='+
+encodeURIComponent(to)+
+'&travelmode='+
+encodeURIComponent(mode);
 
 }
 
 
-/* STARTSEITE */
+/* START */
 
 function home(){
 
@@ -961,30 +868,40 @@ return `
 
 <div class="hero-brand">
 
-<strong>FRITSCHLE</strong>
+<strong>
+FRITSCHLE
+</strong>
 
-<span>baut <i></i></span>
+<span>
+baut<i></i>
+</span>
 
 </div>
 
 
 <div class="seal">
 
-<b>80</b>
+<b>
+80
+</b>
 
-<span>JAHRE</span>
+<span>
+JAHRE
+</span>
 
 </div>
 
 
-<h1>JUBILÄUMSAUSFLUG</h1>
+<h1>
+JUBILÄUMSAUSFLUG
+</h1>
 
 <div class="munich">
 München
 </div>
 
 <div class="date">
-15. – 17. Oktober 2026
+15.–17. Oktober 2026
 </div>
 
 
@@ -995,7 +912,7 @@ Schön, dass Ihr dabei seid!
 </h2>
 
 <p>
-<b>Liebe Kolleginnen und Kollegen,</b>
+Liebe Kolleginnen und Kollegen,
 </p>
 
 <p>
@@ -1012,8 +929,8 @@ Wir wünschen Euch schon heute eine schöne Zeit und viel Freude beim Jubiläums
 
 <img
 class="home-photo"
-src="https://images.unsplash.com/photo-1577462281852-279bf4986f7b?auto=format&fit=crop&fm=jpg&q=85&w=1400"
-alt="München bei Nacht mit Marienplatz, Frauenkirche und Neuem Rathaus"
+src="https://images.unsplash.com/photo-1595867818082-083862f3d630?auto=format&fit=crop&w=1200&q=85"
+alt="München bei Nacht"
 >
 
 </div>
@@ -1038,80 +955,103 @@ powered by kerstin &amp; susanne
 
 /* PROGRAMM */
 
+let activeDay='do';
+
+function setDay(day){
+
+activeDay=day;
+render();
+
+}
+
 function programm(){
 
-const d=data[day];
+let dayContent='';
 
-return `
 
-<section class="page">
+if(activeDay==='do'){
 
-<h1 class="section-title">
-Programm
-</h1>
-
-<div class="tabs">
-
-<button
-class="tab ${day==='do'?'active':''}"
-onclick="day='do';render()">
-Donnerstag<br>
-<small>15.10.</small>
-</button>
-
-<button
-class="tab ${day==='fr'?'active':''}"
-onclick="day='fr';render()">
-Freitag<br>
-<small>16.10.</small>
-</button>
-
-<button
-class="tab ${day==='sa'?'active':''}"
-onclick="day='sa';render()">
-Samstag<br>
-<small>17.10.</small>
-</button>
-
-</div>
-
+dayContent=`
 
 <div class="day-card">
 
 <div class="kicker">
-${d.date}
+DONNERSTAG · 15. OKTOBER
 </div>
 
 <h2>
-${d.title}
+Anreise &amp; gemeinsamer Abend
 </h2>
+
 
 <div class="timeline">
 
-${d.events.map(e=>`
 
 <div class="event">
 
-<time class="${e[0].length>8?'small-time':''}">
-${e[0]}
+<time>
+14:00
 </time>
 
-<div>
-
 <strong>
-${e[1]}
+Abfahrt Uttenweiler
 </strong>
 
-${e[2] ? `<p>${e[2]}</p>` : ''}
+<p>
+Bitte um 14:00 Uhr abfahrbereit am Firmenhof.
+</p>
 
 </div>
 
+
+<div class="event">
+
+<time>
+17:00
+</time>
+
+<strong>
+Ankunft München
+</strong>
+
+<p>
+Fahrt zum Holiday Inn München City Centre und Check-in.
+</p>
+
 </div>
 
-`).join('')}
+
+<div class="event">
+
+<time>
+18:30
+</time>
+
+<strong>
+Treffpunkt im Hotelfoyer
+</strong>
+
+<p>
+Gemeinsamer Treffpunkt vor dem Abendprogramm.
+</p>
+
+</div>
 
 
-${day==='do'?`
+<div class="event">
+
+<time>
+19:00
+</time>
+
+<strong>
+Donisl
+</strong>
+
+<p>
+Weinstraße 1 · gemeinsamer Abend bis ca. 22:00 Uhr.
+</p>
+
 
 <img
 class="program-photo"
@@ -1119,12 +1059,14 @@ src="https://www.mux.de/images/1600x800c/object/00/1528703400/teaser-1.jpg"
 alt="Donisl München"
 >
 
+
 <a
 class="btn"
 target="_blank"
-href="${maps('Donisl, Weinstraße 1, 80333 München')}">
+href="${route('Donisl, Weinstraße 1, 80333 München','Holiday Inn München City Centre')}">
 📍 Route zum Donisl
 </a>
+
 
 <a
 class="btn"
@@ -1133,29 +1075,69 @@ href="${route('Donisl, Weinstraße 1, 80333 München','Holiday Inn München City
 📍 Route zurück zum Hotel
 </a>
 
-`:''}
 
-
-${day==='fr'?`
-
-<a
+<button
 class="btn"
-target="_blank"
-href="${maps('TUM Sportcampus München')}">
-📍 Route zum TUM Sportcampus
-</a>
+onclick="nav('mehr')">
+☰ Nachtleben &amp; Mehr
+</button>
 
-<div class="event" style="margin-top:10px;border-top:1px solid rgba(255,255,255,.08)">
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+else if(activeDay==='fr'){
+
+dayContent=`
+
+<div class="day-card">
+
+<div class="kicker">
+FREITAG · 16. OKTOBER
+</div>
+
+<h2>
+Sport, BMW Welt / Allianz Arena &amp; GOP
+</h2>
+
+
+<div class="timeline">
+
+
+<div class="event">
 
 <time>
-10:00–12:00
+ab 7:00
 </time>
 
-<div>
+<strong>
+Frühstück
+</strong>
+
+</div>
+
+
+<div class="event">
+
+<time>
+08:30
+</time>
 
 <strong>
-TUM Sportcampus
+Treffpunkt im Hotelfoyer
 </strong>
+
+<p>
+Verbindlicher Treffpunkt und anschließend gemeinsame Fahrt zum TUM Sportcampus.
+</p>
+
 
 <img
 class="program-photo"
@@ -1163,9 +1145,29 @@ src="https://www.ingenieurholzbau.de/fileadmin/user_upload/Projekt_Kategorien/Oe
 alt="TUM Sportcampus München"
 >
 
-</div>
+
+<a
+class="btn"
+target="_blank"
+href="${route('TUM Sportcampus München','Holiday Inn München City Centre','transit')}">
+📍 Route zum TUM Sportcampus
+</a>
 
 </div>
+
+
+<div class="event">
+
+<time>
+10:00–12:00
+</time>
+
+<strong>
+Besichtigung TUM Sportcampus
+</strong>
+
+</div>
+
 
 <div class="event">
 
@@ -1173,19 +1175,27 @@ alt="TUM Sportcampus München"
 12:00
 </time>
 
-<div>
-
 <strong>
-Mittagspause / freie Zeit
+Mittagspause
 </strong>
 
-</div>
-
-</div>
-
-<p style="margin:4px 0 12px;color:var(--muted);line-height:1.45">
-Anschließend gebuchte Variante wählen
+<p>
+Freie Zeit für Mittagessen.
 </p>
+
+</div>
+
+
+<div
+style="
+margin-top:12px;
+color:var(--orange);
+font-size:17px;
+font-weight:900;
+">
+Anschließend gebuchte Variante wählen
+</div>
+
 
 <div class="variant">
 
@@ -1193,26 +1203,36 @@ Anschließend gebuchte Variante wählen
 VARIANTE A
 </span>
 
-<img
-class="variant-photo"
-src="https://www.sjs-carstyling.com/blog/wp-content/uploads/2025/10/BMW-Museum-Welt-Muenchen-3.jpg"
-alt="BMW Welt und BMW Museum München"
->
-
 <h3>
 BMW Welt &amp; BMW Museum
 </h3>
 
+
+<img
+class="variant-photo"
+src="https://www.sjs-carstyling.com/blog/wp-content/uploads/2025/10/BMW-Museum-Welt-Muenchen-3.jpg"
+alt="BMW Welt München"
+>
+
+
 <p>
-14:00 Uhr Besichtigung.
+Individuelle Fahrt zur BMW Welt.
 </p>
+
+<p style="margin-top:8px">
+<strong>
+14:00 Uhr Besichtigung
+</strong>
+</p>
+
 
 <a
 class="btn"
 target="_blank"
-href="${maps('BMW Welt, Am Olympiapark 1, 80809 München')}">
+href="${route('BMW Welt, Am Olympiapark 1, 80809 München','Holiday Inn München City Centre','transit')}">
 📍 Route zur BMW Welt
 </a>
+
 
 <a
 class="btn"
@@ -1223,11 +1243,17 @@ href="${route('BMW Welt, Am Olympiapark 1, 80809 München','Holiday Inn München
 
 </div>
 
+
 <div class="variant">
 
 <span class="label">
 VARIANTE B
 </span>
+
+<h3>
+Allianz Arena
+</h3>
+
 
 <img
 class="variant-photo"
@@ -1235,20 +1261,19 @@ src="https://img.fotocommunity.com/allianz-arena-muenchen-d2c1dd64-3c4d-4f72-8cf
 alt="Allianz Arena München"
 >
 
-<h3>
-Allianz Arena
-</h3>
 
 <p>
 Abfahrt 12:45 Uhr · Mittagessen · 14:00 Uhr Besichtigung.
 </p>
 
+
 <a
 class="btn"
 target="_blank"
-href="${maps('Allianz Arena, Franz-Beckenbauer-Platz 5, 80939 München')}">
+href="${route('Allianz Arena, Franz-Beckenbauer-Platz 5, 80939 München','Holiday Inn München City Centre','transit')}">
 📍 Route zur Allianz Arena
 </a>
+
 
 <a
 class="btn"
@@ -1259,35 +1284,45 @@ href="${route('Allianz Arena, Franz-Beckenbauer-Platz 5, 80939 München','Holida
 
 </div>
 
-<p style="margin:14px 0 12px;color:var(--muted);line-height:1.45">
+
+<div
+style="
+margin-top:16px;
+color:var(--orange);
+font-size:17px;
+font-weight:900;
+">
 Nach den Besichtigungen Zeit zur freien Verfügung
-</p>
+</div>
 
-<div class="variant">
 
-<span class="label">
-ABEND
-</span>
+<div class="event">
 
-<h3>
-GOP Varieté-Theater
-</h3>
+<time>
+19:00
+</time>
+
+<strong>
+Treffpunkt im Hotelfoyer
+</strong>
+
+</div>
+
+
+<div class="event">
+
+<time>
+19:45
+</time>
+
+<strong>
+GOP Varieté – Schlemmeressen
+</strong>
 
 <p>
-19:00 Uhr Treffpunkt im Hotelfoyer
+Gemeinsames Schlemmeressen im GOP Varieté-Theater.
 </p>
 
-<a
-class="btn"
-target="_blank"
-href="https://www.google.com/maps/dir/?api=1&amp;origin=Holiday%20Inn%20M%C3%BCnchen%20City%20Centre&amp;destination=GOP%20Variet%C3%A9-Theater%20M%C3%BCnchen&amp;travelmode=walking">
-📍 Route Hotel → GOP
-</a>
-
-<p style="margin-top:8px">
-19:45 Uhr Schlemmeressen<br>
-21:00 Uhr Show
-</p>
 
 <img
 class="landscape-photo"
@@ -1295,13 +1330,44 @@ src="https://iam-blog-de.gumlet.io/blog/wp-content/uploads/2020/08/GOP-Variete-T
 alt="GOP Varieté-Theater München"
 >
 
-<p>
-ca. 23:15 Uhr Hotelbar / Nachtleben
-</p>
 
-<p style="margin-top:8px">
+<a
+class="btn"
+target="_blank"
+href="${route('GOP Varieté-Theater München','Holiday Inn München City Centre','transit')}">
+📍 Route zum GOP
+</a>
+
+</div>
+
+
+<div class="event">
+
+<time>
+21:00
+</time>
+
+<strong>
+Show-Beginn
+</strong>
+
+</div>
+
+
+<div class="event">
+
+<time>
+ca. 23:15
+</time>
+
+<strong>
+Hotelbar / Nachtleben
+</strong>
+
+<p>
 Vorschläge findet Ihr unter „Mehr → Nachtleben“.
 </p>
+
 
 <a
 class="btn"
@@ -1309,6 +1375,7 @@ target="_blank"
 href="${route('GOP Varieté-Theater München','Holiday Inn München City Centre','transit')}">
 📍 Route zum Hotel
 </a>
+
 
 <button
 class="btn"
@@ -1318,10 +1385,87 @@ onclick="nav('mehr')">
 
 </div>
 
-`:''}
+
+</div>
+
+</div>
+
+`;
+
+}
 
 
-${day==='sa'?`
+else{
+
+dayContent=`
+
+<div class="day-card">
+
+<div class="kicker">
+SAMSTAG · 17. OKTOBER
+</div>
+
+<h2>
+München entdecken &amp; Heimreise
+</h2>
+
+
+<div class="timeline">
+
+
+<div class="event">
+
+<time>
+ab 7:00
+</time>
+
+<strong>
+Frühstück
+</strong>
+
+</div>
+
+
+<div class="event">
+
+<time>
+danach
+</time>
+
+<strong>
+Check-out
+</strong>
+
+</div>
+
+
+<div class="event">
+
+<time>
+09:00
+</time>
+
+<strong>
+Richtung Innenstadt
+</strong>
+
+<p>
+Zu Fuß Richtung Marienplatz.
+</p>
+
+</div>
+
+
+<div class="event">
+
+<time>
+09:30
+</time>
+
+<strong>
+Stadtführung Marienplatz / Viktualienmarkt
+</strong>
+
 
 <img
 class="program-photo"
@@ -1329,33 +1473,34 @@ src="https://commons.wikimedia.org/wiki/Special:FilePath/Munich_-_Marienplatz.jp
 alt="Marienplatz München"
 >
 
+
 <a
 class="btn"
 target="_blank"
-href="${maps('Marienplatz, 80331 München')}">
+href="${maps('Marienplatz München')}">
 📍 Route zum Marienplatz
 </a>
 
+</div>
 
-<div class="variant">
 
-<span class="label">
-13:00 UHR
-</span>
+<div class="event">
+
+<time>
+13:00
+</time>
+
+<strong>
+Mittagessen im Hofbräuhaus
+</strong>
+
 
 <img
-class="variant-photo"
+class="program-photo"
 src="https://commons.wikimedia.org/wiki/Special:FilePath/Hofbr%C3%A4uhaus_M%C3%BCnchen.jpg"
 alt="Hofbräuhaus München"
 >
 
-<h3>
-Mittagessen im Hofbräuhaus
-</h3>
-
-<p>
-Gemeinsames Mittagessen im Hofbräuhaus.
-</p>
 
 <a
 class="btn"
@@ -1363,6 +1508,7 @@ target="_blank"
 href="${maps('Hofbräuhaus München, Platzl 9, 80331 München')}">
 📍 Route zum Hofbräuhaus
 </a>
+
 
 <a
 class="btn"
@@ -1373,11 +1519,82 @@ href="${route('Hofbräuhaus München, Platzl 9, 80331 München','Holiday Inn Mü
 
 </div>
 
-`:''}
+
+<div class="event">
+
+<time>
+15:00
+</time>
+
+<strong>
+Gepäck am Hotel abholen
+</strong>
+
+</div>
+
+
+<div class="event">
+
+<time>
+15:30
+</time>
+
+<strong>
+Abfahrt Heimreise nach Uttenweiler
+</strong>
+
+</div>
+
 
 </div>
 
 </div>
+
+`;
+
+}
+
+
+return `
+
+<section class="page">
+
+<h1 class="section-title">
+Programm
+</h1>
+
+<p class="sub">
+Alle wichtigen Programmpunkte auf einen Blick.
+</p>
+
+
+<div class="tabs">
+
+<button
+class="tab ${activeDay==='do'?'active':''}"
+onclick="setDay('do')">
+DO<br>
+<small>15.10.</small>
+</button>
+
+<button
+class="tab ${activeDay==='fr'?'active':''}"
+onclick="setDay('fr')">
+FR<br>
+<small>16.10.</small>
+</button>
+
+<button
+class="tab ${activeDay==='sa'?'active':''}"
+onclick="setDay('sa')">
+SA<br>
+<small>17.10.</small>
+</button>
+
+</div>
+
+
+${dayContent}
 
 </section>
 
