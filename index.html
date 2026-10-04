@@ -472,6 +472,11 @@ gap:6px;
 margin-top:2px
 }
 
+.thursday-buttons{
+flex-direction:column;
+align-items:flex-start;
+}
+
 .btn{
 display:inline-flex;
 align-items:center;
@@ -500,7 +505,7 @@ padding:12px 14px;
 border:1px solid rgba(242,138,43,.45);
 border-radius:13px;
 background:rgba(242,138,43,.08);
-color:#f4d4b6;
+color:var(--orange);
 font-weight:800;
 line-height:1.4
 }
@@ -817,7 +822,7 @@ Info
 
 <button class="nav-btn" data-page="mehr">
 <span class="ico">☰</span>
-Mehr
+Nachtleben &amp; Mehr
 </button>
 
 </nav>
@@ -1091,7 +1096,7 @@ src="https://www.mux.de/images/1600x800c/object/00/1528703400/teaser-1.jpg"
 alt="Donisl München"
 >
 
-<div class="button-row">
+<div class="button-row thursday-buttons">
 
 <a
 class="btn"
@@ -1107,13 +1112,13 @@ href="${route('Donisl, Weinstraße 1, 80333 München','Holiday Inn München City
 📍 Route zurück zum Hotel
 </a>
 
-</div>
-
 <button
 class="btn"
 onclick="nav('mehr')">
 ☰ Nachtleben &amp; Mehr
 </button>
+
+</div>
 
 </div>
 
