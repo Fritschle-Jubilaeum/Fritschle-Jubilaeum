@@ -159,6 +159,8 @@ margin-left:4px;
 vertical-align:middle
 }
 
+/* GOLDENER 80-JAHRE-KREIS */
+
 .seal{
 width:126px;
 height:126px;
@@ -170,9 +172,11 @@ flex-direction:column;
 align-items:center;
 justify-content:center;
 background:rgba(5,11,18,.64);
+
 box-shadow:
 0 0 12px rgba(199,150,62,.38),
 0 0 30px rgba(199,150,62,.22);
+
 animation:sealGoldGlow 3.8s ease-in-out infinite;
 transform-origin:center center
 }
@@ -181,19 +185,23 @@ transform-origin:center center
 
 0%,100%{
 border-color:var(--gold);
+
 box-shadow:
 0 0 10px rgba(199,150,62,.32),
 0 0 25px rgba(199,150,62,.16),
 0 0 40px rgba(199,150,62,.06);
+
 transform:scale(1);
 }
 
 50%{
 border-color:var(--gold);
+
 box-shadow:
 0 0 16px rgba(199,150,62,.60),
 0 0 34px rgba(199,150,62,.34),
 0 0 58px rgba(199,150,62,.16);
+
 transform:scale(1.015);
 }
 
@@ -242,6 +250,7 @@ font-style:italic;
 color:var(--gold);
 line-height:1.05;
 margin-top:4px;
+
 text-shadow:
 0 3px 22px #000,
 0 0 8px rgba(199,150,62,.28),
@@ -727,10 +736,11 @@ object-fit:cover
 
 .landscape-photo{
 grid-column:1 / -1;
-width:calc(100% + 50px);
+width:calc(100% + 70px);
+max-width:none;
 height:190px !important;
-margin-left:-25px;
-margin-right:-25px
+margin-left:-35px;
+margin-right:-35px
 }
 
 }
@@ -741,7 +751,6 @@ margin-right:-25px
 <body>
 
 <div class="app" id="app"></div>
-
 
 <nav class="bottom-nav">
 
@@ -771,7 +780,6 @@ Mehr
 </button>
 
 </nav>
-
 
 <div class="drawer" id="drawer">
 
@@ -814,7 +822,6 @@ onclick="closeDrawer()">
 </button>
 
 </div>
-
 
 <script>
 
@@ -878,7 +885,6 @@ baut<i></i>
 
 </div>
 
-
 <div class="seal">
 
 <b>
@@ -891,7 +897,6 @@ JAHRE
 
 </div>
 
-
 <h1>
 JUBILÄUMSAUSFLUG
 </h1>
@@ -903,7 +908,6 @@ München
 <div class="date">
 15.–17. Oktober 2026
 </div>
-
 
 <div class="welcome">
 
@@ -926,7 +930,6 @@ Wir wünschen Euch schon heute eine schöne Zeit und viel Freude beim Jubiläums
 
 </div>
 
-
 <img
 class="home-photo"
 src="https://images.unsplash.com/photo-1595867818082-083862f3d630?auto=format&fit=crop&w=1200&q=85"
@@ -934,7 +937,6 @@ alt="München bei Nacht"
 >
 
 </div>
-
 
 <div class="footer">
 
@@ -968,7 +970,6 @@ function programm(){
 
 let dayContent='';
 
-
 if(activeDay==='do'){
 
 dayContent=`
@@ -983,9 +984,7 @@ DONNERSTAG · 15. OKTOBER
 Anreise &amp; gemeinsamer Abend
 </h2>
 
-
 <div class="timeline">
-
 
 <div class="event">
 
@@ -1003,7 +1002,6 @@ Bitte um 14:00 Uhr abfahrbereit am Firmenhof.
 
 </div>
 
-
 <div class="event">
 
 <time>
@@ -1019,7 +1017,6 @@ Fahrt zum Holiday Inn München City Centre und Check-in.
 </p>
 
 </div>
-
 
 <div class="event">
 
@@ -1037,7 +1034,6 @@ Gemeinsamer Treffpunkt vor dem Abendprogramm.
 
 </div>
 
-
 <div class="event">
 
 <time>
@@ -1052,13 +1048,11 @@ Donisl
 Weinstraße 1 · gemeinsamer Abend bis ca. 22:00 Uhr.
 </p>
 
-
 <img
 class="program-photo"
 src="https://www.mux.de/images/1600x800c/object/00/1528703400/teaser-1.jpg"
 alt="Donisl München"
 >
-
 
 <a
 class="btn"
@@ -1067,14 +1061,12 @@ href="${route('Donisl, Weinstraße 1, 80333 München','Holiday Inn München City
 📍 Route zum Donisl
 </a>
 
-
 <a
 class="btn"
 target="_blank"
 href="${route('Donisl, Weinstraße 1, 80333 München','Holiday Inn München City Centre')}">
 📍 Route zurück zum Hotel
 </a>
-
 
 <button
 class="btn"
@@ -1092,7 +1084,6 @@ onclick="nav('mehr')">
 
 }
 
-
 else if(activeDay==='fr'){
 
 dayContent=`
@@ -1107,9 +1098,7 @@ FREITAG · 16. OKTOBER
 Sport, BMW Welt / Allianz Arena &amp; GOP
 </h2>
 
-
 <div class="timeline">
-
 
 <div class="event">
 
@@ -1122,7 +1111,6 @@ Frühstück
 </strong>
 
 </div>
-
 
 <div class="event">
 
@@ -1138,13 +1126,11 @@ Treffpunkt im Hotelfoyer
 Verbindlicher Treffpunkt und anschließend gemeinsame Fahrt zum TUM Sportcampus.
 </p>
 
-
 <img
 class="program-photo"
 src="https://www.ingenieurholzbau.de/fileadmin/user_upload/Projekt_Kategorien/Oeffentliche_Bauten/Erziehung_Bildung_Forschung/Sportcampus_TU_Muenchen/Neubau_TU_Muenchen_Sportcampus_Ingenieurholzbau_CiO_TUM-Bild_01_Dietrich_Untertrifaller_web.jpg"
 alt="TUM Sportcampus München"
 >
-
 
 <a
 class="btn"
@@ -1154,7 +1140,6 @@ href="${route('TUM Sportcampus München','Holiday Inn München City Centre','tra
 </a>
 
 </div>
-
 
 <div class="event">
 
@@ -1167,7 +1152,6 @@ Besichtigung TUM Sportcampus
 </strong>
 
 </div>
-
 
 <div class="event">
 
@@ -1185,7 +1169,6 @@ Freie Zeit für Mittagessen.
 
 </div>
 
-
 <div
 style="
 margin-top:12px;
@@ -1195,7 +1178,6 @@ font-weight:900;
 ">
 Anschließend gebuchte Variante wählen
 </div>
-
 
 <div class="variant">
 
@@ -1207,13 +1189,11 @@ VARIANTE A
 BMW Welt &amp; BMW Museum
 </h3>
 
-
 <img
 class="variant-photo"
 src="https://www.sjs-carstyling.com/blog/wp-content/uploads/2025/10/BMW-Museum-Welt-Muenchen-3.jpg"
 alt="BMW Welt München"
 >
-
 
 <p>
 Individuelle Fahrt zur BMW Welt.
@@ -1225,14 +1205,12 @@ Individuelle Fahrt zur BMW Welt.
 </strong>
 </p>
 
-
 <a
 class="btn"
 target="_blank"
 href="${route('BMW Welt, Am Olympiapark 1, 80809 München','Holiday Inn München City Centre','transit')}">
 📍 Route zur BMW Welt
 </a>
-
 
 <a
 class="btn"
@@ -1242,7 +1220,6 @@ href="${route('BMW Welt, Am Olympiapark 1, 80809 München','Holiday Inn München
 </a>
 
 </div>
-
 
 <div class="variant">
 
@@ -1254,18 +1231,15 @@ VARIANTE B
 Allianz Arena
 </h3>
 
-
 <img
 class="variant-photo"
 src="https://img.fotocommunity.com/allianz-arena-muenchen-d2c1dd64-3c4d-4f72-8cfd-afa402936256.jpg?height=1080"
 alt="Allianz Arena München"
 >
 
-
 <p>
 Abfahrt 12:45 Uhr · Mittagessen · 14:00 Uhr Besichtigung.
 </p>
-
 
 <a
 class="btn"
@@ -1273,7 +1247,6 @@ target="_blank"
 href="${route('Allianz Arena, Franz-Beckenbauer-Platz 5, 80939 München','Holiday Inn München City Centre','transit')}">
 📍 Route zur Allianz Arena
 </a>
-
 
 <a
 class="btn"
@@ -1284,7 +1257,6 @@ href="${route('Allianz Arena, Franz-Beckenbauer-Platz 5, 80939 München','Holida
 
 </div>
 
-
 <div
 style="
 margin-top:16px;
@@ -1294,7 +1266,6 @@ font-weight:900;
 ">
 Nach den Besichtigungen Zeit zur freien Verfügung
 </div>
-
 
 <div class="event">
 
@@ -1307,7 +1278,6 @@ Treffpunkt im Hotelfoyer
 </strong>
 
 </div>
-
 
 <div class="event">
 
@@ -1323,13 +1293,11 @@ GOP Varieté – Schlemmeressen
 Gemeinsames Schlemmeressen im GOP Varieté-Theater.
 </p>
 
-
 <img
 class="landscape-photo"
 src="https://iam-blog-de.gumlet.io/blog/wp-content/uploads/2020/08/GOP-Variete-Theater-Muenchen_Bild-04.jpg"
 alt="GOP Varieté-Theater München"
 >
-
 
 <a
 class="btn"
@@ -1339,7 +1307,6 @@ href="${route('GOP Varieté-Theater München','Holiday Inn München City Centre'
 </a>
 
 </div>
-
 
 <div class="event">
 
@@ -1352,7 +1319,6 @@ Show-Beginn
 </strong>
 
 </div>
-
 
 <div class="event">
 
@@ -1368,14 +1334,12 @@ Hotelbar / Nachtleben
 Vorschläge findet Ihr unter „Mehr → Nachtleben“.
 </p>
 
-
 <a
 class="btn"
 target="_blank"
 href="${route('GOP Varieté-Theater München','Holiday Inn München City Centre','transit')}">
 📍 Route zum Hotel
 </a>
-
 
 <button
 class="btn"
@@ -1385,7 +1349,6 @@ onclick="nav('mehr')">
 
 </div>
 
-
 </div>
 
 </div>
@@ -1393,7 +1356,6 @@ onclick="nav('mehr')">
 `;
 
 }
-
 
 else{
 
@@ -1409,9 +1371,7 @@ SAMSTAG · 17. OKTOBER
 München entdecken &amp; Heimreise
 </h2>
 
-
 <div class="timeline">
-
 
 <div class="event">
 
@@ -1425,7 +1385,6 @@ Frühstück
 
 </div>
 
-
 <div class="event">
 
 <time>
@@ -1437,7 +1396,6 @@ Check-out
 </strong>
 
 </div>
-
 
 <div class="event">
 
@@ -1455,7 +1413,6 @@ Zu Fuß Richtung Marienplatz.
 
 </div>
 
-
 <div class="event">
 
 <time>
@@ -1466,13 +1423,11 @@ Zu Fuß Richtung Marienplatz.
 Stadtführung Marienplatz / Viktualienmarkt
 </strong>
 
-
 <img
 class="program-photo"
 src="https://commons.wikimedia.org/wiki/Special:FilePath/Munich_-_Marienplatz.jpg"
 alt="Marienplatz München"
 >
-
 
 <a
 class="btn"
@@ -1482,7 +1437,6 @@ href="${maps('Marienplatz München')}">
 </a>
 
 </div>
-
 
 <div class="event">
 
@@ -1494,13 +1448,11 @@ href="${maps('Marienplatz München')}">
 Mittagessen im Hofbräuhaus
 </strong>
 
-
 <img
 class="program-photo"
 src="https://commons.wikimedia.org/wiki/Special:FilePath/Hofbr%C3%A4uhaus_M%C3%BCnchen.jpg"
 alt="Hofbräuhaus München"
 >
-
 
 <a
 class="btn"
@@ -1508,7 +1460,6 @@ target="_blank"
 href="${maps('Hofbräuhaus München, Platzl 9, 80331 München')}">
 📍 Route zum Hofbräuhaus
 </a>
-
 
 <a
 class="btn"
@@ -1518,7 +1469,6 @@ href="${route('Hofbräuhaus München, Platzl 9, 80331 München','Holiday Inn Mü
 </a>
 
 </div>
-
 
 <div class="event">
 
@@ -1532,7 +1482,6 @@ Gepäck am Hotel abholen
 
 </div>
 
-
 <div class="event">
 
 <time>
@@ -1545,7 +1494,6 @@ Abfahrt Heimreise nach Uttenweiler
 
 </div>
 
-
 </div>
 
 </div>
@@ -1553,7 +1501,6 @@ Abfahrt Heimreise nach Uttenweiler
 `;
 
 }
-
 
 return `
 
@@ -1566,7 +1513,6 @@ Programm
 <p class="sub">
 Alle wichtigen Programmpunkte auf einen Blick.
 </p>
-
 
 <div class="tabs">
 
@@ -1593,7 +1539,6 @@ SA<br>
 
 </div>
 
-
 ${dayContent}
 
 </section>
@@ -1619,7 +1564,6 @@ Karte
 Die wichtigsten Ziele auf einen Blick.
 </p>
 
-
 <div class="map-card">
 
 <iframe
@@ -1641,7 +1585,6 @@ loading="lazy">
 
 </div>
 
-
 <div class="route">
 
 <strong>
@@ -1661,7 +1604,6 @@ Route öffnen
 
 </div>
 
-
 <div class="route">
 
 <strong>
@@ -1674,7 +1616,6 @@ S-Bahn bis Marienplatz, anschließend U3 Richtung Moosach bis Olympiazentrum.
 
 </div>
 
-
 <div class="route">
 
 <strong>
@@ -1686,7 +1627,6 @@ S-Bahn bis Marienplatz, anschließend U6 Richtung Garching-Forschungszentrum bis
 </span>
 
 </div>
-
 
 <div class="route">
 
@@ -1723,7 +1663,6 @@ return `
 Ab Hotel zu den wichtigsten Zielen.
 </p>
 
-
 <div class="info-box">
 
 <h3>
@@ -1736,7 +1675,6 @@ S-Bahn ab Rosenheimer Platz Richtung Innenstadt,
 </p>
 
 </div>
-
 
 <div class="info-box">
 
@@ -1751,7 +1689,6 @@ bis Olympiazentrum.
 
 </div>
 
-
 <div class="info-box">
 
 <h3>
@@ -1764,7 +1701,6 @@ bis Olympiazentrum. Von dort kurzer Fußweg zur BMW Welt.
 </p>
 
 </div>
-
 
 <div class="info-box">
 
@@ -1779,7 +1715,6 @@ Danach kurzer Fußweg zur Arena.
 </p>
 
 </div>
-
 
 <div class="info-box">
 
@@ -1844,7 +1779,6 @@ Nachtleben München
 Hier findet ihr ausschließlich Vorschläge. Die Angaben dienen als Orientierung – Öffnungszeiten bitte vor dem Besuch aktuell prüfen.
 </p>
 
-
 <div class="night">
 
 <img
@@ -1887,7 +1821,6 @@ href="${route('Jodlerwirt, Ledererstraße 24, München','Holiday Inn München Ci
 </div>
 
 </div>
-
 
 <div class="night">
 
@@ -1932,7 +1865,6 @@ href="${route('Boazn, Karl-Müller-Weg 2, München','Holiday Inn München City C
 
 </div>
 
-
 <div class="night">
 
 <img
@@ -1976,7 +1908,6 @@ href="${route('Valentin Stüberl, Marienplatz 8, München','Holiday Inn München
 
 </div>
 
-
 <div class="night">
 
 <img
@@ -2019,7 +1950,6 @@ href="${route('Schwabinger 7, Feilitzschstraße 15, München','Holiday Inn Münc
 </div>
 
 </div>
-
 
 <div class="night">
 
@@ -2086,7 +2016,6 @@ Wetter &amp; Countdown
 München · Wettervorhersage · Countdown
 </p>
 
-
 <div class="info-box">
 
 <h3>
@@ -2105,7 +2034,6 @@ href="https://www.google.com/search?q=Wetter+München">
 </a>
 
 </div>
-
 
 <div class="info-box">
 
@@ -2148,7 +2076,6 @@ Taxi &amp; Uber
 Schnell unterwegs in München.
 </p>
 
-
 <div class="info-box">
 
 <h3>
@@ -2167,7 +2094,6 @@ Taxi anrufen
 </a>
 
 </div>
-
 
 <div class="info-box">
 
@@ -2207,9 +2133,7 @@ return `
 Nachtleben &amp; Mehr
 </h1>
 
-
 <div class="grid2">
-
 
 <div
 class="info-box clickable"
@@ -2225,7 +2149,6 @@ Hotel, Veranstaltungsorte und wichtige Adressen
 
 </div>
 
-
 <div
 class="info-box clickable"
 onclick="nav('nachtleben')">
@@ -2239,7 +2162,6 @@ Tipps &amp; Bars für Donnerstag &amp; Freitag
 </p>
 
 </div>
-
 
 <div
 class="info-box clickable"
@@ -2255,7 +2177,6 @@ München · Wettervorhersage · Countdown
 
 </div>
 
-
 <div
 class="info-box clickable"
 onclick="nav('info')">
@@ -2269,7 +2190,6 @@ Schnellzugriff auf die wichtigsten Verbindungen und Ziele
 </p>
 
 </div>
-
 
 <div
 class="info-box clickable"
@@ -2285,9 +2205,7 @@ Taxi rufen oder Uber öffnen
 
 </div>
 
-
 </div>
-
 
 <div class="info-box">
 
@@ -2346,7 +2264,6 @@ else{
 body=mehr();
 }
 
-
 app.innerHTML=`
 
 <header class="top">
@@ -2360,13 +2277,11 @@ aria-label="Menü">
 
 </header>
 
-
 <main class="content">
 ${body}
 </main>
 
 `;
-
 
 document
 .querySelectorAll('.nav-btn')
@@ -2388,7 +2303,6 @@ b.dataset.page==='mehr'
 );
 
 });
-
 
 updateCountdown();
 
@@ -2453,7 +2367,6 @@ b.addEventListener(
 
 });
 
-
 window.addEventListener(
 'hashchange',
 ()=>{
@@ -2471,7 +2384,6 @@ render();
 
 });
 
-
 if(location.hash){
 
 page=
@@ -2481,9 +2393,7 @@ location.hash.replace('#','')
 
 }
 
-
 render();
-
 
 setInterval(
 updateCountdown,
