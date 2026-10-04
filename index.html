@@ -159,8 +159,6 @@ margin-left:4px;
 vertical-align:middle
 }
 
-/* GOLDENER 80-JAHRE-KREIS */
-
 .seal{
 width:126px;
 height:126px;
@@ -464,21 +462,26 @@ color:var(--muted);
 line-height:1.45
 }
 
-/* EINHEITLICHE BUTTON-GRÖSSE */
+/* EINHEITLICHE AKTIONSBUTTONS */
 
 .btn{
 display:inline-flex;
 align-items:center;
 justify-content:center;
+width:210px;
 min-width:210px;
+height:42px;
 margin-top:12px;
 padding:10px 13px;
 border-radius:11px;
 background:var(--orange);
 color:#fff;
 text-decoration:none;
+font-size:14px;
 font-weight:800;
-text-align:center
+text-align:center;
+vertical-align:middle;
+line-height:1.2
 }
 
 .map-card{
@@ -747,6 +750,13 @@ max-width:none;
 height:190px !important;
 margin-left:-35px;
 margin-right:-35px
+}
+
+.btn{
+width:210px;
+min-width:210px;
+height:42px;
+font-size:14px
 }
 
 }
@@ -1283,6 +1293,13 @@ Nach den Besichtigungen Zeit zur freien Verfügung
 Treffpunkt im Hotelfoyer
 </strong>
 
+<a
+class="btn"
+target="_blank"
+href="${route('GOP Varieté-Theater München','Holiday Inn München City Centre','transit')}">
+📍 Route zum GOP
+</a>
+
 </div>
 
 <div class="event">
@@ -1304,13 +1321,6 @@ class="landscape-photo"
 src="https://iam-blog-de.gumlet.io/blog/wp-content/uploads/2020/08/GOP-Variete-Theater-Muenchen_Bild-04.jpg"
 alt="GOP Varieté-Theater München"
 >
-
-<a
-class="btn"
-target="_blank"
-href="${route('GOP Varieté-Theater München','Holiday Inn München City Centre','transit')}">
-📍 Route zum GOP
-</a>
 
 </div>
 
