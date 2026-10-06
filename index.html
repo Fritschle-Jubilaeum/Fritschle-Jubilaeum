@@ -1324,11 +1324,17 @@ background:#0b1726;
 
 border-left:1px solid var(--line);
 
-padding:22px;
+padding:18px;
 
-transition:.25s;
+display:flex;
 
-box-shadow:-20px 0 50px rgba(0,0,0,.4)
+flex-direction:column;
+
+gap:8px;
+
+transition:right .25s ease;
+
+box-shadow:-20px 0 50px rgba(0,0,0,.35)
 
 }
 
@@ -1344,23 +1350,17 @@ right:0
 
 .drawer button{
 
-display:block;
-
-width:100%;
-
-text-align:left;
-
 border:1px solid var(--line);
 
 background:#102337;
 
 color:#fff;
 
-padding:14px;
+padding:13px 14px;
 
 border-radius:12px;
 
-margin:8px 0;
+text-align:left;
 
 cursor:pointer
 
@@ -1370,49 +1370,13 @@ cursor:pointer
 
 .drawer .close{
 
-background:var(--orange);
+background:transparent;
 
-border-color:var(--orange)
+border-color:transparent;
 
-}
+color:var(--muted);
 
-
-
-.muted{
-
-color:var(--muted)
-
-}
-
-
-
-.grid2{
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:12px
-
-}
-
-
-
-.pill{
-
-display:inline-block;
-
-border-radius:999px;
-
-padding:6px 10px;
-
-background:#173048;
-
-color:#dfe8ef;
-
-font-size:12px;
-
-margin:3px
+margin-bottom:5px
 
 }
 
@@ -1582,8 +1546,6 @@ font-size:14px
 
 }
 
-
-
 </style>
 
 </head>
@@ -1742,29 +1704,15 @@ onclick="closeDrawer()">
 
 <script>
 
+let page=
 
-
-let page='home';
-
-
-
-const app=document.getElementById('app');
+location.hash.replace('#','') || 'home';
 
 
 
-function openDrawer(){
+const app=
 
-document.getElementById('drawer').classList.add('open');
-
-}
-
-
-
-function closeDrawer(){
-
-document.getElementById('drawer').classList.remove('open');
-
-}
+document.getElementById('app');
 
 
 
@@ -1776,7 +1724,37 @@ location.hash=p;
 
 render();
 
-window.scrollTo({top:0,behavior:'smooth'});
+window.scrollTo({
+
+top:0,
+
+behavior:'smooth'
+
+});
+
+}
+
+
+
+function openDrawer(){
+
+document
+
+.getElementById('drawer')
+
+.classList.add('open');
+
+}
+
+
+
+function closeDrawer(){
+
+document
+
+.getElementById('drawer')
+
+.classList.remove('open');
 
 }
 
@@ -1784,21 +1762,15 @@ window.scrollTo({top:0,behavior:'smooth'});
 
 function maps(destination){
 
-
-
 return 'https://www.google.com/maps/dir/?api=1&destination='+
 
 encodeURIComponent(destination);
-
-
 
 }
 
 
 
 function route(from,to,mode='walking'){
-
-
 
 return 'https://www.google.com/maps/dir/?api=1&origin='+
 
@@ -1812,11 +1784,7 @@ encodeURIComponent(to)+
 
 encodeURIComponent(mode);
 
-
-
 }
-
-
 
 
 
@@ -1832,11 +1800,7 @@ return `
 
 
 
-<section class="page">
-
-
-
-<div class="hero">
+<section class="page hero">
 
 
 
@@ -1846,7 +1810,7 @@ return `
 
 <strong>
 
-FRITSCHLE
+FRITSCHLE<i></i>
 
 </strong>
 
@@ -1854,7 +1818,7 @@ FRITSCHLE
 
 <span>
 
-baut<i></i>
+baut
 
 </span>
 
@@ -1934,9 +1898,7 @@ Liebe Kolleginnen und Kollegen,
 
 <p>
 
-zum 80-jährigen Firmenjubiläum verbringen wir gemeinsam drei schöne Tage in München.
-
-Freut Euch auf interessante Programmpunkte, gesellige Abende und viele gemeinsame Erlebnisse.
+zum 80-jährigen Firmenjubiläum verbringen wir gemeinsam drei schöne Tage in München. Freut Euch auf interessante Programmpunkte, gesellige Abende und viele gemeinsame Erlebnisse.
 
 </p>
 
@@ -1962,21 +1924,17 @@ src="https://images.unsplash.com/photo-1595867818082-083862f3d630?auto=format&fi
 
 alt="München bei Nacht"
 
-> 
+>
 
 
 
-</div>
+</section>
 
 
 
-<div class="footer">
-
-
+<footer class="footer">
 
 Fritschle · Jubiläumsausflug München 2026
-
-
 
 <span class="credit">
 
@@ -1984,13 +1942,7 @@ powered by kerstin &amp; susanne
 
 </span>
 
-
-
-</div>
-
-
-
-</section>
+</footer>
 
 
 
@@ -2008,37 +1960,71 @@ powered by kerstin &amp; susanne
 
 
 
-let activeDay='do';
-
-
-
-function setDay(day){
-
-
-
-activeDay=day;
-
-render();
-
-
-
-}
-
-
-
 function programm(){
 
 
 
-let dayContent='';
+return `
 
 
 
-if(activeDay==='do'){
+<section class="page">
 
 
 
-dayContent=`
+<h1 class="section-title">
+
+Programm
+
+</h1>
+
+
+
+<div class="tabs">
+
+
+
+<button class="tab active" onclick="showDay(0)">
+
+Donnerstag
+
+<br>
+
+<small>15.10.</small>
+
+</button>
+
+
+
+<button class="tab" onclick="showDay(1)">
+
+Freitag
+
+<br>
+
+<small>16.10.</small>
+
+</button>
+
+
+
+<button class="tab" onclick="showDay(2)">
+
+Samstag
+
+<br>
+
+<small>17.10.</small>
+
+</button>
+
+
+
+</div>
+
+
+
+<div id="day0">
 
 
 
@@ -2078,15 +2064,57 @@ Anreise &amp; gemeinsamer Abend
 
 
 
+<div>
+
+
+
 <strong>
 
-Abfahrt Uttenweiler
+Abfahrt in Uttenweiler
 
 </strong>
 
 
 
+<p>
+
+Pünktlich abfahrbereit im Firmenhof.
+
+</p>
+
+
+
+<a
+
+class="btn"
+
+target="_blank"
+
+href="${maps('Fritschle GmbH, Dieterskircher Str. 25, 88524 Uttenweiler')}">
+
+📍 Firmenhof
+
+</a>
+
+
+
 </div>
+
+
+
+</div>
+
+
+
+<img
+
+class="program-photo"
+
+src="https://images.unsplash.com/photo-1563475673016-0f7a5c5d3d4f?auto=format&fit=crop&w=1200&q=85"
+
+alt="München bei Nacht"
+
+>
 
 
 
@@ -2102,9 +2130,13 @@ Abfahrt Uttenweiler
 
 
 
+<div>
+
+
+
 <strong>
 
-Ankunft München
+Hotel &amp; Check-in
 
 </strong>
 
@@ -2112,9 +2144,27 @@ Ankunft München
 
 <p>
 
-Fahrt zum Holiday Inn München City Centre und Check-in.
+Holiday Inn München City Centre
 
 </p>
+
+
+
+<a
+
+class="btn"
+
+target="_blank"
+
+href="${maps('Holiday Inn München City Centre, Rosenheimer Str. 15, 81667 München')}">
+
+📍 Hotel
+
+</a>
+
+
+
+</div>
 
 
 
@@ -2134,9 +2184,13 @@ Fahrt zum Holiday Inn München City Centre und Check-in.
 
 
 
+<div>
+
+
+
 <strong>
 
-Treffpunkt im Hotelfoyer
+Treffpunkt Hotelfoyer
 
 </strong>
 
@@ -2154,15 +2208,21 @@ Gemeinsamer Treffpunkt vor dem Abendprogramm.
 
 
 
+</div>
+
+
+
 <div class="event">
 
 
 
 <time>
 
-19:00
+19:00</time>
 
-</time>
+
+
+<div>
 
 
 
@@ -2176,65 +2236,27 @@ Donisl
 
 <p>
 
-Weinstraße 1 · gemeinsamer Abend bis ca. 22:00 Uhr.
+Weinstraße 1, 80333 München · gemeinsamer Abend bis ca. 22:00 Uhr.
 
 </p>
 
 
 
-<img
-
-class="program-photo"
-
-src="https://www.mux.de/images/1600x800c/object/00/1528703400/teaser-1.jpg"
-
-alt="Donisl München"
-
-> 
-
-
-
-<div class="button-row thursday-buttons">
-
-
-
 <a
 
 class="btn"
 
 target="_blank"
 
-href="${route('Holiday Inn München City Centre','Donisl, Weinstraße 1, 80333 München')}">
+href="${maps('Donisl, Weinstraße 1, 80333 München')}">
 
-📍 Route zum Donisl
-
-</a>
-
-
-
-<a
-
-class="btn"
-
-target="_blank"
-
-href="${route('Donisl, Weinstraße 1, 80333 München','Holiday Inn München City Centre')}">
-
-📍 Route zurück zum Hotel
+📍 Donisl
 
 </a>
 
 
 
-<button
-
-class="btn"
-
-onclick="nav('mehr')">
-
-☰ Nachtleben &amp; Mehr
-
-</button>
+</div>
 
 
 
@@ -2254,19 +2276,7 @@ onclick="nav('mehr')">
 
 
 
-`;
-
-
-
-}
-
-
-
-else if(activeDay==='fr'){
-
-
-
-dayContent=`
+<div id="day1" style="display:none">
 
 
 
@@ -2300,9 +2310,13 @@ Sportcampus, BMW Welt / Allianz Arena &amp; GOP
 
 <time>
 
-ab 7:00
+07:00
 
 </time>
+
+
+
+<div>
 
 
 
@@ -2311,6 +2325,18 @@ ab 7:00
 Frühstück
 
 </strong>
+
+
+
+<p>
+
+Frühstück im Hotel.
+
+</p>
+
+
+
+</div>
 
 
 
@@ -2330,9 +2356,13 @@ Frühstück
 
 
 
+<div>
+
+
+
 <strong>
 
-Treffpunkt im Hotelfoyer
+Verbindlicher Treffpunkt im Hotelfoyer
 
 </strong>
 
@@ -2340,9 +2370,17 @@ Treffpunkt im Hotelfoyer
 
 <p>
 
-Gemeinsamer Treffpunkt vor der Fahrt zum TUM Sportcampus.
+Gemeinsamer Treffpunkt vor dem Tagesprogramm.
 
 </p>
+
+
+
+</div>
+
+
+
+</div>
 
 
 
@@ -2350,29 +2388,11 @@ Gemeinsamer Treffpunkt vor der Fahrt zum TUM Sportcampus.
 
 class="program-photo"
 
-src="https://www.ingenieurholzbau.de/fileadmin/user_upload/Projekt_Kategorien/Oeffentliche_Bauten/Erziehung_Bildung_Forschung/Sportcampus_TU_Muenchen/Neubau_TU_Muenchen_Sportcampus_Ingenieurholzbau_CiO_TUM-Bild_01_Dietrich_Untertrifaller_web.jpg"
+src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=85"
 
-alt="TUM Sportcampus München"
+alt="TUM Sportcampus"
 
-> 
-
-
-
-<a
-
-class="btn"
-
-target="_blank"
-
-href="${route('Holiday Inn München City Centre','TUM Sportcampus München','transit')}">
-
-📍 Route zum TUM Sportcampus
-
-</a>
-
-
-
-</div>
+>
 
 
 
@@ -2388,11 +2408,41 @@ href="${route('Holiday Inn München City Centre','TUM Sportcampus München','tra
 
 
 
+<div>
+
+
+
 <strong>
 
 Besichtigung TUM Sportcampus
 
 </strong>
+
+
+
+<p>
+
+TUM Campus im Olympiapark, Am Olympiacampus 11, 80809 München.
+
+</p>
+
+
+
+<a
+
+class="btn"
+
+target="_blank"
+
+href="${maps('TUM Campus im Olympiapark, Am Olympiacampus 11, 80809 München')}">
+
+📍 TUM Sportcampus
+
+</a>
+
+
+
+</div>
 
 
 
@@ -2402,13 +2452,25 @@ Besichtigung TUM Sportcampus
 
 <div class="info-frame">
 
-Anschließend gebuchte Variante wählen
+Anschließend gebuchte Variante wählen.
 
 </div>
 
 
 
 <div class="variant">
+
+
+
+<img
+
+class="variant-photo"
+
+src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1200&q=85"
+
+alt="BMW Welt München"
+
+>
 
 
 
@@ -2428,53 +2490,19 @@ BMW Welt &amp; BMW Museum
 
 
 
-<img
-
-class="variant-photo"
-
-src="https://www.sjs-carstyling.com/blog/wp-content/uploads/2025/10/BMW-Museum-Welt-Muenchen-3.jpg"
-
-alt="BMW Welt München"
-
-> 
-
-
-
-<p style="margin-top:8px">
-
-<strong>
+<p>
 
 12:00 Uhr Mittagspause
 
-</strong>
-
 </p>
 
 
 
-<p style="margin-top:8px">
-
-<strong>
+<p>
 
 14:00 Uhr Besichtigung
 
-</strong>
-
 </p>
-
-
-
-<a
-
-class="btn"
-
-target="_blank"
-
-href="${route('TUM Campus im Olympiapark, Am Olympiacampus 11, 80809 München','BMW Welt, Am Olympiapark 1, 80809 München','transit')}">
-
-📍 Route zur BMW Welt
-
-</a>
 
 
 
@@ -2488,9 +2516,37 @@ class="btn"
 
 target="_blank"
 
+href="${route('TUM Campus im Olympiapark, Am Olympiacampus 11, 80809 München','BMW Welt, Am Olympiapark 1, 80809 München','transit')}">
+
+📍 ÖPNV TUM → BMW Welt
+
+</a>
+
+
+
+<a
+
+class="btn"
+
+target="_blank"
+
+href="${maps('BMW Welt, Am Olympiapark 1, 80809 München')}">
+
+📍 BMW Welt
+
+</a>
+
+
+
+<a
+
+class="btn"
+
+target="_blank"
+
 href="${route('BMW Welt, Am Olympiapark 1, 80809 München','Holiday Inn München City Centre','transit')}">
 
-📍 Route zurück zum Hotel
+📍 Zurück zum Hotel
 
 </a>
 
@@ -2508,6 +2564,18 @@ href="${route('BMW Welt, Am Olympiapark 1, 80809 München','Holiday Inn München
 
 
 
+<img
+
+class="variant-photo"
+
+src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1200&q=85"
+
+alt="Allianz Arena"
+
+>
+
+
+
 <span class="label">
 
 VARIANTE B
@@ -2521,18 +2589,6 @@ VARIANTE B
 Allianz Arena
 
 </h3>
-
-
-
-<img
-
-class="variant-photo"
-
-src="https://img.fotocommunity.com/allianz-arena-muenchen-d2c1dd64-3c4d-4f72-8cfd-afa402936256.jpg?height=1080"
-
-alt="Allianz Arena München"
-
-> 
 
 
 
@@ -2560,6 +2616,10 @@ Mittagessen in der Allianz Arena
 
 
 
+<div class="button-row">
+
+
+
 <a
 
 class="btn"
@@ -2568,13 +2628,23 @@ target="_blank"
 
 href="${route('TUM Campus im Olympiapark, Am Olympiacampus 11, 80809 München','Allianz Arena, Franz-Beckenbauer-Platz 5, 80939 München','transit')}">
 
-📍 Route zur Allianz Arena
+📍 ÖPNV TUM → Allianz Arena
 
 </a>
 
 
 
-<div class="button-row">
+<a
+
+class="btn"
+
+target="_blank"
+
+href="${maps('Allianz Arena, Franz-Beckenbauer-Platz 5, 80939 München')}">
+
+📍 Allianz Arena
+
+</a>
 
 
 
@@ -2586,7 +2656,7 @@ target="_blank"
 
 href="${route('Allianz Arena, Franz-Beckenbauer-Platz 5, 80939 München','Holiday Inn München City Centre','transit')}">
 
-📍 Route zurück zum Hotel
+📍 Zurück zum Hotel
 
 </a>
 
@@ -2602,7 +2672,7 @@ href="${route('Allianz Arena, Franz-Beckenbauer-Platz 5, 80939 München','Holida
 
 <div class="info-frame">
 
-Nach den Besichtigungen Zeit zur freien Verfügung
+Nach den Besichtigungen Zeit zur freien Verfügung.
 
 </div>
 
@@ -2620,25 +2690,27 @@ Nach den Besichtigungen Zeit zur freien Verfügung
 
 
 
+<div>
+
+
+
 <strong>
 
-Treffpunkt im Hotelfoyer
+Treffpunkt Hotelfoyer
 
 </strong>
 
 
 
-<a
+<p>
 
-class="btn"
+Gemeinsamer Treffpunkt für den Abend.
 
-target="_blank"
+</p>
 
-href="${route('Holiday Inn München City Centre','GOP Varieté-Theater München','transit')}">
 
-📍 Route zum GOP
 
-</a>
+</div>
 
 
 
@@ -2658,9 +2730,13 @@ href="${route('Holiday Inn München City Centre','GOP Varieté-Theater München'
 
 
 
+<div>
+
+
+
 <strong>
 
-GOP Varieté – Schlemmeressen
+GOP Varieté-Theater
 
 </strong>
 
@@ -2668,7 +2744,7 @@ GOP Varieté – Schlemmeressen
 
 <p>
 
-Gemeinsames Schlemmeressen im GOP Varieté-Theater.
+Schlemmeressen.
 
 </p>
 
@@ -2678,11 +2754,29 @@ Gemeinsames Schlemmeressen im GOP Varieté-Theater.
 
 class="landscape-photo"
 
-src="https://iam-blog-de.gumlet.io/blog/wp-content/uploads/2020/08/GOP-Variete-Theater-Muenchen_Bild-04.jpg"
+src="https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=1600&q=85"
 
-alt="GOP Varieté-Theater München"
+alt="GOP Varieté Theater"
 
-> 
+>
+
+
+
+<a
+
+class="btn"
+
+target="_blank"
+
+href="${maps('GOP Varieté-Theater München, Maximilianstraße 47, 80538 München')}">
+
+📍 GOP
+
+</a>
+
+
+
+</div>
 
 
 
@@ -2702,11 +2796,27 @@ alt="GOP Varieté-Theater München"
 
 
 
+<div>
+
+
+
 <strong>
 
 Show-Beginn
 
 </strong>
+
+
+
+<p>
+
+GOP Varieté-Theater.
+
+</p>
+
+
+
+</div>
 
 
 
@@ -2726,6 +2836,10 @@ ca. 23:15
 
 
 
+<div>
+
+
+
 <strong>
 
 Hotelbar / Nachtleben
@@ -2742,33 +2856,7 @@ Vorschläge findet Ihr unter „Mehr → Nachtleben“.
 
 
 
-<div class="button-row">
-
-
-
-<a
-
-class="btn"
-
-target="_blank"
-
-href="${route('GOP Varieté-Theater München','Holiday Inn München City Centre','transit')}">
-
-📍 Route zum Hotel
-
-</a>
-
-
-
-<button
-
-class="btn"
-
-onclick="nav('mehr')">
-
-☰ Nachtleben &amp; Mehr
-
-</button>
+</div>
 
 
 
@@ -2788,19 +2876,7 @@ onclick="nav('mehr')">
 
 
 
-`;
-
-
-
-}
-
-
-
-else{
-
-
-
-dayContent=`
+<div id="day2" style="display:none">
 
 
 
@@ -2818,7 +2894,7 @@ SAMSTAG · 17. OKTOBER
 
 <h2>
 
-München entdecken &amp; Heimreise
+Marienplatz, Stadtführung &amp; Hofbräuhaus
 
 </h2>
 
@@ -2834,17 +2910,29 @@ München entdecken &amp; Heimreise
 
 <time>
 
-ab 7:00
+ab 07:00
 
 </time>
 
 
 
+<div>
+
+
+
 <strong>
 
-Frühstück
+Frühstück &amp; Check-out
 
 </strong>
+
+
+
+<p>
+
+Frühstück im Hotel und anschließend Check-out.
+
+</p>
 
 
 
@@ -2852,27 +2940,19 @@ Frühstück
 
 
 
-<div class="event">
-
-
-
-<time>
-
-danach
-
-</time>
-
-
-
-<strong>
-
-Check-out
-
-</strong>
-
-
-
 </div>
+
+
+
+<img
+
+class="program-photo"
+
+src="https://images.unsplash.com/photo-1531497865144-0464f7cfd4e5?auto=format&fit=crop&w=1200&q=85"
+
+alt="Marienplatz München"
+
+>
 
 
 
@@ -2888,9 +2968,13 @@ Check-out
 
 
 
+<div>
+
+
+
 <strong>
 
-Richtung Innenstadt
+Marienplatz
 
 </strong>
 
@@ -2898,9 +2982,27 @@ Richtung Innenstadt
 
 <p>
 
-Zu Fuß Richtung Marienplatz.
+Treffpunkt am Marienplatz.
 
 </p>
+
+
+
+<a
+
+class="btn"
+
+target="_blank"
+
+href="${maps('Marienplatz München')}">
+
+📍 Marienplatz
+
+</a>
+
+
+
+</div>
 
 
 
@@ -2920,11 +3022,31 @@ Zu Fuß Richtung Marienplatz.
 
 
 
+<div>
+
+
+
 <strong>
 
-Stadtführung Marienplatz / Viktualienmarkt
+Stadtführung
 
 </strong>
+
+
+
+<p>
+
+Marienplatz &amp; Viktualienmarkt.
+
+</p>
+
+
+
+</div>
+
+
+
+</div>
 
 
 
@@ -2932,29 +3054,11 @@ Stadtführung Marienplatz / Viktualienmarkt
 
 class="program-photo"
 
-src="https://commons.wikimedia.org/wiki/Special:FilePath/Munich_-_Marienplatz.jpg"
+src="https://images.unsplash.com/photo-1506377585622-bedcbb027afc?auto=format&fit=crop&w=1200&q=85"
 
-alt="Marienplatz München"
+alt="Hofbräuhaus München"
 
-> 
-
-
-
-<a
-
-class="btn"
-
-target="_blank"
-
-href="${maps('Marienplatz München')}">
-
-📍 Route zum Marienplatz
-
-</a>
-
-
-
-</div>
+>
 
 
 
@@ -2970,27 +3074,23 @@ href="${maps('Marienplatz München')}">
 
 
 
+<div>
+
+
+
 <strong>
 
-Mittagessen im Hofbräuhaus
+Hofbräuhaus
 
 </strong>
 
 
 
-<img
+<p>
 
-class="program-photo"
+Gemeinsames Mittagessen im Hofbräuhaus.
 
-src="https://commons.wikimedia.org/wiki/Special:FilePath/Hofbr%C3%A4uhaus_M%C3%BCnchen.jpg"
-
-alt="Hofbräuhaus München"
-
-> 
-
-
-
-<div class="button-row">
+</p>
 
 
 
@@ -3002,21 +3102,7 @@ target="_blank"
 
 href="${maps('Hofbräuhaus München, Platzl 9, 80331 München')}">
 
-📍 Route zum Hofbräuhaus
-
-</a>
-
-
-
-<a
-
-class="btn"
-
-target="_blank"
-
-href="${route('Hofbräuhaus München, Platzl 9, 80331 München','Holiday Inn München City Centre')}">
-
-📍 Route zurück zum Hotel
+📍 Hofbräuhaus
 
 </a>
 
@@ -3042,11 +3128,41 @@ href="${route('Hofbräuhaus München, Platzl 9, 80331 München','Holiday Inn Mü
 
 
 
+<div>
+
+
+
 <strong>
 
-Gepäck am Hotel abholen
+Gepäck holen
 
 </strong>
+
+
+
+<p>
+
+Zurück zum Hotel und Gepäck aufnehmen.
+
+</p>
+
+
+
+<a
+
+class="btn"
+
+target="_blank"
+
+href="${route('Hofbräuhaus München, Platzl 9, 80331 München','Holiday Inn München City Centre')}">
+
+📍 Route zum Hotel
+
+</a>
+
+
+
+</div>
 
 
 
@@ -3066,101 +3182,27 @@ Gepäck am Hotel abholen
 
 
 
+<div>
+
+
+
 <strong>
 
-Abfahrt Heimreise nach Uttenweiler
+Abfahrt nach Uttenweiler
 
 </strong>
 
 
 
-</div>
+<p>
 
-
-
-</div>
-
-
-
-</div>
-
-
-
-`;
-
-
-
-}
-
-
-
-return `
-
-
-
-<section class="page">
-
-
-
-<h1 class="section-title">
-
-Programm
-
-</h1>
-
-
-
-<p class="sub">
-
-Alle wichtigen Programmpunkte auf einen Blick.
+Gemeinsame Rückfahrt.
 
 </p>
 
 
 
-<div class="tabs">
-
-
-
-<button
-
-class="tab ${activeDay==='do'?'active':''}"
-
-onclick="setDay('do')">
-
-DO<br>
-
-<small>15.10.</small>
-
-</button>
-
-
-
-<button
-
-class="tab ${activeDay==='fr'?'active':''}"
-
-onclick="setDay('fr')">
-
-FR<br>
-
-<small>16.10.</small>
-
-</button>
-
-
-
-<button
-
-class="tab ${activeDay==='sa'?'active':''}"
-
-onclick="setDay('sa')">
-
-SA<br>
-
-<small>17.10.</small>
-
-</button>
+</div>
 
 
 
@@ -3168,7 +3210,15 @@ SA<br>
 
 
 
-${dayContent}
+</div>
+
+
+
+</div>
+
+
+
+</div>
 
 
 
@@ -3183,6 +3233,38 @@ ${dayContent}
 }
 
 
+
+
+
+function showDay(n){
+
+
+
+document
+
+.querySelectorAll('[id^="day"]')
+
+.forEach((el,i)=>{
+
+el.style.display=i===n?'block':'none';
+
+});
+
+
+
+document
+
+.querySelectorAll('.tab')
+
+.forEach((el,i)=>{
+
+el.classList.toggle('active',i===n);
+
+});
+
+
+
+}
 
 
 
@@ -3210,23 +3292,17 @@ Karte
 
 
 
-<p class="sub">
-
-Die wichtigsten Ziele auf einen Blick.
-
-</p>
-
-
-
 <div class="map-card">
 
 
 
 <iframe
 
-src="https://www.openstreetmap.org/export/embed.html?bbox=11.50%2C48.10%2C11.65%2C48.17&amp;layer=mapnik"
+src="https://www.google.com/maps/d/embed?mid=1"
 
-loading="lazy">
+loading="lazy"
+
+title="Karte München">
 
 </iframe>
 
@@ -3236,83 +3312,57 @@ loading="lazy">
 
 
 
-<span class="map-chip">Donisl</span>
+<span class="map-chip">
 
-<span class="map-chip">Holiday Inn</span>
-
-<span class="map-chip">GOP Varieté</span>
-
-<span class="map-chip">BMW Welt</span>
-
-<span class="map-chip">Allianz Arena</span>
-
-<span class="map-chip">Marienplatz</span>
-
-<span class="map-chip">Hofbräuhaus</span>
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-<div class="route">
-
-
-
-<strong>
-
-🏨 Hotel → GOP Varieté
-
-</strong>
-
-
-
-<span>
-
-Zu Fuß ca. 20–25 Minuten.
+Holiday Inn
 
 </span>
 
 
 
-<a
+<span class="map-chip">
 
-class="btn"
+Donisl
 
-target="_blank"
-
-href="${maps('GOP Varieté-Theater München')}">
-
-Route öffnen
-
-</a>
+</span>
 
 
 
-</div>
+<span class="map-chip">
+
+TUM
+
+</span>
 
 
 
-<div class="route">
+<span class="map-chip">
+
+BMW Welt
+
+</span>
 
 
 
-<strong>
+<span class="map-chip">
 
-🏨 Hotel → BMW Welt
+Allianz Arena
 
-</strong>
+</span>
 
 
 
-<span>
+<span class="map-chip">
 
-S-Bahn bis Marienplatz, anschließend U3 Richtung Moosach bis Olympiazentrum.
+GOP
+
+</span>
+
+
+
+<span class="map-chip">
+
+Hofbräuhaus
 
 </span>
 
@@ -3322,51 +3372,15 @@ S-Bahn bis Marienplatz, anschließend U3 Richtung Moosach bis Olympiazentrum.
 
 
 
-<div class="route">
-
-
-
-<strong>
-
-🏨 Hotel → Allianz Arena
-
-</strong>
-
-
-
-<span>
-
-S-Bahn bis Marienplatz, anschließend U6 Richtung Garching-Forschungszentrum bis Fröttmaning.
-
-</span>
-
-
-
 </div>
 
 
 
-<div class="route">
+<p class="sub">
 
+Für die genauen Wege bitte die Routenbuttons im Programm oder unter „Nachtleben &amp; Mehr“ verwenden.
 
-
-<strong>
-
-🏨 Hotel → Marienplatz
-
-</strong>
-
-
-
-<span>
-
-S-Bahn ab Rosenheimer Platz Richtung Innenstadt, ca. 5–7 Minuten.
-
-</span>
-
-
-
-</div>
+</p>
 
 
 
@@ -3390,234 +3404,57 @@ S-Bahn ab Rosenheimer Platz Richtung Innenstadt, ca. 5–7 Minuten.
 
 function info(){
 
-
-
 return `
-
-
 
 <section class="page">
 
-
-
 <h1 class="section-title">
-
-ÖPNV &amp; Infos
-
+ÖPNV &amp; Adressen
 </h1>
 
-
-
 <p class="sub">
-
-Ab Hotel zu den wichtigsten Zielen.
-
+Wichtige Ziele, Adressen und direkte ÖPNV-Routen.
 </p>
 
-
-
 <div class="info-box">
-
-
-
-<h3>
-
-🚉 Marienplatz
-
-</h3>
-
-
-
-<p>
-
-S-Bahn ab Rosenheimer Platz Richtung Innenstadt,
-
-2 Stationen, ca. 5–7 Minuten.
-
-</p>
-
-
-
+<h3>🚉 Marienplatz</h3>
+<p>S-Bahn ab Rosenheimer Platz Richtung Innenstadt, 2 Stationen, ca. 5–7 Minuten.</p>
+<a class="btn" target="_blank" href="${route('Holiday Inn München City Centre','Marienplatz München','transit')}">📍 ÖPNV-Route zum Marienplatz</a>
 </div>
 
-
-
 <div class="info-box">
-
-
-
-<h3>
-
-🚌 Olympiazentrum / TUM Sportcampus
-
-</h3>
-
-
-
-<p>
-
-S-Bahn bis Marienplatz, anschließend U3 Richtung Moosach
-
-bis Olympiazentrum.
-
-</p>
-
-
-
+<h3>🚌 TUM Campus im Olympiapark</h3>
+<p>TUM Campus im Olympiapark, Am Olympiacampus 11, 80809 München.</p>
+<a class="btn" target="_blank" href="${route('Holiday Inn München City Centre','TUM Campus im Olympiapark, Am Olympiacampus 11, 80809 München','transit')}">📍 ÖPNV-Route zum TUM Campus</a>
 </div>
 
-
-
 <div class="info-box">
-
-
-
-<h3>
-
-🚗 BMW Welt
-
-</h3>
-
-
-
-<p>
-
-S-Bahn bis Marienplatz, anschließend U3 Richtung Moosach
-
-bis Olympiazentrum. Von dort kurzer Fußweg zur BMW Welt.
-
-</p>
-
-
-
+<h3>🚗 BMW Welt</h3>
+<p>BMW Welt, Am Olympiapark 1, 80809 München.</p>
+<a class="btn" target="_blank" href="${route('TUM Campus im Olympiapark, Am Olympiacampus 11, 80809 München','BMW Welt, Am Olympiapark 1, 80809 München','transit')}">📍 ÖPNV-Route zur BMW Welt</a>
 </div>
 
-
-
 <div class="info-box">
-
-
-
-<h3>
-
-🏟 Allianz Arena
-
-</h3>
-
-
-
-<p>
-
-S-Bahn bis Marienplatz, anschließend U6 Richtung
-
-Garching-Forschungszentrum bis Fröttmaning.
-
-Danach kurzer Fußweg zur Arena.
-
-</p>
-
-
-
+<h3>🏟 Allianz Arena</h3>
+<p>Allianz Arena, Franz-Beckenbauer-Platz 5, 80939 München.</p>
+<a class="btn" target="_blank" href="${route('TUM Campus im Olympiapark, Am Olympiacampus 11, 80809 München','Allianz Arena, Franz-Beckenbauer-Platz 5, 80939 München','transit')}">📍 ÖPNV-Route zur Allianz Arena</a>
 </div>
 
-
-
 <div class="info-box">
-
-
-
-<h3>
-
-📍 Wichtige Adressen
-
-</h3>
-
-
-
-<ul>
-
-
-
-<li>
-
-<b>Holiday Inn München City Centre</b>
-
-</li>
-
-
-
-<li>
-
-<b>Donisl</b> · Weinstraße 1
-
-</li>
-
-
-
-<li>
-
-<b>GOP Varieté-Theater München</b>
-
-</li>
-
-
-
-<li>
-
-<b>BMW Welt</b> · Am Olympiapark 1
-
-</li>
-
-
-
-<li>
-
-<b>Allianz Arena</b> · Franz-Beckenbauer-Platz 5
-
-</li>
-
-
-
-<li>
-
-<b>Marienplatz</b> · 80331 München
-
-</li>
-
-
-
-<li>
-
-<b>Hofbräuhaus</b> · Platzl 9
-
-</li>
-
-
-
-</ul>
-
-
-
+<h3>📍 Weitere Programmpunkte</h3>
+<p>Donisl · Weinstraße 1, 80333 München<br>GOP Varieté-Theater München<br>Hofbräuhaus · Platzl 9, 80331 München</p>
+<div class="button-row">
+<a class="btn" target="_blank" href="${route('Holiday Inn München City Centre','Donisl, Weinstraße 1, 80333 München','transit')}">📍 ÖPNV-Route zum Donisl</a>
+<a class="btn" target="_blank" href="${route('Holiday Inn München City Centre','GOP Varieté-Theater München','transit')}">📍 ÖPNV-Route zum GOP</a>
+<a class="btn" target="_blank" href="${route('Hofbräuhaus München, Platzl 9, 80331 München','Holiday Inn München City Centre','transit')}">📍 ÖPNV-Route zurück zum Hotel</a>
 </div>
-
-
+</div>
 
 </section>
 
-
-
 `;
 
-
-
 }
-
-
-
-
-
-/* NACHTLEBEN */
-
 
 
 function nachtleben(){
@@ -4338,208 +4175,48 @@ Uber öffnen
 
 function mehr(){
 
-
-
 return `
-
-
 
 <section class="page">
 
-
-
 <h1 class="section-title">
-
 Nachtleben &amp; Mehr
-
 </h1>
-
-
 
 <div class="grid2">
 
-
-
-<div
-
-class="info-box clickable"
-
-onclick="nav('info')">
-
-
-
-<h3>
-
-🏨 Hotel &amp; weitere Adressen
-
-</h3>
-
-
-
-<p>
-
-Hotel, Veranstaltungsorte und wichtige Adressen
-
-</p>
-
-
-
+<div class="info-box clickable" onclick="nav('nachtleben')">
+<h3>♫ Nachtleben</h3>
+<p>Tipps &amp; Bars für Donnerstag &amp; Freitag</p>
 </div>
 
-
-
-<div
-
-class="info-box clickable"
-
-onclick="nav('nachtleben')">
-
-
-
-<h3>
-
-♫ Nachtleben
-
-</h3>
-
-
-
-<p>
-
-Tipps &amp; Bars für Donnerstag &amp; Freitag
-
-</p>
-
-
-
+<div class="info-box clickable" onclick="nav('taxi')">
+<h3>🚕 Taxi &amp; Uber</h3>
+<p>Taxi rufen oder Uber öffnen</p>
 </div>
 
-
-
-<div
-
-class="info-box clickable"
-
-onclick="nav('wetter')">
-
-
-
-<h3>
-
-☀ Wetter &amp; Countdown
-
-</h3>
-
-
-
-<p>
-
-München · Wettervorhersage · Countdown
-
-</p>
-
-
-
+<div class="info-box clickable" onclick="nav('info')">
+<h3>🚌 ÖPNV &amp; Adressen</h3>
+<p>Wichtige Ziele, Adressen und direkte ÖPNV-Routen</p>
 </div>
 
-
-
-<div
-
-class="info-box clickable"
-
-onclick="nav('info')">
-
-
-
-<h3>
-
-🚌 ÖPNV &amp; Adressen
-
-</h3>
-
-
-
-<p>
-
-Schnellzugriff auf die wichtigsten Verbindungen und Ziele
-
-</p>
-
-
-
+<div class="info-box clickable" onclick="nav('wetter')">
+<h3>☀ Wetter &amp; Countdown</h3>
+<p>München · Wettervorhersage · Countdown</p>
 </div>
 
-
-
-<div
-
-class="info-box clickable"
-
-onclick="nav('taxi')">
-
-
-
-<h3>
-
-🚕 Taxi &amp; Uber
-
-</h3>
-
-
-
-<p>
-
-Taxi rufen oder Uber öffnen
-
-</p>
-
-
-
+<div class="info-box clickable" onclick="nav('info')">
+<h3>🏨 Hotel &amp; weitere Adressen</h3>
+<p>Hotel, Veranstaltungsorte und wichtige Adressen</p>
 </div>
 
-
-
 </div>
-
-
-
-<div class="info-box">
-
-
-
-<h3>
-
-Impressum &amp; Datenschutz
-
-</h3>
-
-
-
-<p>
-
-Fritschle · Jubiläumsausflug München 2026
-
-</p>
-
-
-
-</div>
-
-
 
 </section>
 
-
-
 `;
 
-
-
 }
-
-
-
 
 
 /* RENDER */
@@ -4685,6 +4362,8 @@ page==='taxi')
 &&
 
 b.dataset.page==='mehr'
+
+
 
 )
 
