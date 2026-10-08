@@ -700,6 +700,41 @@ color:#dce8d0;
 line-height:1.45
 }
 
+.closing-glow{
+grid-column:1 / -1;
+width:100%;
+margin-top:24px;
+color:var(--orange);
+font-size:18px;
+font-weight:800;
+line-height:1.45;
+text-shadow:
+0 0 5px rgba(242,138,43,.55),
+0 0 12px rgba(242,138,43,.35),
+0 0 22px rgba(242,138,43,.18);
+animation:closingGlow 3.2s ease-in-out infinite;
+}
+
+.closing-glow-second{
+margin-top:8px;
+}
+
+@keyframes closingGlow{
+0%,100%{
+text-shadow:
+0 0 5px rgba(242,138,43,.45),
+0 0 12px rgba(242,138,43,.25),
+0 0 22px rgba(242,138,43,.12);
+}
+
+50%{
+text-shadow:
+0 0 7px rgba(242,138,43,.75),
+0 0 16px rgba(242,138,43,.50),
+0 0 30px rgba(242,138,43,.25);
+}
+}
+
 @media(max-width:520px){
 
 .grid2{
@@ -1344,27 +1379,11 @@ Gepäck holen und bereit machen für die Heimfahrt.
 Heimfahrt nach Uttenweiler
 </strong>
 
-<p style="
-margin-top:24px;
-color:var(--orange);
-font-size:24px;
-font-family:'Brush Script MT','Brush Script Std',cursive;
-font-style:italic;
-font-weight:normal;
-line-height:1.25;
-">
+<p class="closing-glow">
 Gemeinsam gefeiert, gemeinsam erlebt, gemeinsam München entdeckt – schön war’s!
 </p>
 
-<p style="
-margin-top:8px;
-color:var(--orange);
-font-size:24px;
-font-family:'Brush Script MT','Brush Script Std',cursive;
-font-style:italic;
-font-weight:normal;
-line-height:1.25;
-">
+<p class="closing-glow closing-glow-second">
 Danke, dass Ihr dabei wart – auf viele weitere gemeinsame Erlebnisse bei Fritschle!
 </p>
 
