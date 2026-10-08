@@ -547,8 +547,8 @@ line-height:1.45
 <button class="nav-btn" data-page="home"><span class="ico">⌂</span>Start</button>
 <button class="nav-btn" data-page="programm"><span class="ico">▦</span>Programm</button>
 <button class="nav-btn" data-page="karte"><span class="ico">⌖</span>Karte</button>
-<button class="nav-btn" data-page="info"><span class="ico">ⓘ</span>Info</button>
-<button class="nav-btn" data-page="mehr"><span class="ico">☰</span>Nachtleben &amp; Mehr</button>
+<button class="nav-btn" data-page="nachtleben"><span class="ico">♫</span>Nachtleben</button>
+<button class="nav-btn" data-page="mehr"><span class="ico">☰</span>Mehr</button>
 </nav>
 
 <div class="drawer" id="drawer">
@@ -560,7 +560,7 @@ line-height:1.45
 <button onclick="nav('nachtleben');closeDrawer()">♫ Nachtleben</button>
 <button onclick="nav('wetter');closeDrawer()">☀ Wetter &amp; Countdown</button>
 <button onclick="nav('taxi');closeDrawer()">🚕 Taxi &amp; Uber</button>
-<button onclick="nav('mehr');closeDrawer()">☰ Nachtleben &amp; Mehr</button>
+<button onclick="nav('mehr');closeDrawer()">☰ Mehr</button>
 </div>
 
 <script>
@@ -1441,7 +1441,9 @@ b.dataset.page===page ||
 
 (
 
-(page==='nachtleben' ||
+(page==='info' ||
+
+page==='nachtleben' ||
 
 page==='wetter' ||
 
