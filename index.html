@@ -270,6 +270,65 @@ border:1px solid rgba(199,150,62,.38);
 box-shadow:0 12px 30px rgba(0,0,0,.28)
 }
 
+.next-program{
+max-width:560px;
+margin:16px auto 0;
+padding:15px 16px;
+display:flex;
+align-items:center;
+gap:13px;
+text-align:left;
+border:1px solid var(--orange);
+border-radius:16px;
+background:linear-gradient(135deg,rgba(16,35,55,.97),rgba(5,11,18,.96));
+box-shadow:0 10px 24px rgba(0,0,0,.24)
+}
+
+.next-program-icon{
+width:42px;
+height:42px;
+flex:0 0 42px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+color:var(--orange);
+background:rgba(242,138,43,.12);
+font-size:23px
+}
+
+.next-program-copy{
+min-width:0;
+flex:1
+}
+
+.next-program-label{
+margin-bottom:4px;
+color:var(--orange);
+font-size:12px;
+font-weight:800;
+letter-spacing:.3px
+}
+
+.next-program-title{
+font-size:16px;
+font-weight:800;
+line-height:1.35
+}
+
+.next-program-time{
+margin-top:4px;
+color:#d7e0e8;
+font-size:13px;
+line-height:1.4
+}
+
+.next-program-arrow{
+color:var(--orange);
+font-size:25px;
+font-weight:700
+}
+
 .section-title{
 font-size:29px;
 margin:8px 0 15px
@@ -1014,6 +1073,53 @@ function route(from,to,mode='walking'){
 return `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(from)}&destination=${encodeURIComponent(to)}&travelmode=${mode}`;
 }
 
+function nextProgramData(){
+const events=[
+{date:[2026,9,15],time:[14,0],title:'Abfahrt Uttenweiler',detail:'Donnerstag, 15. Oktober · Treffpunkt am Firmenhof'},
+{date:[2026,9,15],time:[17,0],title:'Ankunft München & Check-in',detail:'Holiday Inn München City Centre'},
+{date:[2026,9,15],time:[18,30],title:'Treffpunkt im Hotelfoyer',detail:'Gemeinsamer Treffpunkt vor dem Abendprogramm'},
+{date:[2026,9,15],time:[19,0],title:'Gemeinsamer Abend im Donisl',detail:'Donisl · Weinstraße 1'},
+{date:[2026,9,16],time:[7,0],title:'Frühstück',detail:'Freitag, 16. Oktober · im Hotel'},
+{date:[2026,9,16],time:[8,30],title:'Treffpunkt im Hotelfoyer',detail:'Verbindlicher Treffpunkt vor der Fahrt zur TUM'},
+{date:[2026,9,16],time:[10,0],title:'Besichtigung TUM Sportcampus',detail:'10:00–12:00 Uhr'},
+{date:[2026,9,16],time:[12,0],title:'Mittagspause',detail:'Anschließend BMW Welt oder Allianz Arena – je nach gebuchter Variante'},
+{date:[2026,9,16],time:[14,0],title:'BMW Welt / Allianz Arena',detail:'Besichtigung gemäß gebuchter Variante'},
+{date:[2026,9,16],time:[19,0],title:'Treffpunkt im Hotelfoyer',detail:'Gemeinsamer Aufbruch zum GOP'},
+{date:[2026,9,16],time:[19,45],title:'Schlemmeressen im GOP',detail:'GOP Varieté-Theater München'},
+{date:[2026,9,16],time:[21,0],title:'Show-Beginn im GOP',detail:'Anschließend Hotelbar oder Nachtleben'},
+{date:[2026,9,16],time:[23,15],title:'Hotelbar / Nachtleben',detail:'Vorschläge findet Ihr unter „Mehr → Nachtleben“'},
+{date:[2026,9,17],time:[7,0],title:'Frühstück',detail:'Samstag, 17. Oktober · anschließend Check-out'},
+{date:[2026,9,17],time:[9,30],title:'Treffpunkt im Hotelfoyer',detail:'Vor der gemeinsamen Stadtführung'},
+{date:[2026,9,17],time:[10,0],title:'Stadtführung München',detail:'Marienplatz und Viktualienmarkt'},
+{date:[2026,9,17],time:[13,0],title:'Gemeinsames Mittagessen',detail:'Hofbräuhaus München'},
+{date:[2026,9,17],time:[15,0],title:'Gepäck holen',detail:'Gepäck abholen und für die Heimfahrt bereit machen'},
+{date:[2026,9,17],time:[15,30],title:'Heimfahrt nach Uttenweiler',detail:'Gemeinsame Rückfahrt zum Firmenhof'}
+];
+const now=new Date();
+const next=events.find(event=>{
+const starts=new Date(event.date[0],event.date[1],event.date[2],event.time[0],event.time[1]);
+return starts>now;
+});
+if(!next) return null;
+const starts=new Date(next.date[0],next.date[1],next.date[2],next.time[0],next.time[1]);
+return {...next,starts};
+}
+
+function updateNextProgramPoint(){
+const card=document.getElementById('nextProgramPoint');
+if(!card)return;
+const next=nextProgramData();
+if(!next){
+card.innerHTML='<div class="next-program-icon">✓</div><div class="next-program-copy"><div class="next-program-label">JUBILÄUMSAUSFLUG</div><div class="next-program-title">Schön, dass Ihr dabei wart!</div><div class="next-program-time">Danke für die gemeinsamen Erlebnisse mit Fritschle.</div></div>';
+return;
+}
+const now=new Date();
+const sameDay=now.getFullYear()===next.starts.getFullYear()&&now.getMonth()===next.starts.getMonth()&&now.getDate()===next.starts.getDate();
+const dateText=next.starts.toLocaleDateString('de-DE',{weekday:'long',day:'2-digit',month:'long'});
+const timeText=next.starts.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
+card.innerHTML=`<div class="next-program-icon">◷</div><div class="next-program-copy"><div class="next-program-label">NÄCHSTER PROGRAMMPUNKT</div><div class="next-program-title">${next.title}</div><div class="next-program-time">${sameDay?'Heute':dateText} · ${timeText} Uhr<br>${next.detail}</div></div><div class="next-program-arrow">›</div>`;
+}
+
 function home(){
 return `
 <section class="page">
@@ -1039,6 +1145,15 @@ return `
 class="home-photo"
 src="https://images.unsplash.com/photo-1595867818082-083862f3d630?auto=format&fit=crop&w=1200&q=85"
 alt="München bei Nacht">
+<div class="next-program" id="nextProgramPoint" aria-live="polite">
+<div class="next-program-icon">◷</div>
+<div class="next-program-copy">
+<div class="next-program-label">NÄCHSTER PROGRAMMPUNKT</div>
+<div class="next-program-title">Programmpunkt wird geladen …</div>
+<div class="next-program-time">Die nächste Uhrzeit und der Treffpunkt werden automatisch angezeigt.</div>
+</div>
+<div class="next-program-arrow">›</div>
+</div>
 </div>
 <div class="footer">
 Fritschle · Jubiläumsausflug München 2026
@@ -1596,6 +1711,8 @@ page=location.hash.replace('#','')||'home';
 render();
 
 setInterval(updateCountdown,60000);
+updateNextProgramPoint();
+setInterval(updateNextProgramPoint,60000);
 </script>
 
 </body>
