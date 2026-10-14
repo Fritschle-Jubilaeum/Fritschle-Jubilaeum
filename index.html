@@ -1126,9 +1126,9 @@ return;
 }
 const now=new Date();
 const sameDay=now.getFullYear()===next.starts.getFullYear()&&now.getMonth()===next.starts.getMonth()&&now.getDate()===next.starts.getDate();
-const dateText=next.starts.toLocaleDateString('de-DE',{weekday:'long',day:'2-digit',month:'long'});
+const dateText=next.starts.toLocaleDateString('de-DE',{weekday:'short',day:'2-digit',month:'2-digit'});
 const timeText=next.starts.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
-card.innerHTML=`<div class="next-program-icon">◷</div><div class="next-program-copy"><div class="next-program-label">NÄCHSTER PROGRAMMPUNKT</div><div class="next-program-title">${next.title}</div><div class="next-program-time"><span class="next-program-date">${sameDay?'Heute':dateText}</span><span class="next-program-clock">${timeText} Uhr</span><span class="next-program-detail">${next.detail}</span></div></div><div class="next-program-arrow">›</div>`;
+card.innerHTML=`<div class="next-program-icon">◷</div><div class="next-program-copy"><div class="next-program-label">NÄCHSTER PROGRAMMPUNKT</div><div class="next-program-title">${next.title}</div><div class="next-program-time"><span class="next-program-date">${dateText}</span><span class="next-program-clock">${timeText} Uhr</span><span class="next-program-detail">${next.detail}</span></div></div><div class="next-program-arrow">›</div>`;
 }
 
 function home(){
